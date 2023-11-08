@@ -1,0 +1,10 @@
+# CreateCheckRequest
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `authentication_uuid`                                                          | *String*                                                                       | :heavy_check_mark:                                                             | The authentication UUID that was returned when you created the authentication. |                                                                                |
+| `check_code`                                                                   | *String*                                                                       | :heavy_check_mark:                                                             | The code that the user entered.                                                | 123456                                                                         |
+| `customer_uuid`                                                                | *String*                                                                       | :heavy_check_mark:                                                             | Your customer UUID, which can be found in the API settings in the dashboard.   |                                                                                |
