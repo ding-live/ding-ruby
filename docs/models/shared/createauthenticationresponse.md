@@ -1,0 +1,13 @@
+# CreateAuthenticationResponse
+
+A successful response to an authentication creation request.
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `authentication_uuid`                                                                           | *T.nilable(String)*                                                                             | :heavy_minus_sign:                                                                              | A unique identifier for the authentication that you can use on the /check and /retry endpoints. |
+| `created_at`                                                                                    | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html)                            | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `expires_at`                                                                                    | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html)                            | :heavy_minus_sign:                                                                              | The time at which the authentication expires and can no longer be checked or retried.           |
+| `status`                                                                                        | [T.nilable(Shared::Status)](../../models/shared/status.md)                                      | :heavy_minus_sign:                                                                              | The status of the authentication.                                                               |
