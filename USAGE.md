@@ -73,9 +73,9 @@ end
 
 ```
 
-### Retry an authentication
+### Perform a retry
 
-Retry an authentication if a user has not received the code.
+Perform a retry if a user has not received the code.
 
 
 ```ruby

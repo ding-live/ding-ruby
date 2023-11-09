@@ -88,9 +88,9 @@ end
 
 ```
 
-### Retry an authentication
+### Perform a retry
 
-Retry an authentication if a user has not received the code.
+Perform a retry if a user has not received the code.
 
 
 ```ruby
@@ -127,13 +127,13 @@ end
 
 ### [Otp](docs/sdks/otp/README.md)
 
-* [check](docs/sdks/otp/README.md#check) - Check an authentication code
-* [create_autentication](docs/sdks/otp/README.md#create_autentication) - Create an authentication
-* [retry](docs/sdks/otp/README.md#retry) - Retry an authentication
+* [check](docs/sdks/otp/README.md#check) - Check a code
+* [create_autentication](docs/sdks/otp/README.md#create_autentication) - Send a code
+* [retry](docs/sdks/otp/README.md#retry) - Perform a retry
 
 ### [Lookup](docs/sdks/lookup/README.md)
 
-* [lookup](docs/sdks/lookup/README.md#lookup) - Lookup a phone number
+* [lookup](docs/sdks/lookup/README.md#lookup) - Lookup a number
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->

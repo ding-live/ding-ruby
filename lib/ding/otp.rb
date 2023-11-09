@@ -19,7 +19,7 @@ module DingSDK
 
     sig { params(request: T.nilable(Shared::CreateCheckRequest)).returns(Utils::FieldAugmented) }
     def check(request)
-      # check - Check an authentication code
+      # check - Check a code
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/check"
@@ -62,7 +62,7 @@ module DingSDK
 
     sig { params(request: T.nilable(Shared::CreateAuthenticationRequest)).returns(Utils::FieldAugmented) }
     def create_autentication(request)
-      # create_autentication - Create an authentication
+      # create_autentication - Send a code
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/authentication"
@@ -105,7 +105,7 @@ module DingSDK
 
     sig { params(request: T.nilable(Shared::RetryAuthenticationRequest)).returns(Utils::FieldAugmented) }
     def retry(request)
-      # retry - Retry an authentication
+      # retry - Perform a retry
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/retry"

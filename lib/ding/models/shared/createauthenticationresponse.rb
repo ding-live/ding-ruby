@@ -8,7 +8,11 @@ require 'faraday'
 
 module DingSDK
   module Shared
-    # Status - The status of the authentication.
+    # Status - The status of the authentication. Possible values are:
+    #   * `pending` - The OTP code is being sent.
+    #   * `rate_limited` - This user is rate-limited and cannot receive another code.
+    #   * `spam_detected` - This attempt is flagged as spam. Go to the dashboard for more details.
+    # 
     class Status < T::Enum
       enums do
         PENDING = new('pending')
@@ -28,7 +32,11 @@ module DingSDK
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The time at which the authentication expires and can no longer be checked or retried.
       field :expires_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('expires_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The status of the authentication.
+      # The status of the authentication. Possible values are:
+      #   * `pending` - The OTP code is being sent.
+      #   * `rate_limited` - This user is rate-limited and cannot receive another code.
+      #   * `spam_detected` - This attempt is flagged as spam. Go to the dashboard for more details.
+      # 
       field :status, T.nilable(Shared::Status), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Shared::Status, true) } }
 
 

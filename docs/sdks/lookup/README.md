@@ -7,11 +7,11 @@ Retrieve up-to-date metadata about a specific phone number
 
 ### Available Operations
 
-* [lookup](#lookup) - Lookup a phone number
+* [lookup](#lookup) - Lookup a number
 
 ## lookup
 
-Lookup a phone number
+Lookup a number
 
 ### Example Usage
 
@@ -28,14 +28,13 @@ s.config_security(
 
    
 req = Operations::LookupRequest.new(
-  headers=Operations::LookupRequest.new(
+  path_params=Operations::LookupRequest.new(
     customer_uuid="6e93aa15-9177-4d09-8395-b69ce50db1c8",
-    lookup_request=Shared::LookupRequest.new(
-      phone_number="+1234567890",
-    ),
+    phone_number="string",
   ),
-  lookup_request=Shared::LookupRequest.new(
-    phone_number="+1234567890",
+  headers=Operations::LookupRequest.new(
+    customer_uuid="206704c1-f857-4246-a71d-63b35f5456af",
+    phone_number="string",
   ),
 )
     
@@ -49,10 +48,10 @@ end
 
 ### Parameters
 
-| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `customer_uuid`                                               | *String*                                                      | :heavy_check_mark:                                            | N/A                                                           |
-| `lookup_request`                                              | [Shared::LookupRequest](../../models/shared/lookuprequest.md) | :heavy_minus_sign:                                            | N/A                                                           |
+| Parameter          | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `customer_uuid`    | *String*           | :heavy_check_mark: | N/A                |
+| `phone_number`     | *String*           | :heavy_check_mark: | N/A                |
 
 
 ### Response

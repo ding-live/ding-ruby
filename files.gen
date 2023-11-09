@@ -60,7 +60,6 @@ lib/ding/models/shared/createauthenticationrequest.rb
 lib/ding/models/shared/retryauthenticationresponse.rb
 lib/ding/models/shared/retryauthenticationrequest.rb
 lib/ding/models/shared/lookupresponse.rb
-lib/ding/models/shared/lookuprequest.rb
 lib/ding/models/shared/security.rb
 lib/ding_sdk.rb
 USAGE.md
@@ -83,7 +82,6 @@ docs/models/shared/retryauthenticationresponse.md
 docs/models/shared/retryauthenticationrequest.md
 docs/models/shared/linetype.md
 docs/models/shared/lookupresponse.md
-docs/models/shared/lookuprequest.md
 docs/models/shared/security.md
 docs/sdks/ding/README.md
 docs/sdks/otp/README.md
