@@ -60,49 +60,6 @@ module DingSDK
       res
     end
 
-    sig { params(request: T.nilable(Shared::CreateAuthenticationRequest)).returns(Utils::FieldAugmented) }
-    def create_autentication(request)
-      # create_autentication - Create an authentication
-      url, params = @sdk_configuration.get_server_details
-      base_url = Utils.template_url(url, params)
-      url = "#{base_url}/authentication"
-      headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
-      headers['content-type'] = req_content_type
-      headers['Accept'] = 'application/json'
-      headers['user-agent'] = @sdk_configuration.user_agent
-
-      r = @sdk_configuration.client.post(url) do |req|
-        req.headers = headers
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
-        else
-          req.body = data
-        end
-      end
-
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
-
-      res = Operations::CreateAutenticationResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::CreateAuthenticationResponse)
-          res.create_authentication_response = out
-        end
-      elsif r.status == 400
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::ErrorResponse)
-          res.error_response = out
-        end
-      end
-      res
-    end
-
     sig { params(request: T.nilable(Shared::RetryAuthenticationRequest)).returns(Utils::FieldAugmented) }
     def retry(request)
       # retry - Retry an authentication
@@ -136,6 +93,49 @@ module DingSDK
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, Shared::RetryAuthenticationResponse)
           res.retry_authentication_response = out
+        end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, Shared::ErrorResponse)
+          res.error_response = out
+        end
+      end
+      res
+    end
+
+    sig { params(request: T.nilable(Shared::CreateAuthenticationRequest)).returns(Utils::FieldAugmented) }
+    def send(request)
+      # send - Create an authentication
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/authentication"
+      headers = {}
+      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
+      headers['content-type'] = req_content_type
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = Operations::CreateAutenticationResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, Shared::CreateAuthenticationResponse)
+          res.create_authentication_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
