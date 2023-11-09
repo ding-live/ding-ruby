@@ -20,19 +20,19 @@ req = Shared::CreateAuthenticationRequest.new(
   request=Shared::CreateAuthenticationRequest.new(
     app_realm="string",
     app_version="string",
-    callback_url="https://cuddly-ignorant.info",
-    customer_uuid="90129667-9178-4532-b940-17ce3f0faa19",
+    callback_url="https://quiet-swing.com",
+    customer_uuid="92ab9e1e-b217-45b1-bfcb-79a32fcc4c39",
     device_id="string",
     device_model="string",
-    device_type=Shared::DeviceType::ANDROID,
-    ip="69.99.185.232",
+    device_type=Shared::DeviceType::WEB,
+    ip="97.139.118.123",
     is_returning_user=false,
     os_version="string",
     phone_number="+1234567890",
   ),
 )
     
-res = s.otp.send(req)
+res = s.otp.create_autentication(req)
 
 if ! res.create_authentication_response.nil?
   # handle response
