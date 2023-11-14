@@ -28,11 +28,11 @@ module DingSDK
       field :phone_number, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('phone_number') } }
       # The Android SMS Retriever API hash code that identifies your app. This allows you to automatically retrieve and fill the OTP code on Android devices.
       field :app_realm, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('app_realm') } }
-      # The version of your app.
+      # The version of your application.
       field :app_version, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('app_version') } }
       # A webhook URL to which delivery statuses will be sent.
       field :callback_url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('callback_url') } }
-      # Unique identifier for the user's device. For Android, this corresponds to the ANDROID_ID and for iOS, this corresponds to the identifierForVendor.
+      # Unique identifier for the user's device. For Android, this corresponds to the `ANDROID_ID` and for iOS, this corresponds to the `identifierForVendor`.
       field :device_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('device_id') } }
       # The model of the user's device.
       field :device_model, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('device_model') } }
@@ -42,7 +42,7 @@ module DingSDK
       field :ip, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('ip') } }
       # Whether the user is a returning user on your app.
       field :is_returning_user, T.nilable(T::Boolean), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('is_returning_user') } }
-      # The version of the user's operating system.
+      # The version of the user's device operating system.
       field :os_version, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('os_version') } }
 
 

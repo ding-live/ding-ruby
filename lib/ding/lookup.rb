@@ -19,7 +19,7 @@ module DingSDK
 
     sig { params(customer_uuid: String, phone_number: String).returns(Utils::FieldAugmented) }
     def lookup(customer_uuid, phone_number)
-      # lookup - Lookup a number
+      # lookup - Perform a phone number lookup
       request = Operations::LookupRequest.new(
         
         customer_uuid: customer_uuid,
