@@ -24,6 +24,8 @@ jobs:
       openapi_docs: |
         - https://raw.githubusercontent.com/ding-live/openapi/main/ding.yaml
       speakeasy_version: latest
+      publish_ruby: true
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+      rubygems_auth_token: ${{ secrets.RUBY_GEMS_API_KEY }}
