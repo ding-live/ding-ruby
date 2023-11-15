@@ -6,8 +6,7 @@ The Ding Ruby library provides convenient access to the Ding API from applicatio
 ## SDK Installation
 
 ```bash
-gem install specific_install
-gem specific_install https://github.com/ding-live/ding-ruby 
+gem install ding_sdk
 ```
 <!-- End SDK Installation -->
 
