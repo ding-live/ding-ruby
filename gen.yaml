@@ -19,7 +19,7 @@ features:
     globalServerURLs: 2.82.0
     serverIDs: 2.81.1
 ruby:
-  version: 0.3.0
+  version: 0.4.0
   author: Ding
   description: Ding Ruby SDK
   imports:
