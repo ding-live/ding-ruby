@@ -39,9 +39,9 @@ module OpenApiSDK
       @server = server_url.nil? ? '' : server_url
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.4.1'
-      @gen_version = '2.192.1'
-      @user_agent = 'speakeasy-sdk/ruby 0.4.1 2.192.1 1.0.0 ding_sdk'
+      @sdk_version = '0.4.2'
+      @gen_version = '2.194.1'
+      @user_agent = 'speakeasy-sdk/ruby 0.4.2 2.194.1 1.0.0 ding_sdk'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
