@@ -62,7 +62,6 @@ lib/ding/models/shared/retryauthenticationrequest.rb
 lib/ding/models/shared/lookupresponse.rb
 lib/ding/models/shared/security.rb
 lib/ding_sdk.rb
-USAGE.md
 docs/models/operations/checkresponse.md
 docs/models/operations/createautenticationresponse.md
 docs/models/operations/retryresponse.md
@@ -86,4 +85,5 @@ docs/models/shared/security.md
 docs/sdks/ding/README.md
 docs/sdks/otp/README.md
 docs/sdks/lookup/README.md
+USAGE.md
 .gitattributes
