@@ -105,3 +105,13 @@ Based on:
 - [ruby v0.4.3] .
 ### Releases
 - [Ruby Gems v0.4.3] https://rubygems.org/gems/ding_sdk/versions/0.4.3 - .
+
+## 2023-12-12 00:15:07
+### Changes
+Based on:
+- OpenAPI Doc 1.0.0 
+- Speakeasy CLI 1.126.0 (2.213.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [ruby v0.5.0] .
+### Releases
+- [Ruby Gems v0.5.0] https://rubygems.org/gems/ding_sdk/versions/0.5.0 - .
