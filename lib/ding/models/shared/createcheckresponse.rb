@@ -29,11 +29,11 @@ module DingSDK
 
 
 
-    class CreateCheckResponse < DingSDK::Utils::FieldAugmented
+    class CreateCheckResponse < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
       # The UUID of the corresponding authentication.
-      field :authentication_uuid, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('authentication_uuid') } }
+      field :authentication_uuid, T.nilable(String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
       # The status of the check. Possible values are:
       #   * `valid` - The code is valid.
       #   * `invalid` - The code is invalid.
@@ -42,7 +42,7 @@ module DingSDK
       #   * `already_validated` - The authentication has already been validated.
       #   * `expired_auth` - The authentication has expired and cannot be checked.
       # 
-      field :status, T.nilable(Shared::CreateCheckResponseStatus), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Shared::CreateCheckResponseStatus, true) } }
+      field :status, T.nilable(Shared::CreateCheckResponseStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Shared::CreateCheckResponseStatus, true) } }
 
 
       sig { params(authentication_uuid: T.nilable(String), status: T.nilable(Shared::CreateCheckResponseStatus)).void }

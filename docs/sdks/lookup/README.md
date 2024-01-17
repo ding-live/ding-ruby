@@ -19,20 +19,15 @@ Perform a phone number lookup
 require_relative ding_sdk
 
 
-s = DingSDK::Ding.new
+s = ::DingSDK::Ding.new
 s.config_security(
   security=Shared::Security.new(
     api_key="YOUR_API_KEY",
   )
 )
 
-
-req = Operations::LookupRequest.new(
-  customer_uuid="6e93aa15-9177-4d09-8395-b69ce50db1c8",
-  phone_number="string",
-)
     
-res = s.lookup.lookup(customer_uuid="206704c1-f857-4246-a71d-63b35f5456af", phone_number="string")
+res = s.lookup.lookup(customer_uuid="6e93aa15-9177-4d09-8395-b69ce50db1c8", phone_number="string")
 
 if ! res.lookup_response.nil?
   # handle response

@@ -9,7 +9,7 @@ require 'faraday'
 module DingSDK
   module Shared
 
-    class Security < DingSDK::Utils::FieldAugmented
+    class Security < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
 

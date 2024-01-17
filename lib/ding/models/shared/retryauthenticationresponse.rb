@@ -29,17 +29,17 @@ module DingSDK
 
 
 
-    class RetryAuthenticationResponse < DingSDK::Utils::FieldAugmented
+    class RetryAuthenticationResponse < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
       # The UUID of the corresponding authentication.
-      field :authentication_uuid, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('authentication_uuid') } }
+      field :authentication_uuid, T.nilable(String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
 
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The time at which the next retry will be available.
-      field :next_retry_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('next_retry_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :next_retry_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('next_retry_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The number of remaining retries.
-      field :remaining_retry, T.nilable(Integer), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('remaining_retry') } }
+      field :remaining_retry, T.nilable(Integer), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('remaining_retry') } }
       # The status of the retry. Possible values are:
       #   * `approved` - The retry was approved and a new code was sent.
       #   * `denied` - The retry was denied.
@@ -48,7 +48,7 @@ module DingSDK
       #   * `expired_auth` - The authentication has expired and cannot be retried.
       #   * `already_validated` - The authentication has already been validated.
       # 
-      field :status, T.nilable(Shared::RetryAuthenticationResponseStatus), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Shared::RetryAuthenticationResponseStatus, true) } }
+      field :status, T.nilable(Shared::RetryAuthenticationResponseStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Shared::RetryAuthenticationResponseStatus, true) } }
 
 
       sig { params(authentication_uuid: T.nilable(String), created_at: T.nilable(DateTime), next_retry_at: T.nilable(DateTime), remaining_retry: T.nilable(Integer), status: T.nilable(Shared::RetryAuthenticationResponseStatus)).void }

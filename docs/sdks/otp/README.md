@@ -21,7 +21,7 @@ Check a code
 require_relative ding_sdk
 
 
-s = DingSDK::Ding.new
+s = ::DingSDK::Ding.new
 s.config_security(
   security=Shared::Security.new(
     api_key="YOUR_API_KEY",
@@ -65,7 +65,7 @@ Send a code
 require_relative ding_sdk
 
 
-s = DingSDK::Ding.new
+s = ::DingSDK::Ding.new
 s.config_security(
   security=Shared::Security.new(
     api_key="YOUR_API_KEY",
@@ -108,7 +108,7 @@ Perform a retry
 require_relative ding_sdk
 
 
-s = DingSDK::Ding.new
+s = ::DingSDK::Ding.new
 s.config_security(
   security=Shared::Security.new(
     api_key="YOUR_API_KEY",

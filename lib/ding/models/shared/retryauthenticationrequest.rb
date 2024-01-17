@@ -9,13 +9,13 @@ require 'faraday'
 module DingSDK
   module Shared
 
-    class RetryAuthenticationRequest < DingSDK::Utils::FieldAugmented
+    class RetryAuthenticationRequest < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
       # The authentication UUID that was returned when you created the authentication.
-      field :authentication_uuid, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('authentication_uuid') } }
+      field :authentication_uuid, String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
       # Your customer UUID, which can be found in the API settings in the dashboard.
-      field :customer_uuid, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('customer_uuid') } }
+      field :customer_uuid, String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('customer_uuid') } }
 
 
       sig { params(authentication_uuid: String, customer_uuid: String).void }

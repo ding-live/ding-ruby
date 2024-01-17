@@ -46,7 +46,7 @@ module DingSDK
 
 
 
-    class ErrorResponse < DingSDK::Utils::FieldAugmented
+    class ErrorResponse < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
       # A machine-readable code that describes the error. Possible values are:
@@ -64,11 +64,11 @@ module DingSDK
       #   * `invalid_device_model` - The provided device model is invalid.
       #   * `invalid_device_id` - The provided device ID is invalid.
       # 
-      field :code, T.nilable(Shared::Code), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('code'), 'decoder': Utils.enum_from_string(Shared::Code, true) } }
+      field :code, T.nilable(Shared::Code), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('code'), 'decoder': Utils.enum_from_string(Shared::Code, true) } }
       # A link to the documentation that describes the error.
-      field :doc_url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('doc_url') } }
+      field :doc_url, T.nilable(String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('doc_url') } }
       # A human-readable message that describes the error.
-      field :message, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('message') } }
+      field :message, T.nilable(String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('message') } }
 
 
       sig { params(code: T.nilable(Shared::Code), doc_url: T.nilable(String), message: T.nilable(String)).void }

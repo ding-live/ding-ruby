@@ -11,7 +11,7 @@ require_relative '../shared/errorresponse'
 module DingSDK
   module Operations
 
-    class CreateAutenticationResponse < DingSDK::Utils::FieldAugmented
+    class CreateAutenticationResponse < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

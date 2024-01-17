@@ -8,7 +8,7 @@ Send an OTP code to a user's phone number.
 require_relative ding_sdk
 
 
-s = DingSDK::Ding.new
+s = ::DingSDK::Ding.new
 s.config_security(
   security=Shared::Security.new(
     api_key="YOUR_API_KEY",
@@ -38,7 +38,7 @@ Check that a code entered by a user is valid.
 require_relative ding_sdk
 
 
-s = DingSDK::Ding.new
+s = ::DingSDK::Ding.new
 s.config_security(
   security=Shared::Security.new(
     api_key="YOUR_API_KEY",
@@ -69,7 +69,7 @@ Perform a retry if a user has not received the code.
 require_relative ding_sdk
 
 
-s = DingSDK::Ding.new
+s = ::DingSDK::Ding.new
 s.config_security(
   security=Shared::Security.new(
     api_key="YOUR_API_KEY",

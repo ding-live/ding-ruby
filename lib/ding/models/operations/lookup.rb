@@ -11,7 +11,7 @@ require_relative '../shared/lookupresponse'
 module DingSDK
   module Operations
 
-    class LookupRequest < DingSDK::Utils::FieldAugmented
+    class LookupRequest < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -28,7 +28,7 @@ module DingSDK
     end
 
 
-    class LookupResponse < DingSDK::Utils::FieldAugmented
+    class LookupResponse < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

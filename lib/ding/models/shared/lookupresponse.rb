@@ -27,23 +27,23 @@ module DingSDK
 
 
 
-    class LookupResponse < DingSDK::Utils::FieldAugmented
+    class LookupResponse < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
       # The carrier of the phone number.
-      field :carrier, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('carrier') } }
+      field :carrier, T.nilable(String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('carrier') } }
       # The ISO 3166-1 alpha-2 country code of the phone number.
-      field :country_code, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('country_code') } }
+      field :country_code, T.nilable(String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('country_code') } }
       # The type of phone line.
-      field :line_type, T.nilable(Shared::LineType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('line_type'), 'decoder': Utils.enum_from_string(Shared::LineType, true) } }
+      field :line_type, T.nilable(Shared::LineType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('line_type'), 'decoder': Utils.enum_from_string(Shared::LineType, true) } }
       # The mobile country code of the phone number.
-      field :mcc, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('mcc') } }
+      field :mcc, T.nilable(String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('mcc') } }
       # The mobile network code of the phone number.
-      field :mnc, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('mnc') } }
+      field :mnc, T.nilable(String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('mnc') } }
       # Whether the phone number has been ported.
-      field :number_ported, T.nilable(T::Boolean), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('number_ported') } }
+      field :number_ported, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('number_ported') } }
       # An E.164 formatted phone number.
-      field :phone_number, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('phone_number') } }
+      field :phone_number, T.nilable(String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('phone_number') } }
 
 
       sig { params(carrier: T.nilable(String), country_code: T.nilable(String), line_type: T.nilable(Shared::LineType), mcc: T.nilable(String), mnc: T.nilable(String), number_ported: T.nilable(T::Boolean), phone_number: T.nilable(String)).void }
