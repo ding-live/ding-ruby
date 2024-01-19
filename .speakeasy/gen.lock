@@ -4,9 +4,9 @@ management:
   docChecksum: 5e4ef027bc51f54368e8b1607b77c098
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.234.3
-  releaseVersion: 0.5.2
-  configChecksum: b88a269623bda51dc4de48e9bdf3ec77
+  generationVersion: 2.237.2
+  releaseVersion: 0.5.3
+  configChecksum: 8b7d88ce2f2d3ac2e5f125565fef9062
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
@@ -16,7 +16,7 @@ features:
     core: 3.2.2
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.81.2
+    globalSecurity: 2.81.3
     globalServerURLs: 2.82.1
     serverIDs: 2.81.1
 generatedFiles:
