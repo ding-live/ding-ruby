@@ -3,24 +3,23 @@
 # typed: true
 # frozen_string_literal: true
 
-require 'sorbet-runtime'
-require 'faraday'
 
 module DingSDK
   module Shared
+  
 
     class CreateCheckRequest < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
       # The authentication UUID that was returned when you created the authentication.
-      field :authentication_uuid, String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
+      field :authentication_uuid, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
       # The code that the user entered.
-      field :check_code, String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('check_code') } }
+      field :check_code, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('check_code') } }
       # Your customer UUID, which can be found in the API settings in the dashboard.
-      field :customer_uuid, String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('customer_uuid') } }
+      field :customer_uuid, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('customer_uuid') } }
 
 
-      sig { params(authentication_uuid: String, check_code: String, customer_uuid: String).void }
+      sig { params(authentication_uuid: ::String, check_code: ::String, customer_uuid: ::String).void }
       def initialize(authentication_uuid: nil, check_code: nil, customer_uuid: nil)
         @authentication_uuid = authentication_uuid
         @check_code = check_code

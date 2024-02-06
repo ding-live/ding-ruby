@@ -3,20 +3,19 @@
 # typed: true
 # frozen_string_literal: true
 
-require 'sorbet-runtime'
-require 'faraday'
 
 module DingSDK
   module Shared
+  
 
     class Security < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :api_key, String, { 'security': { 'scheme': true, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'x-api-key' } }
+      field :api_key, ::String, { 'security': { 'scheme': true, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'x-api-key' } }
 
 
-      sig { params(api_key: String).void }
+      sig { params(api_key: ::String).void }
       def initialize(api_key: nil)
         @api_key = api_key
       end

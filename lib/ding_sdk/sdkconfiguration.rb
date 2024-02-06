@@ -24,7 +24,6 @@ module DingSDK
     field :client, T.nilable(Faraday::Connection)
     field :security, Shared::Security
     field :server_url, T.nilable(String)
-    field :server, T.nilable(String)
     field :language, String
     field :openapi_doc_version, String
     field :sdk_version, String
@@ -35,12 +34,13 @@ module DingSDK
     sig { params(client: Faraday::Connection, security: T.nilable(Shared::Security), server_url: T.nilable(String), server_idx: T.nilable(Integer)).void }
     def initialize(client, security, server_url, server_idx)
       @client = client
-      @server = server_url.nil? ? '' : server_url
+      @server_url = server_url
+      @server = ''
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.5.3'
-      @gen_version = '2.237.2'
-      @user_agent = 'speakeasy-sdk/ruby 0.5.3 2.237.2 1.0.0 ding_sdk'
+      @sdk_version = '0.6.0'
+      @gen_version = '2.250.2'
+      @user_agent = 'speakeasy-sdk/ruby 0.6.0 2.250.2 1.0.0 ding_sdk'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

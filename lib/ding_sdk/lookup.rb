@@ -10,17 +10,19 @@ require 'sorbet-runtime'
 module DingSDK
   extend T::Sig
   class Lookup
-    # Retrieve up-to-date metadata about a specific phone number
     extend T::Sig
+    # Retrieve up-to-date metadata about a specific phone number
+
     sig { params(sdk_config: SDKConfiguration).void }
     def initialize(sdk_config)
       @sdk_configuration = sdk_config
     end
 
-    sig { params(customer_uuid: String, phone_number: String).returns(Utils::FieldAugmented) }
+
+    sig { params(customer_uuid: ::String, phone_number: ::String).returns(Utils::FieldAugmented) }
     def lookup(customer_uuid, phone_number)
       # lookup - Perform a phone number lookup
-      request = Operations::LookupRequest.new(
+      request = ::DingSDK::Operations::LookupRequest.new(
         
         customer_uuid: customer_uuid,
         phone_number: phone_number
@@ -28,7 +30,7 @@ module DingSDK
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        Operations::LookupRequest,
+        ::DingSDK::Operations::LookupRequest,
         base_url,
         '/lookup/{phone_number}',
         request
@@ -44,17 +46,17 @@ module DingSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = Operations::LookupResponse.new(
+      res = ::DingSDK::Operations::LookupResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::LookupResponse)
+          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::LookupResponse)
           res.lookup_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::ErrorResponse)
+          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
         end
       end

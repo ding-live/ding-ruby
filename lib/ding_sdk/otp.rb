@@ -10,14 +10,16 @@ require 'sorbet-runtime'
 module DingSDK
   extend T::Sig
   class Otp
-    # Send OTP codes to your users using their phone numbers.
     extend T::Sig
+    # Send OTP codes to your users using their phone numbers.
+
     sig { params(sdk_config: SDKConfiguration).void }
     def initialize(sdk_config)
       @sdk_configuration = sdk_config
     end
 
-    sig { params(request: T.nilable(Shared::CreateCheckRequest)).returns(Utils::FieldAugmented) }
+
+    sig { params(request: T.nilable(::DingSDK::Shared::CreateCheckRequest)).returns(Utils::FieldAugmented) }
     def check(request)
       # check - Check a code
       url, params = @sdk_configuration.get_server_details
@@ -43,24 +45,25 @@ module DingSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = Operations::CheckResponse.new(
+      res = ::DingSDK::Operations::CheckResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::CreateCheckResponse)
+          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::CreateCheckResponse)
           res.create_check_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::ErrorResponse)
+          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
         end
       end
       res
     end
 
-    sig { params(request: T.nilable(Shared::CreateAuthenticationRequest)).returns(Utils::FieldAugmented) }
+
+    sig { params(request: T.nilable(::DingSDK::Shared::CreateAuthenticationRequest)).returns(Utils::FieldAugmented) }
     def create_autentication(request)
       # create_autentication - Send a code
       url, params = @sdk_configuration.get_server_details
@@ -86,24 +89,25 @@ module DingSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = Operations::CreateAutenticationResponse.new(
+      res = ::DingSDK::Operations::CreateAutenticationResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::CreateAuthenticationResponse)
+          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::CreateAuthenticationResponse)
           res.create_authentication_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::ErrorResponse)
+          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
         end
       end
       res
     end
 
-    sig { params(request: T.nilable(Shared::RetryAuthenticationRequest)).returns(Utils::FieldAugmented) }
+
+    sig { params(request: T.nilable(::DingSDK::Shared::RetryAuthenticationRequest)).returns(Utils::FieldAugmented) }
     def retry(request)
       # retry - Perform a retry
       url, params = @sdk_configuration.get_server_details
@@ -129,17 +133,17 @@ module DingSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = Operations::RetryResponse.new(
+      res = ::DingSDK::Operations::RetryResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::RetryAuthenticationResponse)
+          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::RetryAuthenticationResponse)
           res.retry_authentication_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, Shared::ErrorResponse)
+          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
         end
       end

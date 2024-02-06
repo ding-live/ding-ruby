@@ -21,7 +21,7 @@ require_relative ding_sdk
 
 s = ::DingSDK::Ding.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::DingSDK::Shared::Security.new(
     api_key="YOUR_API_KEY",
   )
 )
@@ -39,11 +39,11 @@ end
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `customer_uuid`    | *String*           | :heavy_check_mark: | N/A                |
-| `phone_number`     | *String*           | :heavy_check_mark: | N/A                |
+| `customer_uuid`    | *::String*         | :heavy_check_mark: | N/A                |
+| `phone_number`     | *::String*         | :heavy_check_mark: | N/A                |
 
 
 ### Response
 
-**[T.nilable(Operations::LookupResponse)](../../models/operations/lookupresponse.md)**
+**[T.nilable(::DingSDK::Operations::LookupResponse)](../../models/operations/lookupresponse.md)**
 

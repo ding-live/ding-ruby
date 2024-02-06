@@ -3,25 +3,13 @@
 # typed: true
 # frozen_string_literal: true
 
-require_relative 'ding/utils/utils'
-require_relative 'ding/utils/metadata_fields'
-require_relative 'ding/sdk'
-require_relative 'ding/models/shared/errorresponse'
-require_relative 'ding/models/shared/createcheckresponse'
-require_relative 'ding/models/shared/createcheckrequest'
-require_relative 'ding/models/shared/createauthenticationresponse'
-require_relative 'ding/models/shared/createauthenticationrequest'
-require_relative 'ding/models/shared/retryauthenticationresponse'
-require_relative 'ding/models/shared/retryauthenticationrequest'
-require_relative 'ding/models/shared/lookupresponse'
-require_relative 'ding/models/shared/security'
-require_relative 'ding/models/operations/check'
-require_relative 'ding/models/operations/create_autentication'
-require_relative 'ding/models/operations/lookup'
-require_relative 'ding/models/operations/retry_'
-require_relative 'ding/sdkconfiguration'
-require_relative 'ding/otp'
-require_relative 'ding/lookup'
-
+require_relative 'ding_sdk/utils/utils'
+require_relative 'ding_sdk/utils/metadata_fields'
 module DingSDK
+  autoload :Ding, 'ding_sdk/ding'
+  autoload :SDKConfiguration, 'ding_sdk/sdkconfiguration'
+  autoload :Shared, 'ding_sdk/models/shared'
+  autoload :Operations, 'ding_sdk/models/operations'
+  autoload :Otp, 'ding_sdk/otp'
+  autoload :Lookup, 'ding_sdk/lookup'
 end

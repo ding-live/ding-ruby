@@ -74,7 +74,7 @@ module DingSDK
       init_sdks
     end
 
-    sig { params(security: Shared::Security).void }
+    sig { params(security: ::DingSDK::Shared::Security).void }
     def config_security(security)
       @security = security
       @sdk_configuration.security = security
