@@ -6,8 +6,9 @@ generation:
   fixes:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
 ruby:
-  version: 0.6.0
+  version: 0.7.0
   author: Ding
   description: Ding Ruby SDK
   imports:

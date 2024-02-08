@@ -16,13 +16,13 @@ Perform a phone number lookup
 ### Example Usage
 
 ```ruby
-require_relative ding_sdk
+require 'ding_sdk'
 
 
 s = ::DingSDK::Ding.new
 s.config_security(
-  security=::DingSDK::Shared::Security.new(
-    api_key="YOUR_API_KEY",
+  ::DingSDK::Shared::Security.new(
+    api_key: "YOUR_API_KEY",
   )
 )
 
