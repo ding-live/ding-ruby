@@ -4,16 +4,16 @@ management:
   docChecksum: 5e4ef027bc51f54368e8b1607b77c098
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.250.22
-  releaseVersion: 0.7.1
-  configChecksum: deece69094aab1c0b348c52af0905bb3
+  generationVersion: 2.258.0
+  releaseVersion: 0.7.2
+  configChecksum: 5d73c0c9652ce9fcd7f0a157a280bb0b
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
   published: true
 features:
   ruby:
-    core: 3.2.6
+    core: 3.2.7
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.3
@@ -26,6 +26,7 @@ generatedFiles:
   - lib/ding_sdk/ding.rb
   - .rubocop.yml
   - Gemfile
+  - Gemfile.lock
   - Rakefile
   - lib/ding_sdk/utils/metadata_fields.rb
   - lib/ding_sdk/utils/utils.rb

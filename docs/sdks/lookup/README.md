@@ -27,7 +27,7 @@ s.config_security(
 )
 
     
-res = s.lookup.lookup(customer_uuid="6e93aa15-9177-4d09-8395-b69ce50db1c8", phone_number="string")
+res = s.lookup.lookup(customer_uuid="6e93aa15-9177-4d09-8395-b69ce50db1c8", phone_number="<value>")
 
 if ! res.lookup_response.nil?
   # handle response
