@@ -8,7 +8,7 @@ generation:
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
 ruby:
-  version: 0.7.2
+  version: 0.7.3
   author: Ding
   description: Ding Ruby SDK
   imports:

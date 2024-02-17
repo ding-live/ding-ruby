@@ -4,17 +4,17 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
   s.name        = 'ding_sdk'
-  s.version     = '0.7.2'
+  s.version     = '0.7.3'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['Apache-2.0']
   s.summary     = ''
-  s.homepage    = 'https://github.com/speakeasy-api/openapi-generation'
+  s.homepage    = 'https://github.com/ding-live/ding-ruby.git'
   s.description = 'Ding Ruby SDK'
   s.authors     = ['Ding']
   s.metadata    = {
-    'homepage_uri' => 'https://github.com/speakeasy-api/openapi-generation',
-    'documentation_uri' => 'https://github.com/speakeasy-api/openapi-generation',
-    'source_code_uri' => 'https://github.com/speakeasy-api/openapi-generation'
+    'homepage_uri' => 'https://github.com/ding-live/ding-ruby.git',
+    'documentation_uri' => 'https://github.com/ding-live/ding-ruby.git',
+    'source_code_uri' => 'https://github.com/ding-live/ding-ruby.git'
   }
 
   s.files         = Dir['{lib,test}/**/*']
