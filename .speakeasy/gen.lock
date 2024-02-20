@@ -4,16 +4,16 @@ management:
   docChecksum: 5e4ef027bc51f54368e8b1607b77c098
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.262.2
-  releaseVersion: 0.7.3
-  configChecksum: befad9d47cdcc73413a3532278407159
+  generationVersion: 2.263.3
+  releaseVersion: 0.7.4
+  configChecksum: 6fc7d7e040c77f00b777cbe48b9e44ca
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
   published: true
 features:
   ruby:
-    core: 3.2.8
+    core: 3.2.9
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.3
@@ -29,6 +29,7 @@ generatedFiles:
   - Gemfile.lock
   - Rakefile
   - lib/ding_sdk/utils/metadata_fields.rb
+  - lib/ding_sdk/utils/t.rb
   - lib/ding_sdk/utils/utils.rb
   - sorbet/config
   - sorbet/rbi/annotations/.gitattributes

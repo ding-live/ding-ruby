@@ -3,6 +3,7 @@
 # typed: true
 # frozen_string_literal: true
 
+require_relative 'ding_sdk/utils/t'
 require_relative 'ding_sdk/utils/utils'
 require_relative 'ding_sdk/utils/metadata_fields'
 module DingSDK
