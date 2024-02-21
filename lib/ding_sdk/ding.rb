@@ -18,20 +18,20 @@ module DingSDK
 
     sig do
       params(security: T.nilable(Shared::Security),
-             server: String,
+             server_idx: Integer,
              server_url: String,
              url_params: T::Hash[Symbol, String],
              client: Faraday::Request).void
     end
     def initialize(security: nil,
-                   server: nil,
+                   server_idx: nil,
                    server_url: nil,
                    url_params: nil,
                    client: nil)
 
       ## Instantiates the SDK configuring it with the provided parameters.
       # @param [Shared::Security] security The security details required for authentication
-      # @param [String] server The server by name to use for all operations
+      # @param [Integer] server_idx The index of the server to use for all operations
       # @param [String] server_url The server URL to use for all operations
       # @param [Hash<Symbol, String>] url_params Parameters to optionally template the server URL with
       # @param [Faraday::Request] client The faraday HTTP client to use for all operations
@@ -50,11 +50,11 @@ module DingSDK
           server_url = Utils.template_url(server_url, url_params)
         end
       end
-      server = SERVER_PRODUCTION if server.nil?
+      server_idx = 0 if server_idx.nil?
 
       
 
-      @sdk_configuration = SDKConfiguration.new(client, security, server_url, server)
+      @sdk_configuration = SDKConfiguration.new(client, security, server_url, server_idx)
       init_sdks
     end
 
@@ -63,14 +63,6 @@ module DingSDK
       if !params.nil?
         @server_url = Utils.template_url(@server_url, params)
       end
-      init_sdks
-    end
-
-    sig { params(server: String, params: T.nilable(T::Hash[Symbol, String])).void }
-    def config_server(params)
-      raise StandardError, 'Invalid server' if !SERVERS.include? server
-
-      config_server_url(params)
       init_sdks
     end
 

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
-  docChecksum: 5e4ef027bc51f54368e8b1607b77c098
+  docChecksum: 01bd42610039f89b431afa7eb1a3c56c
   docVersion: 1.0.0
   speakeasyVersion: internal
   generationVersion: 2.263.3
-  releaseVersion: 0.7.5
-  configChecksum: 60f2e531e6484fd9edad645a178dc5ab
+  releaseVersion: 0.8.0
+  configChecksum: 0bad57ac07ff9ad11967442ee932a3dd
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
@@ -18,7 +18,6 @@ features:
     flattening: 2.81.1
     globalSecurity: 2.81.3
     globalServerURLs: 2.82.1
-    serverIDs: 2.81.1
 generatedFiles:
   - lib/ding_sdk/sdkconfiguration.rb
   - lib/ding_sdk/otp.rb

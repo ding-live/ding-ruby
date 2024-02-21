@@ -11,12 +11,10 @@ module DingSDK
   extend T::Sig
 
 
-  SERVER_PRODUCTION = 'production' # The production Ding API server
-  SERVERS = {
-    SERVER_PRODUCTION: 'https://api.ding.live/v1',
-  }.freeze
+  SERVERS = [
+    'https://api.ding.live/v1', # 1 - The production Ding API server
+  ].freeze
   # Contains the list of servers available to the SDK
-
 
   class SDKConfiguration < ::DingSDK::Utils::FieldAugmented
     extend T::Sig
@@ -35,20 +33,21 @@ module DingSDK
     def initialize(client, security, server_url, server_idx)
       @client = client
       @server_url = server_url
-      @server = ''
+      @server_idx = server_idx.nil? ? 0 : server_idx
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.7.5'
+      @sdk_version = '0.8.0'
       @gen_version = '2.263.3'
-      @user_agent = 'speakeasy-sdk/ruby 0.7.5 2.263.3 1.0.0 ding_sdk'
+      @user_agent = 'speakeasy-sdk/ruby 0.8.0 2.263.3 1.0.0 ding_sdk'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
     def get_server_details
       return [@server_url.delete_suffix('/'), {}] if !@server_url.nil?
-      @server = SERVER_PRODUCTION if @server.nil?
+      @server_idx = 0 if @server_idx.nil?
+          
 
-      [SERVERS[@server], {}]
+      [SERVERS[@server_idx], {}]
     end
   end
 end
