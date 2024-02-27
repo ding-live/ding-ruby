@@ -17,24 +17,24 @@ module DingSDK
     attr_accessor :security, :language, :sdk_version, :gen_version
 
     sig do
-      params(security: T.nilable(Shared::Security),
+      params(client: Faraday::Request,
+             security: T.nilable(Shared::Security),
              server_idx: Integer,
              server_url: String,
-             url_params: T::Hash[Symbol, String],
-             client: Faraday::Request).void
+             url_params: T::Hash[Symbol, String]).void
     end
-    def initialize(security: nil,
+    def initialize(client: nil,
+                   security: nil,
                    server_idx: nil,
                    server_url: nil,
-                   url_params: nil,
-                   client: nil)
+                   url_params: nil)
 
       ## Instantiates the SDK configuring it with the provided parameters.
+      # @param [Faraday::Request] client The faraday HTTP client to use for all operations
       # @param [Shared::Security] security The security details required for authentication
       # @param [Integer] server_idx The index of the server to use for all operations
       # @param [String] server_url The server URL to use for all operations
       # @param [Hash<Symbol, String>] url_params Parameters to optionally template the server URL with
-      # @param [Faraday::Request] client The faraday HTTP client to use for all operations
 
       if client.nil?
         client = Faraday.new(request: {
