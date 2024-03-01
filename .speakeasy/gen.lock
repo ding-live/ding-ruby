@@ -4,20 +4,20 @@ management:
   docChecksum: 01bd42610039f89b431afa7eb1a3c56c
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.272.7
-  releaseVersion: 0.8.1
-  configChecksum: 96355da337fe258451334a6c31e41216
+  generationVersion: 2.275.4
+  releaseVersion: 0.8.2
+  configChecksum: 87300c9f80e7793544af976cbd07bfdd
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
   published: true
 features:
   ruby:
-    core: 3.2.10
+    core: 3.2.11
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.5
-    globalServerURLs: 2.82.1
+    globalServerURLs: 2.82.3
 generatedFiles:
   - lib/ding_sdk/sdkconfiguration.rb
   - lib/ding_sdk/otp.rb

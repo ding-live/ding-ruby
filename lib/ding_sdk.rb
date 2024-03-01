@@ -3,14 +3,15 @@
 # typed: true
 # frozen_string_literal: true
 
-require_relative 'ding_sdk/utils/t'
-require_relative 'ding_sdk/utils/utils'
-require_relative 'ding_sdk/utils/metadata_fields'
 module DingSDK
   autoload :Ding, 'ding_sdk/ding'
-  autoload :SDKConfiguration, 'ding_sdk/sdkconfiguration'
   autoload :Shared, 'ding_sdk/models/shared'
   autoload :Operations, 'ding_sdk/models/operations'
   autoload :Otp, 'ding_sdk/otp'
   autoload :Lookup, 'ding_sdk/lookup'
 end
+
+require_relative 'ding_sdk/utils/t'
+require_relative 'ding_sdk/utils/utils'
+require_relative 'ding_sdk/utils/metadata_fields'
+require_relative 'ding_sdk/sdkconfiguration'

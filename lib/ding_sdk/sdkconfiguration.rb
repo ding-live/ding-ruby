@@ -10,7 +10,6 @@ require 'sorbet-runtime'
 module DingSDK
   extend T::Sig
 
-
   SERVERS = [
     'https://api.ding.live/v1', # 1 - The production Ding API server
   ].freeze
@@ -20,8 +19,9 @@ module DingSDK
     extend T::Sig
 
     field :client, T.nilable(Faraday::Connection)
-    field :security, Shared::Security
+    field :security, T.nilable(::DingSDK::Shared::Security)
     field :server_url, T.nilable(String)
+    field :server_idx, T.nilable(Integer)
     field :language, String
     field :openapi_doc_version, String
     field :sdk_version, String
@@ -29,25 +29,23 @@ module DingSDK
     field :user_agent, String
 
 
-    sig { params(client: Faraday::Connection, security: T.nilable(Shared::Security), server_url: T.nilable(String), server_idx: T.nilable(Integer)).void }
+    sig { params(client: Faraday::Connection, security: T.nilable(::DingSDK::Shared::Security), server_url: T.nilable(String), server_idx: T.nilable(Integer)).void }
     def initialize(client, security, server_url, server_idx)
       @client = client
       @server_url = server_url
       @server_idx = server_idx.nil? ? 0 : server_idx
+      raise StandardError, "Invalid server index #{server_idx}" if @server_idx.negative? || @server_idx >= SERVERS.length
       @security = security
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.8.1'
-      @gen_version = '2.272.7'
-      @user_agent = 'speakeasy-sdk/ruby 0.8.1 2.272.7 1.0.0 ding_sdk'
+      @sdk_version = '0.8.2'
+      @gen_version = '2.275.4'
+      @user_agent = 'speakeasy-sdk/ruby 0.8.2 2.275.4 1.0.0 ding_sdk'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
     def get_server_details
       return [@server_url.delete_suffix('/'), {}] if !@server_url.nil?
-      @server_idx = 0 if @server_idx.nil?
-
-
       [SERVERS[@server_idx], {}]
     end
   end
