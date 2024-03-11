@@ -33,10 +33,12 @@ module DingSDK
       field :is_returning_user, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('is_returning_user') } }
       # The version of the user's device operating system.
       field :os_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('os_version') } }
+      # The template id associated with the message content variant to be sent.
+      field :template_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('template_id') } }
 
 
-      sig { params(customer_uuid: ::String, phone_number: ::String, app_realm: T.nilable(::String), app_version: T.nilable(::String), callback_url: T.nilable(::String), device_id: T.nilable(::String), device_model: T.nilable(::String), device_type: T.nilable(::DingSDK::Shared::DeviceType), ip: T.nilable(::String), is_returning_user: T.nilable(T::Boolean), os_version: T.nilable(::String)).void }
-      def initialize(customer_uuid: nil, phone_number: nil, app_realm: nil, app_version: nil, callback_url: nil, device_id: nil, device_model: nil, device_type: nil, ip: nil, is_returning_user: nil, os_version: nil)
+      sig { params(customer_uuid: ::String, phone_number: ::String, app_realm: T.nilable(::String), app_version: T.nilable(::String), callback_url: T.nilable(::String), device_id: T.nilable(::String), device_model: T.nilable(::String), device_type: T.nilable(::DingSDK::Shared::DeviceType), ip: T.nilable(::String), is_returning_user: T.nilable(T::Boolean), os_version: T.nilable(::String), template_id: T.nilable(::String)).void }
+      def initialize(customer_uuid: nil, phone_number: nil, app_realm: nil, app_version: nil, callback_url: nil, device_id: nil, device_model: nil, device_type: nil, ip: nil, is_returning_user: nil, os_version: nil, template_id: nil)
         @customer_uuid = customer_uuid
         @phone_number = phone_number
         @app_realm = app_realm
@@ -48,6 +50,7 @@ module DingSDK
         @ip = ip
         @is_returning_user = is_returning_user
         @os_version = os_version
+        @template_id = template_id
       end
     end
   end

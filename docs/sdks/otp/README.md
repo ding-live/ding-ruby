@@ -8,7 +8,7 @@ Send OTP codes to your users using their phone numbers.
 ### Available Operations
 
 * [check](#check) - Check a code
-* [create_autentication](#create_autentication) - Send a code
+* [create_authentication](#create_authentication) - Send a code
 * [retry](#retry) - Perform a retry
 
 ## check
@@ -55,7 +55,7 @@ end
 **[T.nilable(::DingSDK::Operations::CheckResponse)](../../models/operations/checkresponse.md)**
 
 
-## create_autentication
+## create_authentication
 
 Send a code
 
@@ -74,11 +74,11 @@ s.config_security(
 
 
 req = ::DingSDK::Shared::CreateAuthenticationRequest.new(
-  customer_uuid: "eae192ab-9e1e-4b21-b5b1-bfcb79a32fcc",
+  customer_uuid: "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
   phone_number: "+1234567890",
 )
     
-res = s.otp.create_autentication(req)
+res = s.otp.create_authentication(req)
 
 if ! res.create_authentication_response.nil?
   # handle response
@@ -95,7 +95,7 @@ end
 
 ### Response
 
-**[T.nilable(::DingSDK::Operations::CreateAutenticationResponse)](../../models/operations/createautenticationresponse.md)**
+**[T.nilable(::DingSDK::Operations::CreateAuthenticationResponse)](../../models/operations/createauthenticationresponse.md)**
 
 
 ## retry

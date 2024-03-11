@@ -63,9 +63,9 @@ module DingSDK
     end
 
 
-    sig { params(request: T.nilable(::DingSDK::Shared::CreateAuthenticationRequest)).returns(::DingSDK::Operations::CreateAutenticationResponse) }
-    def create_autentication(request)
-      # create_autentication - Send a code
+    sig { params(request: T.nilable(::DingSDK::Shared::CreateAuthenticationRequest)).returns(::DingSDK::Operations::CreateAuthenticationResponse) }
+    def create_authentication(request)
+      # create_authentication - Send a code
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/authentication"
@@ -89,7 +89,7 @@ module DingSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::DingSDK::Operations::CreateAutenticationResponse.new(
+      res = ::DingSDK::Operations::CreateAuthenticationResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200

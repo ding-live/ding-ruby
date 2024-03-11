@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
-  docChecksum: 01bd42610039f89b431afa7eb1a3c56c
+  docChecksum: a2a29dc8a8df536c8b2553db26987fad
   docVersion: 1.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.275.4
-  releaseVersion: 0.8.2
-  configChecksum: 87300c9f80e7793544af976cbd07bfdd
+  speakeasyVersion: 1.205.2
+  generationVersion: 2.279.1
+  releaseVersion: 0.8.3
+  configChecksum: 421625b68ea5a2bd75820bf05e5944b7
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
@@ -72,7 +72,7 @@ generatedFiles:
   - sorbet/tapioca/require.rb
   - ding_sdk.gemspec
   - lib/ding_sdk/models/operations/check_response.rb
-  - lib/ding_sdk/models/operations/create_autentication_response.rb
+  - lib/ding_sdk/models/operations/create_authentication_response.rb
   - lib/ding_sdk/models/operations/retry_response.rb
   - lib/ding_sdk/models/operations/lookup_request.rb
   - lib/ding_sdk/models/operations/lookup_response.rb
@@ -95,7 +95,7 @@ generatedFiles:
   - lib/ding_sdk/models/operations.rb
   - lib/ding_sdk/models/shared.rb
   - docs/models/operations/checkresponse.md
-  - docs/models/operations/createautenticationresponse.md
+  - docs/models/operations/createauthenticationresponse.md
   - docs/models/operations/retryresponse.md
   - docs/models/operations/lookuprequest.md
   - docs/models/operations/lookupresponse.md
