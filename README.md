@@ -114,6 +114,7 @@ end
 
 * [check](docs/sdks/otp/README.md#check) - Check a code
 * [create_authentication](docs/sdks/otp/README.md#create_authentication) - Send a code
+* [feedback](docs/sdks/otp/README.md#feedback) - Send feedback
 * [retry](docs/sdks/otp/README.md#retry) - Perform a retry
 
 ### [Lookup](docs/sdks/lookup/README.md)

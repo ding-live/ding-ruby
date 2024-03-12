@@ -25,6 +25,8 @@ module DingSDK
       #   * `invalid_os_version` - The provided OS version is invalid.
       #   * `invalid_device_model` - The provided device model is invalid.
       #   * `invalid_device_id` - The provided device ID is invalid.
+      #   * `no_associated_auth_found` - The associated authentication was not found.
+      #   * `duplicated_feedback_status` - Duplicated feedback status has found.
       #   * `invalid_template_id` - The provided template ID is invalid.
       # 
       field :code, T.nilable(::DingSDK::Shared::Code), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('code'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::Code, true) } }
