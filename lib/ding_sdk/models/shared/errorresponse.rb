@@ -27,6 +27,7 @@ module DingSDK
       #   * `invalid_device_id` - The provided device ID is invalid.
       #   * `no_associated_auth_found` - The associated authentication was not found.
       #   * `duplicated_feedback_status` - Duplicated feedback status has found.
+      #   * `invalid_feedback_status` - The provided feedback status is invalid.
       #   * `invalid_template_id` - The provided template ID is invalid.
       # 
       field :code, T.nilable(::DingSDK::Shared::Code), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('code'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::Code, true) } }

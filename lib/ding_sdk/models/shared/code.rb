@@ -23,6 +23,7 @@ module DingSDK
     #   * `invalid_device_id` - The provided device ID is invalid.
     #   * `no_associated_auth_found` - The associated authentication was not found.
     #   * `duplicated_feedback_status` - Duplicated feedback status has found.
+    #   * `invalid_feedback_status` - The provided feedback status is invalid.
     #   * `invalid_template_id` - The provided template ID is invalid.
     # 
     class Code < T::Enum
@@ -45,6 +46,7 @@ module DingSDK
         INVALID_DEVICE_ID = new('invalid_device_id')
         NO_ASSOCIATED_AUTH_FOUND = new('no_associated_auth_found')
         DUPLICATED_FEEDBACK_STATUS = new('duplicated_feedback_status')
+        INVALID_FEEDBACK_STATUS = new('invalid_feedback_status')
         INVALID_TEMPLATE_ID = new('invalid_template_id')
       end
     end
