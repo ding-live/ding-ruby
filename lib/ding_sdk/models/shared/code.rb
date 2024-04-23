@@ -25,6 +25,7 @@ module DingSDK
     #   * `duplicated_feedback_status` - Duplicated feedback status has found.
     #   * `invalid_feedback_status` - The provided feedback status is invalid.
     #   * `invalid_template_id` - The provided template ID is invalid.
+    #   * `suspended_account` - Your account has been suspended.
     # 
     class Code < T::Enum
       enums do
@@ -48,6 +49,7 @@ module DingSDK
         DUPLICATED_FEEDBACK_STATUS = new('duplicated_feedback_status')
         INVALID_FEEDBACK_STATUS = new('invalid_feedback_status')
         INVALID_TEMPLATE_ID = new('invalid_template_id')
+        SUSPENDED_ACCOUNT = new('suspended_account')
       end
     end
 
