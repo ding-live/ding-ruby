@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 ruby:
-  version: 0.8.8
+  version: 0.8.9
   author: Ding
   description: Ding Ruby SDK
   imports:
