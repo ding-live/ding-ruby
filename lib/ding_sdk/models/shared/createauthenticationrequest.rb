@@ -31,7 +31,7 @@ module DingSDK
       field :device_type, T.nilable(::DingSDK::Shared::DeviceType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_type'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::DeviceType, true) } }
       # The IP address of the user's device.
       field :ip, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('ip') } }
-      # Whether the user is a returning user on your app.
+      # This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/guides/prevent-fraud#signals).
       field :is_returning_user, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('is_returning_user') } }
       # The version of the user's device operating system.
       field :os_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('os_version') } }
