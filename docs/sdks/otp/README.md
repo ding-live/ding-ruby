@@ -1,6 +1,5 @@
 # Otp
 
-
 ## Overview
 
 Send OTP codes to your users using their phone numbers.
@@ -50,10 +49,11 @@ end
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `request`                                                                          | [::DingSDK::Shared::CreateCheckRequest](../../models/shared/createcheckrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
-
 ### Response
 
 **[T.nilable(::DingSDK::Operations::CheckResponse)](../../models/operations/checkresponse.md)**
+
+
 
 
 ## create_authentication
@@ -93,10 +93,11 @@ end
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `request`                                                                                            | [::DingSDK::Shared::CreateAuthenticationRequest](../../models/shared/createauthenticationrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
-
 ### Response
 
 **[T.nilable(::DingSDK::Operations::CreateAuthenticationResponse)](../../models/operations/createauthenticationresponse.md)**
+
+
 
 
 ## feedback
@@ -137,10 +138,11 @@ end
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `request`                                                                    | [::DingSDK::Shared::FeedbackRequest](../../models/shared/feedbackrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
-
 ### Response
 
 **[T.nilable(::DingSDK::Operations::FeedbackResponse)](../../models/operations/feedbackresponse.md)**
+
+
 
 
 ## retry
@@ -180,8 +182,8 @@ end
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | `request`                                                                                          | [::DingSDK::Shared::RetryAuthenticationRequest](../../models/shared/retryauthenticationrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
-
 ### Response
 
 **[T.nilable(::DingSDK::Operations::RetryResponse)](../../models/operations/retryresponse.md)**
+
 

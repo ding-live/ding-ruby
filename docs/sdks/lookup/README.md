@@ -1,6 +1,5 @@
 # Lookup
 
-
 ## Overview
 
 Retrieve up-to-date metadata about a specific phone number
@@ -42,8 +41,8 @@ end
 | `customer_uuid`    | *::String*         | :heavy_check_mark: | N/A                |
 | `phone_number`     | *::String*         | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[T.nilable(::DingSDK::Operations::LookupResponse)](../../models/operations/lookupresponse.md)**
+
 
