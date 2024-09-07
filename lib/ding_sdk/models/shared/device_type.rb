@@ -15,6 +15,5 @@ module DingSDK
         WEB = new('WEB')
       end
     end
-
   end
 end

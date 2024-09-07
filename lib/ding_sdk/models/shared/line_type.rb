@@ -23,6 +23,5 @@ module DingSDK
         UNKNOWN = new('Unknown')
       end
     end
-
   end
 end

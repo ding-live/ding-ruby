@@ -19,6 +19,5 @@ module DingSDK
         SPAM_DETECTED = new('spam_detected')
       end
     end
-
   end
 end

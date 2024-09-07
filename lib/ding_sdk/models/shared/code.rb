@@ -33,6 +33,5 @@ module DingSDK
         SUSPENDED_ACCOUNT = new('suspended_account')
       end
     end
-
   end
 end

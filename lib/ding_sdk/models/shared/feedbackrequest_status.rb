@@ -14,6 +14,5 @@ module DingSDK
         NOT_ONBOARDED = new('not_onboarded')
       end
     end
-
   end
 end

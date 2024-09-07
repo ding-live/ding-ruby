@@ -3,30 +3,88 @@ id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
   docChecksum: c2a5d8222f4117f238343d6187ef2751
   docVersion: 1.0.0
-  speakeasyVersion: 1.377.1
-  generationVersion: 2.404.1
-  releaseVersion: 0.8.15
-  configChecksum: 5abfbe074cb32a9e93b12e0d76d2d8dc
+  speakeasyVersion: 1.392.1
+  generationVersion: 2.411.9
+  releaseVersion: 0.8.16
+  configChecksum: 5de86e062ed58592a6113a013f390e89
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
   published: true
 features:
   ruby:
-    core: 3.2.19
+    core: 3.2.20
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.7
     globalServerURLs: 2.82.3
 generatedFiles:
-  - lib/ding_sdk/sdkconfiguration.rb
-  - lib/ding_sdk/otp.rb
-  - lib/ding_sdk/lookup.rb
-  - lib/ding_sdk/ding.rb
+  - .gitattributes
   - .rubocop.yml
+  - CONTRIBUTING.md
   - Gemfile
   - Gemfile.lock
   - Rakefile
+  - USAGE.md
+  - ding_sdk.gemspec
+  - docs/models/operations/checkresponse.md
+  - docs/models/operations/createauthenticationresponse.md
+  - docs/models/operations/feedbackresponse.md
+  - docs/models/operations/lookuprequest.md
+  - docs/models/operations/lookupresponse.md
+  - docs/models/operations/retryresponse.md
+  - docs/models/shared/code.md
+  - docs/models/shared/createauthenticationrequest.md
+  - docs/models/shared/createauthenticationresponse.md
+  - docs/models/shared/createcheckrequest.md
+  - docs/models/shared/createcheckresponse.md
+  - docs/models/shared/createcheckresponsestatus.md
+  - docs/models/shared/devicetype.md
+  - docs/models/shared/errorresponse.md
+  - docs/models/shared/feedbackrequest.md
+  - docs/models/shared/feedbackrequeststatus.md
+  - docs/models/shared/feedbackresponse.md
+  - docs/models/shared/linetype.md
+  - docs/models/shared/lookupresponse.md
+  - docs/models/shared/retryauthenticationrequest.md
+  - docs/models/shared/retryauthenticationresponse.md
+  - docs/models/shared/retryauthenticationresponsestatus.md
+  - docs/models/shared/security.md
+  - docs/models/shared/status.md
+  - docs/sdks/ding/README.md
+  - docs/sdks/lookup/README.md
+  - docs/sdks/otp/README.md
+  - lib/ding_sdk.rb
+  - lib/ding_sdk/ding.rb
+  - lib/ding_sdk/lookup.rb
+  - lib/ding_sdk/models/operations.rb
+  - lib/ding_sdk/models/operations/check_response.rb
+  - lib/ding_sdk/models/operations/create_authentication_response.rb
+  - lib/ding_sdk/models/operations/feedback_response.rb
+  - lib/ding_sdk/models/operations/lookup_request.rb
+  - lib/ding_sdk/models/operations/lookup_response.rb
+  - lib/ding_sdk/models/operations/retry_response.rb
+  - lib/ding_sdk/models/shared.rb
+  - lib/ding_sdk/models/shared/code.rb
+  - lib/ding_sdk/models/shared/createauthenticationrequest.rb
+  - lib/ding_sdk/models/shared/createauthenticationresponse.rb
+  - lib/ding_sdk/models/shared/createcheckrequest.rb
+  - lib/ding_sdk/models/shared/createcheckresponse.rb
+  - lib/ding_sdk/models/shared/createcheckresponse_status.rb
+  - lib/ding_sdk/models/shared/device_type.rb
+  - lib/ding_sdk/models/shared/errorresponse.rb
+  - lib/ding_sdk/models/shared/feedbackrequest.rb
+  - lib/ding_sdk/models/shared/feedbackrequest_status.rb
+  - lib/ding_sdk/models/shared/feedbackresponse.rb
+  - lib/ding_sdk/models/shared/line_type.rb
+  - lib/ding_sdk/models/shared/lookupresponse.rb
+  - lib/ding_sdk/models/shared/retryauthenticationrequest.rb
+  - lib/ding_sdk/models/shared/retryauthenticationresponse.rb
+  - lib/ding_sdk/models/shared/retryauthenticationresponse_status.rb
+  - lib/ding_sdk/models/shared/security.rb
+  - lib/ding_sdk/models/shared/status.rb
+  - lib/ding_sdk/otp.rb
+  - lib/ding_sdk/sdkconfiguration.rb
   - lib/ding_sdk/utils/metadata_fields.rb
   - lib/ding_sdk/utils/t.rb
   - lib/ding_sdk/utils/utils.rb
@@ -70,61 +128,48 @@ generatedFiles:
   - sorbet/rbi/gems/yarp@0.13.0.rbi
   - sorbet/tapioca/config.yml
   - sorbet/tapioca/require.rb
-  - ding_sdk.gemspec
-  - lib/ding_sdk/models/operations/check_response.rb
-  - lib/ding_sdk/models/operations/create_authentication_response.rb
-  - lib/ding_sdk/models/operations/feedback_response.rb
-  - lib/ding_sdk/models/operations/retry_response.rb
-  - lib/ding_sdk/models/operations/lookup_request.rb
-  - lib/ding_sdk/models/operations/lookup_response.rb
-  - lib/ding_sdk/models/shared/code.rb
-  - lib/ding_sdk/models/shared/errorresponse.rb
-  - lib/ding_sdk/models/shared/createcheckresponse_status.rb
-  - lib/ding_sdk/models/shared/createcheckresponse.rb
-  - lib/ding_sdk/models/shared/createcheckrequest.rb
-  - lib/ding_sdk/models/shared/status.rb
-  - lib/ding_sdk/models/shared/createauthenticationresponse.rb
-  - lib/ding_sdk/models/shared/device_type.rb
-  - lib/ding_sdk/models/shared/createauthenticationrequest.rb
-  - lib/ding_sdk/models/shared/feedbackresponse.rb
-  - lib/ding_sdk/models/shared/feedbackrequest_status.rb
-  - lib/ding_sdk/models/shared/feedbackrequest.rb
-  - lib/ding_sdk/models/shared/retryauthenticationresponse_status.rb
-  - lib/ding_sdk/models/shared/retryauthenticationresponse.rb
-  - lib/ding_sdk/models/shared/retryauthenticationrequest.rb
-  - lib/ding_sdk/models/shared/line_type.rb
-  - lib/ding_sdk/models/shared/lookupresponse.rb
-  - lib/ding_sdk/models/shared/security.rb
-  - lib/ding_sdk.rb
-  - lib/ding_sdk/models/operations.rb
-  - lib/ding_sdk/models/shared.rb
-  - docs/models/operations/checkresponse.md
-  - docs/models/operations/createauthenticationresponse.md
-  - docs/models/operations/feedbackresponse.md
-  - docs/models/operations/retryresponse.md
-  - docs/models/operations/lookuprequest.md
-  - docs/models/operations/lookupresponse.md
-  - docs/models/shared/code.md
-  - docs/models/shared/errorresponse.md
-  - docs/models/shared/createcheckresponsestatus.md
-  - docs/models/shared/createcheckresponse.md
-  - docs/models/shared/createcheckrequest.md
-  - docs/models/shared/status.md
-  - docs/models/shared/createauthenticationresponse.md
-  - docs/models/shared/devicetype.md
-  - docs/models/shared/createauthenticationrequest.md
-  - docs/models/shared/feedbackresponse.md
-  - docs/models/shared/feedbackrequeststatus.md
-  - docs/models/shared/feedbackrequest.md
-  - docs/models/shared/retryauthenticationresponsestatus.md
-  - docs/models/shared/retryauthenticationresponse.md
-  - docs/models/shared/retryauthenticationrequest.md
-  - docs/models/shared/linetype.md
-  - docs/models/shared/lookupresponse.md
-  - docs/models/shared/security.md
-  - docs/sdks/ding/README.md
-  - docs/sdks/otp/README.md
-  - docs/sdks/lookup/README.md
-  - USAGE.md
-  - .gitattributes
-  - CONTRIBUTING.md
+examples:
+  check:
+    speakeasy-default-check:
+      requestBody:
+        application/json: {"authentication_uuid": "e0e7b0e9-739d-424b-922f-1c2cb48ab077", "check_code": "123456", "customer_uuid": "8f1196d5-806e-4b71-9b24-5f96ec052808"}
+      responses:
+        "200":
+          application/json: {"status": "valid"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  create-authentication:
+    speakeasy-default-create-authentication:
+      requestBody:
+        application/json: {"customer_uuid": "c9f826e0-deca-41ec-871f-ecd6e8efeb46", "phone_number": "+1234567890"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  feedback:
+    speakeasy-default-feedback:
+      requestBody:
+        application/json: {"customer_uuid": "c0c405fa-6bcb-4094-9430-7d6e2428ff23", "phone_number": "+1234567890", "status": "onboarded"}
+      responses:
+        "200":
+          application/json: {"uuid": "123e4567-e89b-12d3-a456-4266141740a0"}
+        default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  retry:
+    speakeasy-default-retry:
+      responses:
+        "200":
+          application/json: {"remaining_retry": 3, "status": "approved"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  lookup:
+    speakeasy-default-lookup:
+      parameters:
+        path:
+          phone_number: "<value>"
+        header:
+          customer-uuid: "6e93aa15-9177-4d09-8395-b69ce50db1c8"
+      responses:
+        "200":
+          application/json: {"carrier": "AT&T", "country_code": "US", "line_type": "Mobile", "mcc": "310", "mnc": "410", "phone_number": "+1234567890"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}

@@ -25,6 +25,5 @@ module DingSDK
         ALREADY_VALIDATED = new('already_validated')
       end
     end
-
   end
 end

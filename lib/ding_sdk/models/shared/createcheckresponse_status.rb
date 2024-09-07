@@ -25,6 +25,5 @@ module DingSDK
         EXPIRED_AUTH = new('expired_auth')
       end
     end
-
   end
 end
