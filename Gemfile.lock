@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ding_sdk (0.8.16)
+    ding_sdk (0.8.17)
       faraday
       faraday-multipart
       rack

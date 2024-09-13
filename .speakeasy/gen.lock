@@ -3,17 +3,17 @@ id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
   docChecksum: c2a5d8222f4117f238343d6187ef2751
   docVersion: 1.0.0
-  speakeasyVersion: 1.392.1
-  generationVersion: 2.411.9
-  releaseVersion: 0.8.16
-  configChecksum: 5de86e062ed58592a6113a013f390e89
+  speakeasyVersion: 1.396.6
+  generationVersion: 2.415.6
+  releaseVersion: 0.8.17
+  configChecksum: a944c261cc179735d25333f56f59978b
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
   published: true
 features:
   ruby:
-    core: 3.2.20
+    core: 3.2.22
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.7
@@ -145,6 +145,7 @@ examples:
       responses:
         "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        "200": {}
   feedback:
     speakeasy-default-feedback:
       requestBody:
