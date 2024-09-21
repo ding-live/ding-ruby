@@ -30,9 +30,9 @@ s.config_security(
 
 
 req = ::DingSDK::Shared::CreateCheckRequest.new(
-  authentication_uuid: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+  authentication_uuid: "eebe792b-2fcc-44a0-87f1-650e79259e02",
   check_code: "123456",
-  customer_uuid: "8f1196d5-806e-4b71-9b24-5f96ec052808",
+  customer_uuid: "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
 )
     
 res = s.otp.check(req)
@@ -75,7 +75,7 @@ s.config_security(
 
 
 req = ::DingSDK::Shared::CreateAuthenticationRequest.new(
-  customer_uuid: "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
+  customer_uuid: "cf2edc1c-7fc6-48fb-86da-b7508c6b7b71",
   phone_number: "+1234567890",
 )
     
@@ -119,7 +119,7 @@ s.config_security(
 
 
 req = ::DingSDK::Shared::FeedbackRequest.new(
-  customer_uuid: "c0c405fa-6bcb-4094-9430-7d6e2428ff23",
+  customer_uuid: "cc0f6c04-40de-448f-8301-3cb0e6565dff",
   phone_number: "+1234567890",
   status: ::DingSDK::Shared::FeedbackRequestStatus::ONBOARDED,
 )
@@ -164,8 +164,8 @@ s.config_security(
 
 
 req = ::DingSDK::Shared::RetryAuthenticationRequest.new(
-  authentication_uuid: "a74ee547-564d-487a-91df-37fb25413a91",
-  customer_uuid: "3c8b3a46-881e-4cdd-93a6-f7f238bf020a",
+  authentication_uuid: "a4e4548a-1f7b-451a-81cb-a68ed5aff3b0",
+  customer_uuid: "28532118-1b33-420a-b57b-648c9bf85fee",
 )
     
 res = s.otp.retry(req)
