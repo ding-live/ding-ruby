@@ -21,7 +21,7 @@ module DingSDK
 
     sig { params(customer_uuid: ::String, phone_number: ::String).returns(::DingSDK::Operations::LookupResponse) }
     def lookup(customer_uuid, phone_number)
-      # lookup - Perform a phone number lookup
+      # lookup - Look up for phone number
       request = ::DingSDK::Operations::LookupRequest.new(
         
         customer_uuid: customer_uuid,
@@ -54,7 +54,8 @@ module DingSDK
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::LookupResponse)
           res.lookup_response = out
         end
-      elsif r.status == 400
+      else
+                
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out

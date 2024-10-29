@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
-  docChecksum: c2a5d8222f4117f238343d6187ef2751
+  docChecksum: 80145f0a6cc3db568a7c7bbd434cf444
   docVersion: 1.0.0
-  speakeasyVersion: 1.404.5
-  generationVersion: 2.426.2
-  releaseVersion: 0.8.19
-  configChecksum: 07ee53761e86237286aa90c60b6ffbae
+  speakeasyVersion: 1.423.1
+  generationVersion: 2.442.11
+  releaseVersion: 0.8.20
+  configChecksum: 8aafaa3da75cdc3761d6963e1b8b223b
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
   published: true
 features:
   ruby:
-    core: 3.2.25
+    core: 3.2.26
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.7
@@ -30,15 +30,19 @@ generatedFiles:
   - docs/models/operations/checkresponse.md
   - docs/models/operations/createauthenticationresponse.md
   - docs/models/operations/feedbackresponse.md
+  - docs/models/operations/getauthenticationstatusrequest.md
+  - docs/models/operations/getauthenticationstatusresponse.md
   - docs/models/operations/lookuprequest.md
   - docs/models/operations/lookupresponse.md
   - docs/models/operations/retryresponse.md
+  - docs/models/shared/authenticationstatusresponse.md
+  - docs/models/shared/authenticationstatusresponsedevicetype.md
+  - docs/models/shared/checkstatus.md
   - docs/models/shared/code.md
   - docs/models/shared/createauthenticationrequest.md
   - docs/models/shared/createauthenticationresponse.md
   - docs/models/shared/createcheckrequest.md
   - docs/models/shared/createcheckresponse.md
-  - docs/models/shared/createcheckresponsestatus.md
   - docs/models/shared/devicetype.md
   - docs/models/shared/errorresponse.md
   - docs/models/shared/feedbackrequest.md
@@ -50,6 +54,7 @@ generatedFiles:
   - docs/models/shared/retryauthenticationresponse.md
   - docs/models/shared/retryauthenticationresponsestatus.md
   - docs/models/shared/security.md
+  - docs/models/shared/signals.md
   - docs/models/shared/status.md
   - docs/sdks/ding/README.md
   - docs/sdks/lookup/README.md
@@ -61,16 +66,20 @@ generatedFiles:
   - lib/ding_sdk/models/operations/check_response.rb
   - lib/ding_sdk/models/operations/create_authentication_response.rb
   - lib/ding_sdk/models/operations/feedback_response.rb
+  - lib/ding_sdk/models/operations/getauthenticationstatus_request.rb
+  - lib/ding_sdk/models/operations/getauthenticationstatus_response.rb
   - lib/ding_sdk/models/operations/lookup_request.rb
   - lib/ding_sdk/models/operations/lookup_response.rb
   - lib/ding_sdk/models/operations/retry_response.rb
   - lib/ding_sdk/models/shared.rb
+  - lib/ding_sdk/models/shared/authenticationstatusresponse.rb
+  - lib/ding_sdk/models/shared/authenticationstatusresponse_device_type.rb
+  - lib/ding_sdk/models/shared/checkstatus.rb
   - lib/ding_sdk/models/shared/code.rb
   - lib/ding_sdk/models/shared/createauthenticationrequest.rb
   - lib/ding_sdk/models/shared/createauthenticationresponse.rb
   - lib/ding_sdk/models/shared/createcheckrequest.rb
   - lib/ding_sdk/models/shared/createcheckresponse.rb
-  - lib/ding_sdk/models/shared/createcheckresponse_status.rb
   - lib/ding_sdk/models/shared/device_type.rb
   - lib/ding_sdk/models/shared/errorresponse.rb
   - lib/ding_sdk/models/shared/feedbackrequest.rb
@@ -82,6 +91,7 @@ generatedFiles:
   - lib/ding_sdk/models/shared/retryauthenticationresponse.rb
   - lib/ding_sdk/models/shared/retryauthenticationresponse_status.rb
   - lib/ding_sdk/models/shared/security.rb
+  - lib/ding_sdk/models/shared/signals.rb
   - lib/ding_sdk/models/shared/status.rb
   - lib/ding_sdk/otp.rb
   - lib/ding_sdk/sdkconfiguration.rb
@@ -138,14 +148,18 @@ examples:
           application/json: {"status": "valid"}
         "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   create-authentication:
     speakeasy-default-create-authentication:
       requestBody:
-        application/json: {"customer_uuid": "c9f826e0-deca-41ec-871f-ecd6e8efeb46", "phone_number": "+1234567890"}
+        application/json: {"customer_uuid": "c9f826e0-deca-41ec-871f-ecd6e8efeb46", "locale": "fr-FR", "phone_number": "+1234567890"}
       responses:
         "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
         "200": {}
+        default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   feedback:
     speakeasy-default-feedback:
       requestBody:
@@ -162,6 +176,8 @@ examples:
           application/json: {"remaining_retry": 3, "status": "approved"}
         "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   lookup:
     speakeasy-default-lookup:
       parameters:
@@ -173,4 +189,16 @@ examples:
         "200":
           application/json: {"carrier": "AT&T", "country_code": "US", "line_type": "Mobile", "mcc": "310", "mnc": "410", "phone_number": "+1234567890"}
         "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  getAuthenticationStatus:
+    speakeasy-default-get-authentication-status:
+      parameters:
+        path:
+          auth_uuid: "d8446450-f2fa-4dd9-806b-df5b8c661f23"
+      responses:
+        "200":
+          application/json: {"phone_number": "+1234567890"}
+        default:
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}

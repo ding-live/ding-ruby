@@ -33,14 +33,18 @@ module DingSDK
       field :ip, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('ip') } }
       # This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/guides/prevent-fraud#signals).
       field :is_returning_user, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('is_returning_user') } }
+      # A BCP-47 locale indicating the language the SMS should be sent to; if this is not set, the SMS will be sent to the language specified by the country code of the message. If we don't support the language set, the message will be sent in US English (en-US).
+      field :locale, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('locale') } }
       # The version of the user's device operating system.
       field :os_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('os_version') } }
+      # The Sender ID to use when sending the message.
+      field :sender_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('sender_id') } }
       # The template id associated with the message content variant to be sent.
       field :template_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('template_id') } }
 
 
-      sig { params(customer_uuid: ::String, phone_number: ::String, app_realm: T.nilable(::String), app_version: T.nilable(::String), callback_url: T.nilable(::String), correlation_id: T.nilable(::String), device_id: T.nilable(::String), device_model: T.nilable(::String), device_type: T.nilable(::DingSDK::Shared::DeviceType), ip: T.nilable(::String), is_returning_user: T.nilable(T::Boolean), os_version: T.nilable(::String), template_id: T.nilable(::String)).void }
-      def initialize(customer_uuid: nil, phone_number: nil, app_realm: nil, app_version: nil, callback_url: nil, correlation_id: nil, device_id: nil, device_model: nil, device_type: nil, ip: nil, is_returning_user: nil, os_version: nil, template_id: nil)
+      sig { params(customer_uuid: ::String, phone_number: ::String, app_realm: T.nilable(::String), app_version: T.nilable(::String), callback_url: T.nilable(::String), correlation_id: T.nilable(::String), device_id: T.nilable(::String), device_model: T.nilable(::String), device_type: T.nilable(::DingSDK::Shared::DeviceType), ip: T.nilable(::String), is_returning_user: T.nilable(T::Boolean), locale: T.nilable(::String), os_version: T.nilable(::String), sender_id: T.nilable(::String), template_id: T.nilable(::String)).void }
+      def initialize(customer_uuid: nil, phone_number: nil, app_realm: nil, app_version: nil, callback_url: nil, correlation_id: nil, device_id: nil, device_model: nil, device_type: nil, ip: nil, is_returning_user: nil, locale: nil, os_version: nil, sender_id: nil, template_id: nil)
         @customer_uuid = customer_uuid
         @phone_number = phone_number
         @app_realm = app_realm
@@ -52,7 +56,9 @@ module DingSDK
         @device_type = device_type
         @ip = ip
         @is_returning_user = is_returning_user
+        @locale = locale
         @os_version = os_version
+        @sender_id = sender_id
         @template_id = template_id
       end
     end

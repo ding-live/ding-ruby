@@ -7,7 +7,8 @@
 module DingSDK
   module Shared
   
-    # CreateCheckResponseStatus - The status of the check. Possible values are:
+    # CheckStatus - The status of the check. Possible values are:
+    #   * `unknown` - The status is unknown.
     #   * `valid` - The code is valid.
     #   * `invalid` - The code is invalid.
     #   * `without_attempt` - No attempt was sent yet, so a check cannot be completed.
@@ -15,8 +16,9 @@ module DingSDK
     #   * `already_validated` - The authentication has already been validated.
     #   * `expired_auth` - The authentication has expired and cannot be checked.
     # 
-    class CreateCheckResponseStatus < T::Enum
+    class CheckStatus < T::Enum
       enums do
+        UNKNOWN = new('unknown')
         VALID = new('valid')
         INVALID = new('invalid')
         WITHOUT_ATTEMPT = new('without_attempt')

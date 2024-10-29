@@ -13,18 +13,11 @@ module DingSDK
 
       # The UUID of the corresponding authentication.
       field :authentication_uuid, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
-      # The status of the check. Possible values are:
-      #   * `valid` - The code is valid.
-      #   * `invalid` - The code is invalid.
-      #   * `without_attempt` - No attempt was sent yet, so a check cannot be completed.
-      #   * `rate_limited` - The authentication was rate limited and cannot be checked.
-      #   * `already_validated` - The authentication has already been validated.
-      #   * `expired_auth` - The authentication has expired and cannot be checked.
-      # 
-      field :status, T.nilable(::DingSDK::Shared::CreateCheckResponseStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::CreateCheckResponseStatus, true) } }
+
+      field :status, T.nilable(::DingSDK::Shared::CheckStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::CheckStatus, true) } }
 
 
-      sig { params(authentication_uuid: T.nilable(::String), status: T.nilable(::DingSDK::Shared::CreateCheckResponseStatus)).void }
+      sig { params(authentication_uuid: T.nilable(::String), status: T.nilable(::DingSDK::Shared::CheckStatus)).void }
       def initialize(authentication_uuid: nil, status: nil)
         @authentication_uuid = authentication_uuid
         @status = status

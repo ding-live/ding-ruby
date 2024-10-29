@@ -51,6 +51,7 @@ s.config_security(
 
 req = ::DingSDK::Shared::CreateAuthenticationRequest.new(
   customer_uuid: "cf2edc1c-7fc6-48fb-86da-b7508c6b7b71",
+  locale: "fr-FR",
   phone_number: "+1234567890",
 )
     
@@ -122,6 +123,87 @@ if ! res.retry_authentication_response.nil?
 end
 
 ```
+
+### Send feedback
+
+Send feedback about the authentication process.
+
+
+```ruby
+require 'ding_sdk'
+
+
+s = ::DingSDK::Ding.new
+s.config_security(
+  ::DingSDK::Shared::Security.new(
+    api_key: "YOUR_API_KEY",
+  )
+)
+
+
+req = ::DingSDK::Shared::FeedbackRequest.new(
+  customer_uuid: "cc0f6c04-40de-448f-8301-3cb0e6565dff",
+  phone_number: "+1234567890",
+  status: ::DingSDK::Shared::FeedbackRequestStatus::ONBOARDED,
+)
+    
+res = s.otp.feedback(req)
+
+if ! res.feedback_response.nil?
+  # handle response
+end
+
+```
+
+### Get authentication status
+
+Get the status of an authentication.
+
+
+```ruby
+require 'ding_sdk'
+
+
+s = ::DingSDK::Ding.new
+s.config_security(
+  ::DingSDK::Shared::Security.new(
+    api_key: "YOUR_API_KEY",
+  )
+)
+
+    
+res = s.otp.get_authentication_status(auth_uuid="d8446450-f2fa-4dd9-806b-df5b8c661f23")
+
+if ! res.authentication_status_response.nil?
+  # handle response
+end
+
+```
+
+### Look up for phone number
+
+Perform a phone number lookup.
+
+
+```ruby
+require 'ding_sdk'
+
+
+s = ::DingSDK::Ding.new
+s.config_security(
+  ::DingSDK::Shared::Security.new(
+    api_key: "YOUR_API_KEY",
+  )
+)
+
+    
+res = s.lookup.lookup(customer_uuid="69a197d9-356c-45d1-a807-41874e16b555", phone_number="<value>")
+
+if ! res.lookup_response.nil?
+  # handle response
+end
+
+```
 <!-- End SDK Example Usage [usage] -->
 
 <!-- Start Available Resources and Operations [operations] -->
@@ -133,13 +215,14 @@ end
 
 ### [Lookup](docs/sdks/lookup/README.md)
 
-* [lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
+* [lookup](docs/sdks/lookup/README.md#lookup) - Look up for phone number
 
 ### [Otp](docs/sdks/otp/README.md)
 
 * [check](docs/sdks/otp/README.md#check) - Check a code
 * [create_authentication](docs/sdks/otp/README.md#create_authentication) - Send a code
 * [feedback](docs/sdks/otp/README.md#feedback) - Send feedback
+* [get_authentication_status](docs/sdks/otp/README.md#get_authentication_status) - Get authentication status
 * [retry](docs/sdks/otp/README.md#retry) - Perform a retry
 
 </details>

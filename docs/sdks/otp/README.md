@@ -9,6 +9,7 @@ Send OTP codes to your users using their phone numbers.
 * [check](#check) - Check a code
 * [create_authentication](#create_authentication) - Send a code
 * [feedback](#feedback) - Send feedback
+* [get_authentication_status](#get_authentication_status) - Get authentication status
 * [retry](#retry) - Perform a retry
 
 ## check
@@ -55,7 +56,6 @@ end
 
 
 
-
 ## create_authentication
 
 Send a code
@@ -76,6 +76,7 @@ s.config_security(
 
 req = ::DingSDK::Shared::CreateAuthenticationRequest.new(
   customer_uuid: "cf2edc1c-7fc6-48fb-86da-b7508c6b7b71",
+  locale: "fr-FR",
   phone_number: "+1234567890",
 )
     
@@ -96,7 +97,6 @@ end
 ### Response
 
 **[T.nilable(::DingSDK::Operations::CreateAuthenticationResponse)](../../models/operations/createauthenticationresponse.md)**
-
 
 
 
@@ -144,6 +144,43 @@ end
 
 
 
+## get_authentication_status
+
+Get authentication status
+
+### Example Usage
+
+```ruby
+require 'ding_sdk'
+
+
+s = ::DingSDK::Ding.new
+s.config_security(
+  ::DingSDK::Shared::Security.new(
+    api_key: "YOUR_API_KEY",
+  )
+)
+
+    
+res = s.otp.get_authentication_status(auth_uuid="d8446450-f2fa-4dd9-806b-df5b8c661f23")
+
+if ! res.authentication_status_response.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter          | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `auth_uuid`        | *::String*         | :heavy_check_mark: | N/A                |
+
+### Response
+
+**[T.nilable(::DingSDK::Operations::GetAuthenticationStatusResponse)](../../models/operations/getauthenticationstatusresponse.md)**
+
+
 
 ## retry
 
@@ -185,5 +222,4 @@ end
 ### Response
 
 **[T.nilable(::DingSDK::Operations::RetryResponse)](../../models/operations/retryresponse.md)**
-
 

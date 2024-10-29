@@ -6,11 +6,11 @@ Retrieve up-to-date metadata about a specific phone number
 
 ### Available Operations
 
-* [lookup](#lookup) - Perform a phone number lookup
+* [lookup](#lookup) - Look up for phone number
 
 ## lookup
 
-Perform a phone number lookup
+Look up for phone number
 
 ### Example Usage
 
@@ -44,5 +44,4 @@ end
 ### Response
 
 **[T.nilable(::DingSDK::Operations::LookupResponse)](../../models/operations/lookupresponse.md)**
-
 
