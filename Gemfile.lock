@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ding_sdk (0.8.20)
+    ding_sdk (0.8.21)
       faraday
       faraday-multipart
       rack
@@ -92,8 +92,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  minitest
   ding_sdk!
+  minitest
   rubocop
   sorbet-runtime
   tapioca
