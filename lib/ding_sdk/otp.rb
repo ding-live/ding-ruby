@@ -53,8 +53,7 @@ module DingSDK
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::CreateCheckResponse)
           res.create_check_response = out
         end
-      else
-                
+      elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
@@ -98,8 +97,7 @@ module DingSDK
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::CreateAuthenticationResponse)
           res.create_authentication_response = out
         end
-      else
-                
+      elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
@@ -143,8 +141,7 @@ module DingSDK
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::FeedbackResponse)
           res.feedback_response = out
         end
-      else
-                
+      elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
@@ -188,8 +185,7 @@ module DingSDK
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::AuthenticationStatusResponse)
           res.authentication_status_response = out
         end
-      else
-                
+      elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
@@ -233,8 +229,7 @@ module DingSDK
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::RetryAuthenticationResponse)
           res.retry_authentication_response = out
         end
-      else
-                
+      elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out

@@ -54,8 +54,7 @@ module DingSDK
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::LookupResponse)
           res.lookup_response = out
         end
-      else
-                
+      elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
           res.error_response = out

@@ -13,3 +13,7 @@ targets:
         publish:
             rubygems:
                 token: $RUBYGEMS_AUTH_TOKEN
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/ding/ding/my-source-code-samples
+            blocking: false

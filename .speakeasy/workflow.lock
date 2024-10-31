@@ -1,9 +1,9 @@
-speakeasyVersion: 1.423.2
+speakeasyVersion: 1.423.5
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:62ff89c62bf1f3c855cf2faae374b6ecc9aa6c77e61ec2bf7af20ddd52fd3cae
-        sourceBlobDigest: sha256:408f69a3052eeaa99509ce0811301cbf4e12aab87613930f6d2fb41f94803bf5
+        sourceRevisionDigest: sha256:0faa9be6d987173ecd8780ba6f6aecce54ad5d3affeaa9b9eb99fea51183059c
+        sourceBlobDigest: sha256:323bc59bcca5ee8f29fae0166ebe1eca5b054a01c0d1339e7d698ed6ca59e11e
         tags:
             - latest
             - main
@@ -11,8 +11,10 @@ targets:
     ding_sdk:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:62ff89c62bf1f3c855cf2faae374b6ecc9aa6c77e61ec2bf7af20ddd52fd3cae
-        sourceBlobDigest: sha256:408f69a3052eeaa99509ce0811301cbf4e12aab87613930f6d2fb41f94803bf5
+        sourceRevisionDigest: sha256:0faa9be6d987173ecd8780ba6f6aecce54ad5d3affeaa9b9eb99fea51183059c
+        sourceBlobDigest: sha256:323bc59bcca5ee8f29fae0166ebe1eca5b054a01c0d1339e7d698ed6ca59e11e
+        codeSamplesNamespace: my-source-code-samples
+        codeSamplesRevisionDigest: sha256:46bee27f92fad25d2dcc7e43d8cac46f91d02276bfa1c917d818095cc564070d
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -29,3 +31,7 @@ workflow:
             publish:
                 rubygems:
                     token: $RUBYGEMS_AUTH_TOKEN
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/ding/ding/my-source-code-samples
+                blocking: false
