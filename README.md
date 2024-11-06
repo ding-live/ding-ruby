@@ -213,11 +213,11 @@ end
 <summary>Available methods</summary>
 
 
-### [Lookup](docs/sdks/lookup/README.md)
+### [lookup](docs/sdks/lookup/README.md)
 
 * [lookup](docs/sdks/lookup/README.md#lookup) - Look up for phone number
 
-### [Otp](docs/sdks/otp/README.md)
+### [otp](docs/sdks/otp/README.md)
 
 * [check](docs/sdks/otp/README.md#check) - Check a code
 * [create_authentication](docs/sdks/otp/README.md#create_authentication) - Send a code

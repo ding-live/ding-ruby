@@ -9,8 +9,9 @@ generation:
     requestResponseComponentNamesFeb2024: false
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
 ruby:
-  version: 0.8.27
+  version: 0.9.0
   author: Ding
   description: Ding Ruby SDK
   imports:
