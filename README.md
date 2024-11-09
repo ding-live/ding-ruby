@@ -231,22 +231,36 @@ end
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `server_idx: int` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.ding.live/v1` | None |
-
-
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `server_url (String)` optional parameter when initializing the SDK client instance. For example:
+```ruby
+require 'ding_sdk'
+
+
+s = ::DingSDK::Ding.new(
+      server_url: "https://api.ding.live/v1",
+    )
+s.config_security(
+  ::DingSDK::Shared::Security.new(
+    api_key: "YOUR_API_KEY",
+  )
+)
+
+
+req = ::DingSDK::Shared::CreateCheckRequest.new(
+  authentication_uuid: "eebe792b-2fcc-44a0-87f1-650e79259e02",
+  check_code: "123456",
+  customer_uuid: "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
+)
+    
+res = s.otp.check(req)
+
+if ! res.create_check_response.nil?
+  # handle response
+end
+
+```
 <!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
