@@ -45,10 +45,12 @@ module DingSDK
       field :number_ported, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('number_ported') } }
       # An E.164 formatted phone number.
       field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('phone_number') } }
+      # Whether the phone number is in our database of disposable, temporary phone numbers
+      field :temporary_phone_number, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('temporary_phone_number') } }
 
 
-      sig { params(carrier: T.nilable(::String), country_code: T.nilable(::String), line_type: T.nilable(::DingSDK::Shared::LineType), mcc: T.nilable(::String), mnc: T.nilable(::String), number_ported: T.nilable(T::Boolean), phone_number: T.nilable(::String)).void }
-      def initialize(carrier: nil, country_code: nil, line_type: nil, mcc: nil, mnc: nil, number_ported: nil, phone_number: nil)
+      sig { params(carrier: T.nilable(::String), country_code: T.nilable(::String), line_type: T.nilable(::DingSDK::Shared::LineType), mcc: T.nilable(::String), mnc: T.nilable(::String), number_ported: T.nilable(T::Boolean), phone_number: T.nilable(::String), temporary_phone_number: T.nilable(T::Boolean)).void }
+      def initialize(carrier: nil, country_code: nil, line_type: nil, mcc: nil, mnc: nil, number_ported: nil, phone_number: nil, temporary_phone_number: nil)
         @carrier = carrier
         @country_code = country_code
         @line_type = line_type
@@ -56,6 +58,7 @@ module DingSDK
         @mnc = mnc
         @number_ported = number_ported
         @phone_number = phone_number
+        @temporary_phone_number = temporary_phone_number
       end
     end
   end
