@@ -3,10 +3,10 @@ id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
   docChecksum: de3d2693189957170dadac38413b020f
   docVersion: 1.0.0
-  speakeasyVersion: 1.438.3
+  speakeasyVersion: 1.440.0
   generationVersion: 2.457.9
-  releaseVersion: 0.9.8
-  configChecksum: f249da5db7f980653ceb1b39156d734c
+  releaseVersion: 0.9.9
+  configChecksum: d25a3cc7b8175a1fdaf7eee6a1ee2767
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
