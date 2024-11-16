@@ -10,8 +10,10 @@ module DingSDK
     # AuthenticationStatusResponseDeviceType - The type of device the user is using.
     class AuthenticationStatusResponseDeviceType < T::Enum
       enums do
-        IOS = new('IOS')
         ANDROID = new('ANDROID')
+        IOS = new('IOS')
+        IPADOS = new('IPADOS')
+        TVOS = new('TVOS')
         WEB = new('WEB')
       end
     end
