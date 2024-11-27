@@ -15,5 +15,5 @@ targets:
                 token: $RUBYGEMS_AUTH_TOKEN
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/ding/ding/my-source-code-samples
+                location: registry.speakeasyapi.dev/ding/ding/my-source-ruby-code-samples
             blocking: false
