@@ -60,6 +60,7 @@ module DingSDK
           res.error_response = out
         end
       end
+
       res
     end
   end
