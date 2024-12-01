@@ -755,3 +755,13 @@ Based on:
 - [ruby v0.10.3] .
 ### Releases
 - [Ruby Gems v0.10.3] https://rubygems.org/gems/ding_sdk/versions/0.10.3 - .
+
+## 2024-12-01 00:24:08
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.448.2 (2.467.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [ruby v0.10.4] .
+### Releases
+- [Ruby Gems v0.10.4] https://rubygems.org/gems/ding_sdk/versions/0.10.4 - .
