@@ -1,21 +1,21 @@
-speakeasyVersion: 1.453.1
+speakeasyVersion: 1.453.3
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:03d655179a2efbc4daf9843e223abd553bdd34076bb6d798dd8ad23f65ee27ce
+        sourceRevisionDigest: sha256:324cfb37a0034d1cdfe00885f563ff5e33bf437085f52e053442f8e190755f86
         sourceBlobDigest: sha256:4d3dd890b21d2c069d944869e00ea2505c58a172c1b06fa3cb7b59c56c21a500
         tags:
             - latest
-            - speakeasy-sdk-regen-1733530810
+            - speakeasy-sdk-regen-1733617346
             - 1.0.0
 targets:
     ding_sdk:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:03d655179a2efbc4daf9843e223abd553bdd34076bb6d798dd8ad23f65ee27ce
+        sourceRevisionDigest: sha256:324cfb37a0034d1cdfe00885f563ff5e33bf437085f52e053442f8e190755f86
         sourceBlobDigest: sha256:4d3dd890b21d2c069d944869e00ea2505c58a172c1b06fa3cb7b59c56c21a500
         codeSamplesNamespace: my-source-ruby-code-samples
-        codeSamplesRevisionDigest: sha256:e98dcacc5f1e4cda1516fd8b91f44a04adf55f50cd5736cf528e4ee2d2fe4eb6
+        codeSamplesRevisionDigest: sha256:0230973133c71a55546accff0603567b6ab2d772bb8006e4489bb4f83d0ffb00
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
