@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
-  docChecksum: 9fbd6321083c0c2d44365ff84b8e2cb8
+  docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.453.8
+  speakeasyVersion: 1.453.10
   generationVersion: 2.474.15
-  releaseVersion: 0.10.13
-  configChecksum: f520ac2223f5fe189fde82c41c4dc1a3
+  releaseVersion: 0.10.14
+  configChecksum: c39850b98723eac2b459483189ffd6c2
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
@@ -35,6 +35,7 @@ generatedFiles:
   - docs/models/operations/lookuprequest.md
   - docs/models/operations/lookupresponse.md
   - docs/models/operations/retryresponse.md
+  - docs/models/operations/type.md
   - docs/models/shared/authenticationstatusresponse.md
   - docs/models/shared/authenticationstatusresponsedevicetype.md
   - docs/models/shared/checkstatus.md
@@ -71,6 +72,7 @@ generatedFiles:
   - lib/ding_sdk/models/operations/lookup_request.rb
   - lib/ding_sdk/models/operations/lookup_response.rb
   - lib/ding_sdk/models/operations/retry_response.rb
+  - lib/ding_sdk/models/operations/type.rb
   - lib/ding_sdk/models/shared.rb
   - lib/ding_sdk/models/shared/authenticationstatusresponse.rb
   - lib/ding_sdk/models/shared/authenticationstatusresponse_device_type.rb
@@ -185,6 +187,7 @@ examples:
       parameters:
         path:
           phone_number: "<value>"
+        query: {}
         header:
           customer-uuid: "6e93aa15-9177-4d09-8395-b69ce50db1c8"
       responses:

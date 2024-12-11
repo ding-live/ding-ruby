@@ -16,11 +16,14 @@ module DingSDK
 
       field :phone_number, ::String, { 'path_param': { 'field_name': 'phone_number', 'style': 'simple', 'explode': false } }
 
+      field :type, T.nilable(T::Array[::DingSDK::Operations::Type]), { 'query_param': { 'field_name': 'type', 'style': 'form', 'explode': true } }
 
-      sig { params(customer_uuid: ::String, phone_number: ::String).void }
-      def initialize(customer_uuid: nil, phone_number: nil)
+
+      sig { params(customer_uuid: ::String, phone_number: ::String, type: T.nilable(T::Array[::DingSDK::Operations::Type])).void }
+      def initialize(customer_uuid: nil, phone_number: nil, type: nil)
         @customer_uuid = customer_uuid
         @phone_number = phone_number
+        @type = type
       end
     end
   end

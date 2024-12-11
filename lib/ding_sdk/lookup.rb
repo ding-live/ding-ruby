@@ -19,13 +19,14 @@ module DingSDK
     end
 
 
-    sig { params(customer_uuid: ::String, phone_number: ::String).returns(::DingSDK::Operations::LookupResponse) }
-    def lookup(customer_uuid, phone_number)
+    sig { params(customer_uuid: ::String, phone_number: ::String, type: T.nilable(T::Array[::DingSDK::Operations::Type])).returns(::DingSDK::Operations::LookupResponse) }
+    def lookup(customer_uuid, phone_number, type = nil)
       # lookup - Look up for phone number
       request = ::DingSDK::Operations::LookupRequest.new(
         
         customer_uuid: customer_uuid,
-        phone_number: phone_number
+        phone_number: phone_number,
+        type: type
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -36,11 +37,13 @@ module DingSDK
         request
       )
       headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::DingSDK::Operations::LookupRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 

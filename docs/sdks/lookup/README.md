@@ -27,7 +27,9 @@ s.config_security(
 )
 
     
-res = s.lookup.lookup(customer_uuid="69a197d9-356c-45d1-a807-41874e16b555", phone_number="<value>")
+res = s.lookup.lookup(customer_uuid="69a197d9-356c-45d1-a807-41874e16b555", phone_number="<value>", type=[
+  ::DingSDK::Operations::Type::CNAM,
+])
 
 if ! res.lookup_response.nil?
   # handle response
@@ -37,10 +39,11 @@ end
 
 ### Parameters
 
-| Parameter          | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `customer_uuid`    | *::String*         | :heavy_check_mark: | N/A                |
-| `phone_number`     | *::String*         | :heavy_check_mark: | N/A                |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `customer_uuid`                                                          | *::String*                                                               | :heavy_check_mark:                                                       | N/A                                                                      |
+| `phone_number`                                                           | *::String*                                                               | :heavy_check_mark:                                                       | N/A                                                                      |
+| `type`                                                                   | T::Array<[::DingSDK::Operations::Type](../../models/operations/type.md)> | :heavy_minus_sign:                                                       | N/A                                                                      |
 
 ### Response
 

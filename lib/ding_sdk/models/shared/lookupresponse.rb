@@ -11,6 +11,8 @@ module DingSDK
     class LookupResponse < ::DingSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The CNAM (Caller ID Name) associated with the phone number. Contact us if you need to use this functionality. Once enabled, put `cnam` option to `type` query parameter.
+      field :caller_name, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('caller_name') } }
       # The carrier of the phone number.
       field :carrier, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('carrier') } }
       # The ISO 3166-1 alpha-2 country code of the phone number.
@@ -49,8 +51,9 @@ module DingSDK
       field :temporary_phone_number, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('temporary_phone_number') } }
 
 
-      sig { params(carrier: T.nilable(::String), country_code: T.nilable(::String), line_type: T.nilable(::DingSDK::Shared::LineType), mcc: T.nilable(::String), mnc: T.nilable(::String), number_ported: T.nilable(T::Boolean), phone_number: T.nilable(::String), temporary_phone_number: T.nilable(T::Boolean)).void }
-      def initialize(carrier: nil, country_code: nil, line_type: nil, mcc: nil, mnc: nil, number_ported: nil, phone_number: nil, temporary_phone_number: nil)
+      sig { params(caller_name: T.nilable(::String), carrier: T.nilable(::String), country_code: T.nilable(::String), line_type: T.nilable(::DingSDK::Shared::LineType), mcc: T.nilable(::String), mnc: T.nilable(::String), number_ported: T.nilable(T::Boolean), phone_number: T.nilable(::String), temporary_phone_number: T.nilable(T::Boolean)).void }
+      def initialize(caller_name: nil, carrier: nil, country_code: nil, line_type: nil, mcc: nil, mnc: nil, number_ported: nil, phone_number: nil, temporary_phone_number: nil)
+        @caller_name = caller_name
         @carrier = carrier
         @country_code = country_code
         @line_type = line_type
