@@ -3,17 +3,17 @@ id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
   docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.455.3
-  generationVersion: 2.479.3
-  releaseVersion: 0.10.19
-  configChecksum: d3d3ffd4d724101b03b7c5e32e34addb
+  speakeasyVersion: 1.455.7
+  generationVersion: 2.480.1
+  releaseVersion: 0.10.20
+  configChecksum: ede6b255df56ec92555a74fde5af88d9
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
   published: true
 features:
   ruby:
-    core: 3.4.2
+    core: 3.4.5
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.7
