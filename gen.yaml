@@ -11,7 +11,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 ruby:
-  version: 0.10.25
+  version: 0.10.26
   author: Ding
   description: Ding Ruby SDK
   imports:
