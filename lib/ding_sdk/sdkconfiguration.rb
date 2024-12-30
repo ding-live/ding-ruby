@@ -38,9 +38,9 @@ module DingSDK
       @security = security
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.10.32'
+      @sdk_version = '0.10.33'
       @gen_version = '2.484.0'
-      @user_agent = 'speakeasy-sdk/ruby 0.10.32 2.484.0 1.0.0 ding_sdk'
+      @user_agent = 'speakeasy-sdk/ruby 0.10.33 2.484.0 1.0.0 ding_sdk'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
