@@ -3,10 +3,10 @@ id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
   docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.468.1
-  generationVersion: 2.492.3
-  releaseVersion: 0.11.6
-  configChecksum: 94e206ccd0b3f4553effb80cdadac6b7
+  speakeasyVersion: 1.468.2
+  generationVersion: 2.493.4
+  releaseVersion: 0.11.7
+  configChecksum: 5992830847527c55375959d97fcf585b
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
@@ -21,7 +21,6 @@ features:
 generatedFiles:
   - .gitattributes
   - .rubocop.yml
-  - CONTRIBUTING.md
   - Gemfile
   - Gemfile.lock
   - Rakefile
