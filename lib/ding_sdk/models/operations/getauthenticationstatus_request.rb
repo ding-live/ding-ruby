@@ -8,7 +8,7 @@ module DingSDK
   module Operations
   
 
-    class GetAuthenticationStatusRequest < ::DingSDK::Utils::FieldAugmented
+    class GetAuthenticationStatusRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
 
-    class FeedbackResponse < ::DingSDK::Utils::FieldAugmented
+    class FeedbackResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The UUID of the feedback.

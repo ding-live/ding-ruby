@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
     # A successful response to an authentication creation request.
-    class CreateAuthenticationResponse < ::DingSDK::Utils::FieldAugmented
+    class CreateAuthenticationResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A unique identifier for the authentication that you can use on the /check and /retry endpoints.

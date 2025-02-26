@@ -8,7 +8,7 @@ module DingSDK
   module Operations
   
 
-    class CreateAuthenticationResponse < ::DingSDK::Utils::FieldAugmented
+    class CreateAuthenticationResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

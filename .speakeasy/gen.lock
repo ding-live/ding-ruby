@@ -3,10 +3,10 @@ id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
   docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.502.0
-  generationVersion: 2.524.1
-  releaseVersion: 0.11.45
-  configChecksum: 9b85a08cedb7f8f73eaf708e3f3381ab
+  speakeasyVersion: 1.504.1
+  generationVersion: 2.529.2
+  releaseVersion: 0.11.46
+  configChecksum: 17b23a90811049956ea1eb21ee6296cd
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
@@ -59,6 +59,10 @@ generatedFiles:
   - docs/sdks/ding/README.md
   - docs/sdks/lookup/README.md
   - docs/sdks/otp/README.md
+  - lib/crystalline.rb
+  - lib/crystalline/metadata_fields.rb
+  - lib/crystalline/t.rb
+  - lib/crystalline/utils.rb
   - lib/ding_sdk.rb
   - lib/ding_sdk/ding.rb
   - lib/ding_sdk/lookup.rb
@@ -96,8 +100,6 @@ generatedFiles:
   - lib/ding_sdk/models/shared/status.rb
   - lib/ding_sdk/otp.rb
   - lib/ding_sdk/sdkconfiguration.rb
-  - lib/ding_sdk/utils/metadata_fields.rb
-  - lib/ding_sdk/utils/t.rb
   - lib/ding_sdk/utils/utils.rb
   - sorbet/config
   - sorbet/rbi/annotations/.gitattributes

@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
 
-    class AuthenticationStatusResponse < ::DingSDK::Utils::FieldAugmented
+    class AuthenticationStatusResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A unique, user-defined identifier that will be included in webhook events.

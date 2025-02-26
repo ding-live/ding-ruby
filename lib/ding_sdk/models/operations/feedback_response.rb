@@ -8,7 +8,7 @@ module DingSDK
   module Operations
   
 
-    class FeedbackResponse < ::DingSDK::Utils::FieldAugmented
+    class FeedbackResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
 
-    class LookupResponse < ::DingSDK::Utils::FieldAugmented
+    class LookupResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The CNAM (Caller ID Name) associated with the phone number. Contact us if you need to use this functionality. Once enabled, put `cnam` option to `type` query parameter.

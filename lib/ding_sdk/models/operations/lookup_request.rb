@@ -8,7 +8,7 @@ module DingSDK
   module Operations
   
 
-    class LookupRequest < ::DingSDK::Utils::FieldAugmented
+    class LookupRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

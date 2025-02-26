@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
 
-    class CreateCheckRequest < ::DingSDK::Utils::FieldAugmented
+    class CreateCheckRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The authentication UUID that was returned when you created the authentication.

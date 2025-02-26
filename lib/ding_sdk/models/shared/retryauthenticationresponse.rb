@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
 
-    class RetryAuthenticationResponse < ::DingSDK::Utils::FieldAugmented
+    class RetryAuthenticationResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The UUID of the corresponding authentication.

@@ -50,12 +50,12 @@ module DingSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::CreateCheckResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::CreateCheckResponse)
           res.create_check_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
         end
       end
@@ -95,12 +95,12 @@ module DingSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::CreateAuthenticationResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::CreateAuthenticationResponse)
           res.create_authentication_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
         end
       end
@@ -140,12 +140,12 @@ module DingSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::FeedbackResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::FeedbackResponse)
           res.feedback_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
         end
       end
@@ -185,12 +185,12 @@ module DingSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::AuthenticationStatusResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::AuthenticationStatusResponse)
           res.authentication_status_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
         end
       end
@@ -230,12 +230,12 @@ module DingSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::RetryAuthenticationResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::RetryAuthenticationResponse)
           res.retry_authentication_response = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::DingSDK::Shared::ErrorResponse)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::DingSDK::Shared::ErrorResponse)
           res.error_response = out
         end
       end

@@ -8,7 +8,7 @@ module DingSDK
   module Operations
   
 
-    class LookupResponse < ::DingSDK::Utils::FieldAugmented
+    class LookupResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

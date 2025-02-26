@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
 
-    class ErrorResponse < ::DingSDK::Utils::FieldAugmented
+    class ErrorResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A machine-readable code that describes the error.

@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
     # [Signals](/guides/prevent-fraud#signals) are data points used to distinguish between fraudulent and legitimate users.
-    class Signals < ::DingSDK::Utils::FieldAugmented
+    class Signals < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The Android SMS Retriever API hash code that identifies your app. This allows you to automatically retrieve and fill the OTP code on Android devices.

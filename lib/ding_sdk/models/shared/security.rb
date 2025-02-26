@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
 
-    class Security < ::DingSDK::Utils::FieldAugmented
+    class Security < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

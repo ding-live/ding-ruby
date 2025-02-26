@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
 
-    class FeedbackRequest < ::DingSDK::Utils::FieldAugmented
+    class FeedbackRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Your customer UUID, which can be found in the API settings in the dashboard.

@@ -8,7 +8,7 @@ module DingSDK
   module Shared
   
 
-    class CreateCheckResponse < ::DingSDK::Utils::FieldAugmented
+    class CreateCheckResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The UUID of the corresponding authentication.

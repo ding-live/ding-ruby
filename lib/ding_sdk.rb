@@ -11,7 +11,6 @@ module DingSDK
   autoload :Lookup, 'ding_sdk/lookup'
 end
 
-require_relative 'ding_sdk/utils/t'
 require_relative 'ding_sdk/utils/utils'
-require_relative 'ding_sdk/utils/metadata_fields'
+require_relative 'crystalline'
 require_relative 'ding_sdk/sdkconfiguration'

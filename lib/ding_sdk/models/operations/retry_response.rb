@@ -8,7 +8,7 @@ module DingSDK
   module Operations
   
 
-    class RetryResponse < ::DingSDK::Utils::FieldAugmented
+    class RetryResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation
