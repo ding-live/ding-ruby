@@ -12,9 +12,10 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 ruby:
-  version: 0.11.51
+  version: 0.11.52
   author: Ding
   description: Ding Ruby SDK
+  flattenGlobalSecurity: false
   imports:
     option: openapi
     paths:
