@@ -18,15 +18,12 @@ Look up for phone number
 ```ruby
 require 'ding_sdk'
 
+s = ::DingSDK::Ding.new(
+      security: ::DingSDK::Shared::Security.new(
+        api_key: "YOUR_API_KEY",
+      ),
+    )
 
-s = ::DingSDK::Ding.new
-s.config_security(
-  ::DingSDK::Shared::Security.new(
-    api_key: "YOUR_API_KEY",
-  )
-)
-
-    
 res = s.lookup.lookup(customer_uuid="69a197d9-356c-45d1-a807-41874e16b555", phone_number="<value>", type=[
   ::DingSDK::Operations::Type::CNAM,
 ])
