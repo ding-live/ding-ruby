@@ -3,10 +3,10 @@ id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
   docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.513.4
-  generationVersion: 2.545.4
-  releaseVersion: 0.11.58
-  configChecksum: 17a259fb91e25b8bb90abcfcc3becabe
+  speakeasyVersion: 1.514.1
+  generationVersion: 2.546.3
+  releaseVersion: 0.11.59
+  configChecksum: e9fc4968f191fd9e45906cbc05592567
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
@@ -100,6 +100,7 @@ generatedFiles:
   - lib/ding_sdk/models/shared/status.rb
   - lib/ding_sdk/otp.rb
   - lib/ding_sdk/sdkconfiguration.rb
+  - lib/ding_sdk/utils/retries.rb
   - lib/ding_sdk/utils/utils.rb
   - sorbet/config
   - sorbet/rbi/annotations/.gitattributes
@@ -111,6 +112,7 @@ generatedFiles:
   - sorbet/rbi/gems/erubi@1.12.0.rbi
   - sorbet/rbi/gems/faraday-multipart@1.0.4.rbi
   - sorbet/rbi/gems/faraday-net_http@3.0.2.rbi
+  - sorbet/rbi/gems/faraday-retry@2.2.1.rbi
   - sorbet/rbi/gems/faraday@2.7.11.rbi
   - sorbet/rbi/gems/json@2.6.3.rbi
   - sorbet/rbi/gems/language_server-protocol@3.17.0.3.rbi

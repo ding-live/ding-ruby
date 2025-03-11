@@ -5,7 +5,9 @@
 
 require 'faraday'
 require 'faraday/multipart'
+require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'utils/retries'
 
 module DingSDK
   extend T::Sig
@@ -19,6 +21,7 @@ module DingSDK
     extend T::Sig
 
     field :client, T.nilable(Faraday::Connection)
+    field :retry_config, T.nilable(::DingSDK::Utils::RetryConfig)
     field :security_source, T.nilable(T.proc.returns(T.nilable(::DingSDK::Shared::Security)))
     field :server_url, T.nilable(String)
     field :server_idx, T.nilable(Integer)
@@ -28,11 +31,19 @@ module DingSDK
     field :gen_version, String
     field :user_agent, String
 
-
-
-    sig { params(client: T.nilable(Faraday::Connection), security: T.nilable(::DingSDK::Shared::Security), security_source: T.nilable(T.proc.returns(::DingSDK::Shared::Security)), server_url: T.nilable(String), server_idx: T.nilable(Integer)).void }
-    def initialize(client, security, security_source, server_url, server_idx)
+    sig do
+      params(
+        client: T.nilable(Faraday::Connection),
+        retry_config: T.nilable(::DingSDK::Utils::RetryConfig),
+        security: T.nilable(::DingSDK::Shared::Security),
+        security_source: T.nilable(T.proc.returns(::DingSDK::Shared::Security)),
+        server_url: T.nilable(String),
+        server_idx: T.nilable(Integer)
+      ).void
+    end
+    def initialize(client, retry_config, security, security_source, server_url, server_idx)
       @client = client
+      @retry_config = retry_config
       @server_url = server_url
       @server_idx = server_idx.nil? ? 0 : server_idx
       raise StandardError, "Invalid server index #{server_idx}" if @server_idx.negative? || @server_idx >= SERVERS.length
@@ -43,9 +54,9 @@ module DingSDK
       end
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.11.58'
-      @gen_version = '2.545.4'
-      @user_agent = 'speakeasy-sdk/ruby 0.11.58 2.545.4 1.0.0 ding_sdk'
+      @sdk_version = '0.11.59'
+      @gen_version = '2.546.3'
+      @user_agent = 'speakeasy-sdk/ruby 0.11.59 2.546.3 1.0.0 ding_sdk'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
