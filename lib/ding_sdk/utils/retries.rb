@@ -6,7 +6,7 @@
 require 'faraday/retry'
 require 'sorbet-runtime'
 
-module OpenApiSDK
+module DingSDK
   module Utils
     class BackoffStrategy
       extend T::Sig
