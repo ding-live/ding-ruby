@@ -21,8 +21,8 @@ module DingSDK
     end
 
 
-    sig { params(request: T.nilable(::DingSDK::Shared::CreateCheckRequest)).returns(::DingSDK::Operations::CheckResponse) }
-    def check(request)
+    sig { params(request: T.nilable(::DingSDK::Shared::CreateCheckRequest), timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::CheckResponse) }
+    def check(request, timeout_ms = nil)
       # check - Check a code
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -33,10 +33,14 @@ module DingSDK
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
       r = connection.post(url) do |req|
         req.headers = headers
+        req.options.timeout = timeout
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
         if form
@@ -69,8 +73,8 @@ module DingSDK
     end
 
 
-    sig { params(request: T.nilable(::DingSDK::Shared::CreateAuthenticationRequest)).returns(::DingSDK::Operations::CreateAuthenticationResponse) }
-    def create_authentication(request)
+    sig { params(request: T.nilable(::DingSDK::Shared::CreateAuthenticationRequest), timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::CreateAuthenticationResponse) }
+    def create_authentication(request, timeout_ms = nil)
       # create_authentication - Send a code
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -81,10 +85,14 @@ module DingSDK
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
       r = connection.post(url) do |req|
         req.headers = headers
+        req.options.timeout = timeout
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
         if form
@@ -117,8 +125,8 @@ module DingSDK
     end
 
 
-    sig { params(request: T.nilable(::DingSDK::Shared::FeedbackRequest)).returns(::DingSDK::Operations::FeedbackResponse) }
-    def feedback(request)
+    sig { params(request: T.nilable(::DingSDK::Shared::FeedbackRequest), timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::FeedbackResponse) }
+    def feedback(request, timeout_ms = nil)
       # feedback - Send feedback
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -129,10 +137,14 @@ module DingSDK
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
       r = connection.post(url) do |req|
         req.headers = headers
+        req.options.timeout = timeout
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
         if form
@@ -165,8 +177,8 @@ module DingSDK
     end
 
 
-    sig { params(auth_uuid: ::String).returns(::DingSDK::Operations::GetAuthenticationStatusResponse) }
-    def get_authentication_status(auth_uuid)
+    sig { params(auth_uuid: ::String, timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::GetAuthenticationStatusResponse) }
+    def get_authentication_status(auth_uuid, timeout_ms = nil)
       # get_authentication_status - Get authentication status
       request = ::DingSDK::Operations::GetAuthenticationStatusRequest.new(
         
@@ -184,10 +196,14 @@ module DingSDK
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
       r = connection.get(url) do |req|
         req.headers = headers
+        req.options.timeout = timeout
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
       end
@@ -213,8 +229,8 @@ module DingSDK
     end
 
 
-    sig { params(request: T.nilable(::DingSDK::Shared::RetryAuthenticationRequest)).returns(::DingSDK::Operations::RetryResponse) }
-    def retry(request)
+    sig { params(request: T.nilable(::DingSDK::Shared::RetryAuthenticationRequest), timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::RetryResponse) }
+    def retry(request, timeout_ms = nil)
       # retry - Perform a retry
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -225,10 +241,14 @@ module DingSDK
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
       r = connection.post(url) do |req|
         req.headers = headers
+        req.options.timeout = timeout
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
         if form

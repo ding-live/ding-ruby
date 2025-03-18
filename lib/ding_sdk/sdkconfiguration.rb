@@ -22,6 +22,7 @@ module DingSDK
 
     field :client, T.nilable(Faraday::Connection)
     field :retry_config, T.nilable(::DingSDK::Utils::RetryConfig)
+    field :timeout, T.nilable(Float)
     field :security_source, T.nilable(T.proc.returns(T.nilable(::DingSDK::Shared::Security)))
     field :server_url, T.nilable(String)
     field :server_idx, T.nilable(Integer)
@@ -35,16 +36,18 @@ module DingSDK
       params(
         client: T.nilable(Faraday::Connection),
         retry_config: T.nilable(::DingSDK::Utils::RetryConfig),
+        timeout_ms: T.nilable(Integer),
         security: T.nilable(::DingSDK::Shared::Security),
         security_source: T.nilable(T.proc.returns(::DingSDK::Shared::Security)),
         server_url: T.nilable(String),
         server_idx: T.nilable(Integer)
       ).void
     end
-    def initialize(client, retry_config, security, security_source, server_url, server_idx)
+    def initialize(client, retry_config, timeout_ms, security, security_source, server_url, server_idx)
       @client = client
       @retry_config = retry_config
       @server_url = server_url
+      @timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       @server_idx = server_idx.nil? ? 0 : server_idx
       raise StandardError, "Invalid server index #{server_idx}" if @server_idx.negative? || @server_idx >= SERVERS.length
       if !security_source.nil?
@@ -54,9 +57,9 @@ module DingSDK
       end
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.11.65'
-      @gen_version = '2.548.6'
-      @user_agent = 'speakeasy-sdk/ruby 0.11.65 2.548.6 1.0.0 ding_sdk'
+      @sdk_version = '0.12.0'
+      @gen_version = '2.552.1'
+      @user_agent = 'speakeasy-sdk/ruby 0.12.0 2.552.1 1.0.0 ding_sdk'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
