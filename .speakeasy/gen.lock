@@ -3,10 +3,10 @@ id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
   docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.519.0
-  generationVersion: 2.552.1
-  releaseVersion: 0.12.0
-  configChecksum: 16cd065982bead5f4b8dc14823c83223
+  speakeasyVersion: 1.520.1
+  generationVersion: 2.556.1
+  releaseVersion: 0.12.1
+  configChecksum: 40f75a7c3cff15bd59388f014baee27d
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
@@ -99,6 +99,8 @@ generatedFiles:
   - lib/ding_sdk/models/shared/signals.rb
   - lib/ding_sdk/models/shared/status.rb
   - lib/ding_sdk/otp.rb
+  - lib/ding_sdk/sdk_hooks/hooks.rb
+  - lib/ding_sdk/sdk_hooks/types.rb
   - lib/ding_sdk/sdkconfiguration.rb
   - lib/ding_sdk/utils/retries.rb
   - lib/ding_sdk/utils/utils.rb
