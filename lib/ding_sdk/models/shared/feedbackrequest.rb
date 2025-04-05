@@ -25,6 +25,14 @@ module DingSDK
         @phone_number = phone_number
         @status = status
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @customer_uuid == other.customer_uuid
+        return false unless @phone_number == other.phone_number
+        return false unless @status == other.status
+        true
+      end
     end
   end
 end

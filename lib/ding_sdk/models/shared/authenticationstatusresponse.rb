@@ -16,7 +16,7 @@ module DingSDK
 
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Represents a collection of events that occur during the authentication process. Each event captures specific actions and outcomes related to the authentication attempts, checks, delivery statuses, and balance updates. The array can contain different types of events, each with its own structure and properties.
-      field :events, T.nilable(T::Array[::Object]), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('events') } }
+      field :events, T.nilable(T::Array[T.any(::DingSDK::Shared::Attempt, ::DingSDK::Shared::Check, ::DingSDK::Shared::DeliveryStatus, ::DingSDK::Shared::BalanceUpdate)]), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('events') } }
       # An E.164 formatted phone number.
       field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('phone_number') } }
       # [Signals](/guides/prevent-fraud#signals) are data points used to distinguish between fraudulent and legitimate users.
@@ -27,7 +27,7 @@ module DingSDK
       field :uuid, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('uuid') } }
 
 
-      sig { params(correlation_id: T.nilable(::String), created_at: T.nilable(::DateTime), events: T.nilable(T::Array[::Object]), phone_number: T.nilable(::String), signals: T.nilable(::DingSDK::Shared::Signals), template_id: T.nilable(::String), uuid: T.nilable(::String)).void }
+      sig { params(correlation_id: T.nilable(::String), created_at: T.nilable(::DateTime), events: T.nilable(T::Array[T.any(::DingSDK::Shared::Attempt, ::DingSDK::Shared::Check, ::DingSDK::Shared::DeliveryStatus, ::DingSDK::Shared::BalanceUpdate)]), phone_number: T.nilable(::String), signals: T.nilable(::DingSDK::Shared::Signals), template_id: T.nilable(::String), uuid: T.nilable(::String)).void }
       def initialize(correlation_id: nil, created_at: nil, events: nil, phone_number: nil, signals: nil, template_id: nil, uuid: nil)
         @correlation_id = correlation_id
         @created_at = created_at
@@ -36,6 +36,18 @@ module DingSDK
         @signals = signals
         @template_id = template_id
         @uuid = uuid
+      end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @correlation_id == other.correlation_id
+        return false unless @created_at == other.created_at
+        return false unless @events == other.events
+        return false unless @phone_number == other.phone_number
+        return false unless @signals == other.signals
+        return false unless @template_id == other.template_id
+        return false unless @uuid == other.uuid
+        true
       end
     end
   end

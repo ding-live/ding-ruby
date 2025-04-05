@@ -38,6 +38,16 @@ module DingSDK
         @remaining_retry = remaining_retry
         @status = status
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @authentication_uuid == other.authentication_uuid
+        return false unless @created_at == other.created_at
+        return false unless @next_retry_at == other.next_retry_at
+        return false unless @remaining_retry == other.remaining_retry
+        return false unless @status == other.status
+        true
+      end
     end
   end
 end

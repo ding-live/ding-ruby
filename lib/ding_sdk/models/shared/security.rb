@@ -19,6 +19,12 @@ module DingSDK
       def initialize(api_key: nil)
         @api_key = api_key
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @api_key == other.api_key
+        true
+      end
     end
   end
 end

@@ -22,6 +22,13 @@ module DingSDK
         @authentication_uuid = authentication_uuid
         @status = status
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @authentication_uuid == other.authentication_uuid
+        return false unless @status == other.status
+        true
+      end
     end
   end
 end

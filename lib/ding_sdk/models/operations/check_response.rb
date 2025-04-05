@@ -31,6 +31,16 @@ module DingSDK
         @create_check_response = create_check_response
         @error_response = error_response
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @content_type == other.content_type
+        return false unless @raw_response == other.raw_response
+        return false unless @status_code == other.status_code
+        return false unless @create_check_response == other.create_check_response
+        return false unless @error_response == other.error_response
+        true
+      end
     end
   end
 end

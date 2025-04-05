@@ -51,7 +51,7 @@ module DingSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'check',
         security_source: @sdk_configuration.security_source
       )
@@ -149,7 +149,7 @@ module DingSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'create-authentication',
         security_source: @sdk_configuration.security_source
       )
@@ -247,7 +247,7 @@ module DingSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'feedback',
         security_source: @sdk_configuration.security_source
       )
@@ -344,7 +344,7 @@ module DingSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'getAuthenticationStatus',
         security_source: @sdk_configuration.security_source
       )
@@ -441,7 +441,7 @@ module DingSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'retry',
         security_source: @sdk_configuration.security_source
       )

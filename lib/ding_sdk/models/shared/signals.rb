@@ -40,6 +40,19 @@ module DingSDK
         @is_returning_user = is_returning_user
         @os_version = os_version
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @app_realm == other.app_realm
+        return false unless @app_version == other.app_version
+        return false unless @device_id == other.device_id
+        return false unless @device_model == other.device_model
+        return false unless @device_type == other.device_type
+        return false unless @ip == other.ip
+        return false unless @is_returning_user == other.is_returning_user
+        return false unless @os_version == other.os_version
+        true
+      end
     end
   end
 end

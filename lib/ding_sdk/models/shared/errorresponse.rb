@@ -25,6 +25,14 @@ module DingSDK
         @doc_url = doc_url
         @message = message
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @code == other.code
+        return false unless @doc_url == other.doc_url
+        return false unless @message == other.message
+        true
+      end
     end
   end
 end

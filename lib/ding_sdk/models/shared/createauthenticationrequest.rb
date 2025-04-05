@@ -61,6 +61,26 @@ module DingSDK
         @sender_id = sender_id
         @template_id = template_id
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @customer_uuid == other.customer_uuid
+        return false unless @phone_number == other.phone_number
+        return false unless @app_realm == other.app_realm
+        return false unless @app_version == other.app_version
+        return false unless @callback_url == other.callback_url
+        return false unless @correlation_id == other.correlation_id
+        return false unless @device_id == other.device_id
+        return false unless @device_model == other.device_model
+        return false unless @device_type == other.device_type
+        return false unless @ip == other.ip
+        return false unless @is_returning_user == other.is_returning_user
+        return false unless @locale == other.locale
+        return false unless @os_version == other.os_version
+        return false unless @sender_id == other.sender_id
+        return false unless @template_id == other.template_id
+        true
+      end
     end
   end
 end

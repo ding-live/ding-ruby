@@ -19,6 +19,12 @@ module DingSDK
       def initialize(auth_uuid: nil)
         @auth_uuid = auth_uuid
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @auth_uuid == other.auth_uuid
+        true
+      end
     end
   end
 end

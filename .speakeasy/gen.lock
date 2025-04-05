@@ -3,21 +3,22 @@ id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
   docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.528.1
-  generationVersion: 2.565.1
-  releaseVersion: 0.12.17
-  configChecksum: 2bc7c2ad19dac4cd762235f43dfc3fbe
+  speakeasyVersion: 1.529.1
+  generationVersion: 2.566.5
+  releaseVersion: 0.13.0
+  configChecksum: eccbd049fce285d7396849eab9c32a75
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
   published: true
 features:
   ruby:
-    core: 3.6.0
+    core: 3.6.1
     examples: 2.81.5
     flattening: 2.81.1
     globalSecurity: 2.81.8
     globalServerURLs: 2.82.3
+    unions: 0.1.0
 generatedFiles:
   - .gitattributes
   - .rubocop.yml
@@ -35,16 +36,28 @@ generatedFiles:
   - docs/models/operations/lookupresponse.md
   - docs/models/operations/retryresponse.md
   - docs/models/operations/type.md
+  - docs/models/shared/attempt.md
   - docs/models/shared/authenticationstatusresponse.md
   - docs/models/shared/authenticationstatusresponsedevicetype.md
+  - docs/models/shared/authenticationstatusresponseschemaseventstype.md
+  - docs/models/shared/authenticationstatusresponseschemasstatus.md
+  - docs/models/shared/authenticationstatusresponseschemastype.md
+  - docs/models/shared/authenticationstatusresponsestatus.md
+  - docs/models/shared/authenticationstatusresponsetype.md
+  - docs/models/shared/balanceupdate.md
+  - docs/models/shared/balanceupdatetype.md
+  - docs/models/shared/capability.md
+  - docs/models/shared/check.md
   - docs/models/shared/checkstatus.md
   - docs/models/shared/code.md
   - docs/models/shared/createauthenticationrequest.md
   - docs/models/shared/createauthenticationresponse.md
   - docs/models/shared/createcheckrequest.md
   - docs/models/shared/createcheckresponse.md
+  - docs/models/shared/deliverystatus.md
   - docs/models/shared/devicetype.md
   - docs/models/shared/errorresponse.md
+  - docs/models/shared/events.md
   - docs/models/shared/feedbackrequest.md
   - docs/models/shared/feedbackrequeststatus.md
   - docs/models/shared/feedbackresponse.md
@@ -56,6 +69,7 @@ generatedFiles:
   - docs/models/shared/security.md
   - docs/models/shared/signals.md
   - docs/models/shared/status.md
+  - docs/models/shared/type.md
   - docs/sdks/ding/README.md
   - docs/sdks/lookup/README.md
   - docs/sdks/otp/README.md
@@ -77,16 +91,28 @@ generatedFiles:
   - lib/ding_sdk/models/operations/retry_response.rb
   - lib/ding_sdk/models/operations/type.rb
   - lib/ding_sdk/models/shared.rb
+  - lib/ding_sdk/models/shared/attempt.rb
   - lib/ding_sdk/models/shared/authenticationstatusresponse.rb
   - lib/ding_sdk/models/shared/authenticationstatusresponse_device_type.rb
+  - lib/ding_sdk/models/shared/authenticationstatusresponse_schemas_events_type.rb
+  - lib/ding_sdk/models/shared/authenticationstatusresponse_schemas_status.rb
+  - lib/ding_sdk/models/shared/authenticationstatusresponse_schemas_type.rb
+  - lib/ding_sdk/models/shared/authenticationstatusresponse_status.rb
+  - lib/ding_sdk/models/shared/authenticationstatusresponse_type.rb
+  - lib/ding_sdk/models/shared/balance_update.rb
+  - lib/ding_sdk/models/shared/balance_update_type.rb
+  - lib/ding_sdk/models/shared/capability.rb
+  - lib/ding_sdk/models/shared/check.rb
   - lib/ding_sdk/models/shared/checkstatus.rb
   - lib/ding_sdk/models/shared/code.rb
   - lib/ding_sdk/models/shared/createauthenticationrequest.rb
   - lib/ding_sdk/models/shared/createauthenticationresponse.rb
   - lib/ding_sdk/models/shared/createcheckrequest.rb
   - lib/ding_sdk/models/shared/createcheckresponse.rb
+  - lib/ding_sdk/models/shared/delivery_status.rb
   - lib/ding_sdk/models/shared/device_type.rb
   - lib/ding_sdk/models/shared/errorresponse.rb
+  - lib/ding_sdk/models/shared/events.rb
   - lib/ding_sdk/models/shared/feedbackrequest.rb
   - lib/ding_sdk/models/shared/feedbackrequest_status.rb
   - lib/ding_sdk/models/shared/feedbackresponse.rb
@@ -98,6 +124,7 @@ generatedFiles:
   - lib/ding_sdk/models/shared/security.rb
   - lib/ding_sdk/models/shared/signals.rb
   - lib/ding_sdk/models/shared/status.rb
+  - lib/ding_sdk/models/shared/type.rb
   - lib/ding_sdk/otp.rb
   - lib/ding_sdk/sdk_hooks/hooks.rb
   - lib/ding_sdk/sdk_hooks/types.rb
@@ -180,7 +207,7 @@ examples:
           auth_uuid: "d8446450-f2fa-4dd9-806b-df5b8c661f23"
       responses:
         "200":
-          application/json: {"phone_number": "+1234567890"}
+          application/json: {"events": [{"content": "Your code is 123456"}], "phone_number": "+1234567890"}
         "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   retry:
@@ -203,5 +230,5 @@ examples:
           application/json: {"carrier": "AT&T", "country_code": "US", "line_type": "Mobile", "mcc": "310", "mnc": "410", "phone_number": "+1234567890"}
         "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
-examplesVersion: 1.0.0
+examplesVersion: 1.0.1
 generatedTests: {}

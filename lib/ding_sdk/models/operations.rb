@@ -10,9 +10,9 @@ module DingSDK
     autoload :FeedbackResponse, 'ding_sdk/models/operations/feedback_response.rb'
     autoload :GetAuthenticationStatusRequest, 'ding_sdk/models/operations/getauthenticationstatus_request.rb'
     autoload :GetAuthenticationStatusResponse, 'ding_sdk/models/operations/getauthenticationstatus_response.rb'
-    autoload :RetryResponse, 'ding_sdk/models/operations/retry_response.rb'
-    autoload :Type, 'ding_sdk/models/operations/type.rb'
     autoload :LookupRequest, 'ding_sdk/models/operations/lookup_request.rb'
     autoload :LookupResponse, 'ding_sdk/models/operations/lookup_response.rb'
+    autoload :RetryResponse, 'ding_sdk/models/operations/retry_response.rb'
+    autoload :Type, 'ding_sdk/models/operations/type.rb'
   end
 end

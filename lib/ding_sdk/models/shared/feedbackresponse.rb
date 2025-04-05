@@ -19,6 +19,12 @@ module DingSDK
       def initialize(uuid: nil)
         @uuid = uuid
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @uuid == other.uuid
+        true
+      end
     end
   end
 end

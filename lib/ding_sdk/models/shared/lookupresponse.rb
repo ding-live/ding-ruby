@@ -63,6 +63,20 @@ module DingSDK
         @phone_number = phone_number
         @temporary_phone_number = temporary_phone_number
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @caller_name == other.caller_name
+        return false unless @carrier == other.carrier
+        return false unless @country_code == other.country_code
+        return false unless @line_type == other.line_type
+        return false unless @mcc == other.mcc
+        return false unless @mnc == other.mnc
+        return false unless @number_ported == other.number_ported
+        return false unless @phone_number == other.phone_number
+        return false unless @temporary_phone_number == other.temporary_phone_number
+        true
+      end
     end
   end
 end

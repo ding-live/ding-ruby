@@ -25,6 +25,14 @@ module DingSDK
         @check_code = check_code
         @customer_uuid = customer_uuid
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @authentication_uuid == other.authentication_uuid
+        return false unless @check_code == other.check_code
+        return false unless @customer_uuid == other.customer_uuid
+        true
+      end
     end
   end
 end

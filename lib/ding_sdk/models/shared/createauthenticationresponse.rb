@@ -32,6 +32,15 @@ module DingSDK
         @expires_at = expires_at
         @status = status
       end
+
+      def ==(other)
+        return false unless other.is_a? self.class
+        return false unless @authentication_uuid == other.authentication_uuid
+        return false unless @created_at == other.created_at
+        return false unless @expires_at == other.expires_at
+        return false unless @status == other.status
+        true
+      end
     end
   end
 end
