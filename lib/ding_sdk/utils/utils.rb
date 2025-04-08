@@ -372,6 +372,17 @@ module DingSDK
       false
     end
 
+    sig { params(status_code: Integer, status_codes: T::Array[String]).returns(T::Boolean) }
+    def self.match_status_code(status_code, status_codes)
+      return true if status_codes.include? 'default'
+      status_code = status_code.to_s
+      status_codes.each do |code|
+        return true if code == status_code
+        return true if code.end_with?('xx') && status_code[0..1] == code[0..1]
+      end
+      false
+    end
+
     sig { params(req: Faraday::Request, security: Object).void }
     def self.configure_request_security(req, security)
       return if security.nil?
