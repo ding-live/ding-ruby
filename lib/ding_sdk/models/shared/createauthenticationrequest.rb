@@ -5,81 +5,84 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreateAuthenticationRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateAuthenticationRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Your customer UUID, which can be found in the API settings in the dashboard.
-      field :customer_uuid, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('customer_uuid') } }
-      # An E.164 formatted phone number to send the OTP to.
-      field :phone_number, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('phone_number') } }
-      # The Android SMS Retriever API hash code that identifies your app. This allows you to automatically retrieve and fill the OTP code on Android devices.
-      field :app_realm, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('app_realm') } }
-      # The version of your application.
-      field :app_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('app_version') } }
-      # A webhook URL to which delivery statuses will be sent.
-      field :callback_url, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('callback_url') } }
-      # A unique, user-defined identifier that will be included in webhook events
-      field :correlation_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('correlation_id') } }
-      # Unique identifier for the user's device. For Android, this corresponds to the `ANDROID_ID` and for iOS, this corresponds to the `identifierForVendor`.
-      field :device_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_id') } }
-      # The model of the user's device.
-      field :device_model, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_model') } }
-      # The type of device the user is using.
-      field :device_type, T.nilable(::DingSDK::Shared::DeviceType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_type'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::DeviceType, true) } }
-      # The IP address of the user's device.
-      field :ip, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('ip') } }
-      # This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/guides/prevent-fraud#signals).
-      field :is_returning_user, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('is_returning_user') } }
-      # A BCP-47 locale indicating the language the SMS should be sent to; if this is not set, the SMS will be sent to the language specified by the country code of the message. If we don't support the language set, the message will be sent in US English (en-US).
-      field :locale, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('locale') } }
-      # The version of the user's device operating system.
-      field :os_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('os_version') } }
-      # The Sender ID to use when sending the message.
-      field :sender_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('sender_id') } }
-      # The template id associated with the message content variant to be sent.
-      field :template_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('template_id') } }
+        # Your customer UUID, which can be found in the API settings in the dashboard.
+        field :customer_uuid, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('customer_uuid') } }
+        # An E.164 formatted phone number to send the OTP to.
+        field :phone_number, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('phone_number') } }
+        # The Android SMS Retriever API hash code that identifies your app. This allows you to automatically retrieve and fill the OTP code on Android devices.
+        field :app_realm, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('app_realm') } }
+        # The version of your application.
+        field :app_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('app_version') } }
+        # A webhook URL to which delivery statuses will be sent.
+        field :callback_url, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('callback_url') } }
+        # A unique, user-defined identifier that will be included in webhook events
+        field :correlation_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('correlation_id') } }
+        # Unique identifier for the user's device. For Android, this corresponds to the `ANDROID_ID` and for iOS, this corresponds to the `identifierForVendor`.
+        field :device_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_id') } }
+        # The model of the user's device.
+        field :device_model, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_model') } }
+        # The type of device the user is using.
+        field :device_type, T.nilable(Models::Shared::DeviceType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_type'), 'decoder': Utils.enum_from_string(Models::Shared::DeviceType, true) } }
+        # The IP address of the user's device.
+        field :ip, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('ip') } }
+        # This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine.
+        field :is_returning_user, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('is_returning_user') } }
+        # A BCP-47 locale indicating the language the SMS should be sent to; if this is not set, the SMS will be sent to the language specified by the country code of the message. If we don't support the language set, the message will be sent in US English (en-US).
+        field :locale, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('locale') } }
+        # The version of the user's device operating system.
+        field :os_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('os_version') } }
+        # The Sender ID to use when sending the message.
+        field :sender_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('sender_id') } }
+        # The template id associated with the message content variant to be sent.
+        field :template_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('template_id') } }
 
 
-      sig { params(customer_uuid: ::String, phone_number: ::String, app_realm: T.nilable(::String), app_version: T.nilable(::String), callback_url: T.nilable(::String), correlation_id: T.nilable(::String), device_id: T.nilable(::String), device_model: T.nilable(::String), device_type: T.nilable(::DingSDK::Shared::DeviceType), ip: T.nilable(::String), is_returning_user: T.nilable(T::Boolean), locale: T.nilable(::String), os_version: T.nilable(::String), sender_id: T.nilable(::String), template_id: T.nilable(::String)).void }
-      def initialize(customer_uuid: nil, phone_number: nil, app_realm: nil, app_version: nil, callback_url: nil, correlation_id: nil, device_id: nil, device_model: nil, device_type: nil, ip: nil, is_returning_user: nil, locale: nil, os_version: nil, sender_id: nil, template_id: nil)
-        @customer_uuid = customer_uuid
-        @phone_number = phone_number
-        @app_realm = app_realm
-        @app_version = app_version
-        @callback_url = callback_url
-        @correlation_id = correlation_id
-        @device_id = device_id
-        @device_model = device_model
-        @device_type = device_type
-        @ip = ip
-        @is_returning_user = is_returning_user
-        @locale = locale
-        @os_version = os_version
-        @sender_id = sender_id
-        @template_id = template_id
-      end
+        sig { params(customer_uuid: ::String, phone_number: ::String, app_realm: T.nilable(::String), app_version: T.nilable(::String), callback_url: T.nilable(::String), correlation_id: T.nilable(::String), device_id: T.nilable(::String), device_model: T.nilable(::String), device_type: T.nilable(Models::Shared::DeviceType), ip: T.nilable(::String), is_returning_user: T.nilable(T::Boolean), locale: T.nilable(::String), os_version: T.nilable(::String), sender_id: T.nilable(::String), template_id: T.nilable(::String)).void }
+        def initialize(customer_uuid: nil, phone_number: nil, app_realm: nil, app_version: nil, callback_url: nil, correlation_id: nil, device_id: nil, device_model: nil, device_type: nil, ip: nil, is_returning_user: nil, locale: nil, os_version: nil, sender_id: nil, template_id: nil)
+          @customer_uuid = customer_uuid
+          @phone_number = phone_number
+          @app_realm = app_realm
+          @app_version = app_version
+          @callback_url = callback_url
+          @correlation_id = correlation_id
+          @device_id = device_id
+          @device_model = device_model
+          @device_type = device_type
+          @ip = ip
+          @is_returning_user = is_returning_user
+          @locale = locale
+          @os_version = os_version
+          @sender_id = sender_id
+          @template_id = template_id
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @customer_uuid == other.customer_uuid
-        return false unless @phone_number == other.phone_number
-        return false unless @app_realm == other.app_realm
-        return false unless @app_version == other.app_version
-        return false unless @callback_url == other.callback_url
-        return false unless @correlation_id == other.correlation_id
-        return false unless @device_id == other.device_id
-        return false unless @device_model == other.device_model
-        return false unless @device_type == other.device_type
-        return false unless @ip == other.ip
-        return false unless @is_returning_user == other.is_returning_user
-        return false unless @locale == other.locale
-        return false unless @os_version == other.os_version
-        return false unless @sender_id == other.sender_id
-        return false unless @template_id == other.template_id
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @customer_uuid == other.customer_uuid
+          return false unless @phone_number == other.phone_number
+          return false unless @app_realm == other.app_realm
+          return false unless @app_version == other.app_version
+          return false unless @callback_url == other.callback_url
+          return false unless @correlation_id == other.correlation_id
+          return false unless @device_id == other.device_id
+          return false unless @device_model == other.device_model
+          return false unless @device_type == other.device_type
+          return false unless @ip == other.ip
+          return false unless @is_returning_user == other.is_returning_user
+          return false unless @locale == other.locale
+          return false unless @os_version == other.os_version
+          return false unless @sender_id == other.sender_id
+          return false unless @template_id == other.template_id
+          true
+        end
       end
     end
   end

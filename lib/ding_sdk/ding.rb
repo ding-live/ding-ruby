@@ -23,8 +23,8 @@ module DingSDK
         client: T.nilable(Faraday::Connection),
         retry_config: T.nilable(::DingSDK::Utils::RetryConfig),
         timeout_ms: T.nilable(Integer),
-        security: T.nilable(::DingSDK::Shared::Security),
-        security_source: T.nilable(T.proc.returns(::DingSDK::Shared::Security)),
+        security: T.nilable(Models::Shared::Security),
+        security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
         server_idx: T.nilable(Integer),
         server_url: T.nilable(String),
         url_params: T.nilable(T::Hash[Symbol, String])
@@ -35,8 +35,8 @@ module DingSDK
       # @param [T.nilable(Faraday::Connection)] client The faraday HTTP client to use for all operations
       # @param [T.nilable(::DingSDK::Utils::RetryConfig)] retry_config The retry configuration to use for all operations
       # @param [T.nilable(Integer)] timeout_ms Request timeout in milliseconds for all operations
-      # @param [T.nilable(::DingSDK::Shared::Security)] security: The security details required for authentication
-      # @param [T.proc.returns(T.nilable(::DingSDK::Shared::Security))] security_source: A function that returns security details required for authentication
+      # @param [T.nilable(Models::Shared::Security)] security: The security details required for authentication
+      # @param [T.proc.returns(T.nilable(Models::Shared::Security))] security_source: A function that returns security details required for authentication
       # @param [T.nilable(::Integer)] server_idx The index of the server to use for all operations
       # @param [T.nilable(::String)] server_url The server URL to use for all operations
       # @param [T.nilable(::Hash<::Symbol, ::String>)] url_params Parameters to optionally template the server URL with

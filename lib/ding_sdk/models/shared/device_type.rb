@@ -5,14 +5,16 @@
 
 
 module DingSDK
-  module Shared
-  
-    # DeviceType - The type of device the user is using.
-    class DeviceType < T::Enum
-      enums do
-        IOS = new('IOS')
-        ANDROID = new('ANDROID')
-        WEB = new('WEB')
+  module Models
+    module Shared
+    
+      # DeviceType - The type of device the user is using.
+      class DeviceType < T::Enum
+        enums do
+          IOS = new('IOS')
+          ANDROID = new('ANDROID')
+          WEB = new('WEB')
+        end
       end
     end
   end

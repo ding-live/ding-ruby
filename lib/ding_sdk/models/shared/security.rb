@@ -5,25 +5,28 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Security < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Security
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :api_key, ::String, { 'security': { 'scheme': true, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'x-api-key' } }
+        field :api_key, ::String, { 'security': { 'scheme': true, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'x-api-key' } }
 
 
-      sig { params(api_key: ::String).void }
-      def initialize(api_key: nil)
-        @api_key = api_key
-      end
+        sig { params(api_key: ::String).void }
+        def initialize(api_key: nil)
+          @api_key = api_key
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @api_key == other.api_key
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @api_key == other.api_key
+          true
+        end
       end
     end
   end

@@ -18,14 +18,16 @@ module DingSDK
   ].freeze
   # Contains the list of servers available to the SDK
 
-  class SDKConfiguration < ::Crystalline::FieldAugmented
+  class SDKConfiguration
     extend T::Sig
+    include Crystalline::MetadataFields
+
 
     field :client, T.nilable(Faraday::Connection)
     field :hooks, ::DingSDK::SDKHooks::Hooks
     field :retry_config, T.nilable(::DingSDK::Utils::RetryConfig)
     field :timeout, T.nilable(Float)
-    field :security_source, T.nilable(T.proc.returns(T.nilable(::DingSDK::Shared::Security)))
+    field :security_source, T.nilable(T.proc.returns(T.nilable(Models::Shared::Security)))
     field :server_url, T.nilable(String)
     field :server_idx, T.nilable(Integer)
     field :language, String
@@ -40,8 +42,8 @@ module DingSDK
         hooks: ::DingSDK::SDKHooks::Hooks,
         retry_config: T.nilable(::DingSDK::Utils::RetryConfig),
         timeout_ms: T.nilable(Integer),
-        security: T.nilable(::DingSDK::Shared::Security),
-        security_source: T.nilable(T.proc.returns(::DingSDK::Shared::Security)),
+        security: T.nilable(Models::Shared::Security),
+        security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
         server_url: T.nilable(String),
         server_idx: T.nilable(Integer)
       ).void
@@ -61,9 +63,9 @@ module DingSDK
       end
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.14.2'
-      @gen_version = '2.568.5'
-      @user_agent = 'speakeasy-sdk/ruby 0.14.2 2.568.5 1.0.0 ding_sdk'
+      @sdk_version = '0.14.3'
+      @gen_version = '2.570.0'
+      @user_agent = 'speakeasy-sdk/ruby 0.14.3 2.570.0 1.0.0 ding_sdk'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

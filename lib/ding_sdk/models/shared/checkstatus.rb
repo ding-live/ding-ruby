@@ -5,26 +5,28 @@
 
 
 module DingSDK
-  module Shared
-  
-    # CheckStatus - The status of the check. Possible values are:
-    #   * `unknown` - The status is unknown.
-    #   * `valid` - The code is valid.
-    #   * `invalid` - The code is invalid.
-    #   * `without_attempt` - No attempt was sent yet, so a check cannot be completed.
-    #   * `rate_limited` - The authentication was rate limited and cannot be checked.
-    #   * `already_validated` - The authentication has already been validated.
-    #   * `expired_auth` - The authentication has expired and cannot be checked.
-    # 
-    class CheckStatus < T::Enum
-      enums do
-        UNKNOWN = new('unknown')
-        VALID = new('valid')
-        INVALID = new('invalid')
-        WITHOUT_ATTEMPT = new('without_attempt')
-        RATE_LIMITED = new('rate_limited')
-        ALREADY_VALIDATED = new('already_validated')
-        EXPIRED_AUTH = new('expired_auth')
+  module Models
+    module Shared
+    
+      # CheckStatus - The status of the check. Possible values are:
+      #   * `unknown` - The status is unknown.
+      #   * `valid` - The code is valid.
+      #   * `invalid` - The code is invalid.
+      #   * `without_attempt` - No attempt was sent yet, so a check cannot be completed.
+      #   * `rate_limited` - The authentication was rate limited and cannot be checked.
+      #   * `already_validated` - The authentication has already been validated.
+      #   * `expired_auth` - The authentication has expired and cannot be checked.
+      # 
+      class CheckStatus < T::Enum
+        enums do
+          UNKNOWN = new('unknown')
+          VALID = new('valid')
+          INVALID = new('invalid')
+          WITHOUT_ATTEMPT = new('without_attempt')
+          RATE_LIMITED = new('rate_limited')
+          ALREADY_VALIDATED = new('already_validated')
+          EXPIRED_AUTH = new('expired_auth')
+        end
       end
     end
   end

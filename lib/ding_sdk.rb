@@ -5,10 +5,13 @@
 
 module DingSDK
   autoload :Ding, 'ding_sdk/ding'
-  autoload :Shared, 'ding_sdk/models/shared'
-  autoload :Operations, 'ding_sdk/models/operations'
   autoload :Otp, 'ding_sdk/otp'
   autoload :Lookup, 'ding_sdk/lookup'
+  module Models
+    autoload :Shared, 'ding_sdk/models/shared'
+    autoload :Operations, 'ding_sdk/models/operations'
+    autoload :Errors, 'ding_sdk/models/errors'
+  end
 end
 
 require_relative 'ding_sdk/utils/utils'

@@ -15,7 +15,7 @@ Send OTP codes to your users using their phone numbers.
 
 ## check
 
-Check a code
+Check that a code entered by a user is valid.
 
 ### Example Usage
 
@@ -23,12 +23,12 @@ Check a code
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
 
-req = ::DingSDK::Shared::CreateCheckRequest.new(
+req = Models::Shared::CreateCheckRequest.new(
   authentication_uuid: "eebe792b-2fcc-44a0-87f1-650e79259e02",
   check_code: "123456",
   customer_uuid: "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
@@ -44,19 +44,19 @@ end
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [::DingSDK::Shared::CreateCheckRequest](../../models/shared/createcheckrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [Models::Shared::CreateCheckRequest](../../models/shared/createcheckrequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
 ### Response
 
-**[T.nilable(::DingSDK::Operations::CheckResponse)](../../models/operations/checkresponse.md)**
+**[T.nilable(Models::Operations::CheckResponse)](../../models/operations/checkresponse.md)**
 
 
 
 ## create_authentication
 
-Send a code
+Send an OTP code to a user's phone number.
 
 ### Example Usage
 
@@ -64,12 +64,12 @@ Send a code
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
 
-req = ::DingSDK::Shared::CreateAuthenticationRequest.new(
+req = Models::Shared::CreateAuthenticationRequest.new(
   customer_uuid: "cf2edc1c-7fc6-48fb-86da-b7508c6b7b71",
   locale: "fr-FR",
   phone_number: "+1234567890",
@@ -85,19 +85,19 @@ end
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [::DingSDK::Shared::CreateAuthenticationRequest](../../models/shared/createauthenticationrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Shared::CreateAuthenticationRequest](../../models/shared/createauthenticationrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[T.nilable(::DingSDK::Operations::CreateAuthenticationResponse)](../../models/operations/createauthenticationresponse.md)**
+**[T.nilable(Models::Operations::CreateAuthenticationResponse)](../../models/operations/createauthenticationresponse.md)**
 
 
 
 ## feedback
 
-Send feedback
+Send feedback about the authentication process.
 
 ### Example Usage
 
@@ -105,15 +105,15 @@ Send feedback
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
 
-req = ::DingSDK::Shared::FeedbackRequest.new(
+req = Models::Shared::FeedbackRequest.new(
   customer_uuid: "cc0f6c04-40de-448f-8301-3cb0e6565dff",
   phone_number: "+1234567890",
-  status: ::DingSDK::Shared::FeedbackRequestStatus::ONBOARDED,
+  status: Models::Shared::FeedbackRequestStatus::ONBOARDED,
 )
 
 res = s.otp.feedback(req)
@@ -126,19 +126,19 @@ end
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [::DingSDK::Shared::FeedbackRequest](../../models/shared/feedbackrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [Models::Shared::FeedbackRequest](../../models/shared/feedbackrequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 ### Response
 
-**[T.nilable(::DingSDK::Operations::FeedbackResponse)](../../models/operations/feedbackresponse.md)**
+**[T.nilable(Models::Operations::FeedbackResponse)](../../models/operations/feedbackresponse.md)**
 
 
 
 ## get_authentication_status
 
-Get authentication status
+Get the status of an authentication.
 
 ### Example Usage
 
@@ -146,7 +146,7 @@ Get authentication status
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
@@ -167,13 +167,13 @@ end
 
 ### Response
 
-**[T.nilable(::DingSDK::Operations::GetAuthenticationStatusResponse)](../../models/operations/getauthenticationstatusresponse.md)**
+**[T.nilable(Models::Operations::GetAuthenticationStatusResponse)](../../models/operations/getauthenticationstatusresponse.md)**
 
 
 
 ## retry
 
-Perform a retry
+Perform a retry if a user has not received the code.
 
 ### Example Usage
 
@@ -181,12 +181,12 @@ Perform a retry
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
 
-req = ::DingSDK::Shared::RetryAuthenticationRequest.new(
+req = Models::Shared::RetryAuthenticationRequest.new(
   authentication_uuid: "a4e4548a-1f7b-451a-81cb-a68ed5aff3b0",
   customer_uuid: "28532118-1b33-420a-b57b-648c9bf85fee",
 )
@@ -201,11 +201,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [::DingSDK::Shared::RetryAuthenticationRequest](../../models/shared/retryauthenticationrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Shared::RetryAuthenticationRequest](../../models/shared/retryauthenticationrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[T.nilable(::DingSDK::Operations::RetryResponse)](../../models/operations/retryresponse.md)**
+**[T.nilable(Models::Operations::RetryResponse)](../../models/operations/retryresponse.md)**
 

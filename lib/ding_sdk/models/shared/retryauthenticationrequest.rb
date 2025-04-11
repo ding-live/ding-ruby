@@ -5,29 +5,32 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class RetryAuthenticationRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class RetryAuthenticationRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The authentication UUID that was returned when you created the authentication.
-      field :authentication_uuid, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
-      # Your customer UUID, which can be found in the API settings in the dashboard.
-      field :customer_uuid, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('customer_uuid') } }
+        # The authentication UUID that was returned when you created the authentication.
+        field :authentication_uuid, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
+        # Your customer UUID, which can be found in the API settings in the dashboard.
+        field :customer_uuid, ::String, { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('customer_uuid') } }
 
 
-      sig { params(authentication_uuid: ::String, customer_uuid: ::String).void }
-      def initialize(authentication_uuid: nil, customer_uuid: nil)
-        @authentication_uuid = authentication_uuid
-        @customer_uuid = customer_uuid
-      end
+        sig { params(authentication_uuid: ::String, customer_uuid: ::String).void }
+        def initialize(authentication_uuid: nil, customer_uuid: nil)
+          @authentication_uuid = authentication_uuid
+          @customer_uuid = customer_uuid
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @authentication_uuid == other.authentication_uuid
-        return false unless @customer_uuid == other.customer_uuid
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @authentication_uuid == other.authentication_uuid
+          return false unless @customer_uuid == other.customer_uuid
+          true
+        end
       end
     end
   end

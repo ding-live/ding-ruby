@@ -5,12 +5,14 @@
 
 
 module DingSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class Type < T::Enum
-      enums do
-        CNAM = new('cnam')
+      class Type < T::Enum
+        enums do
+          CNAM = new('cnam')
+        end
       end
     end
   end

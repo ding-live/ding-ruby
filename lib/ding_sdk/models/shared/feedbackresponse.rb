@@ -5,25 +5,28 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class FeedbackResponse < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class FeedbackResponse
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The UUID of the feedback.
-      field :uuid, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('uuid') } }
+        # The UUID of the feedback.
+        field :uuid, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('uuid') } }
 
 
-      sig { params(uuid: T.nilable(::String)).void }
-      def initialize(uuid: nil)
-        @uuid = uuid
-      end
+        sig { params(uuid: T.nilable(::String)).void }
+        def initialize(uuid: nil)
+          @uuid = uuid
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @uuid == other.uuid
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @uuid == other.uuid
+          true
+        end
       end
     end
   end

@@ -5,41 +5,40 @@
 
 
 module DingSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class LookupResponse < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class LookupResponse
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # HTTP response content type for this operation
-      field :content_type, ::String
-      # Raw HTTP response; suitable for custom response parsing
-      field :raw_response, ::Faraday::Response
-      # HTTP response status code for this operation
-      field :status_code, ::Integer
-      # Bad Request
-      field :error_response, T.nilable(::DingSDK::Shared::ErrorResponse)
-      # OK
-      field :lookup_response, T.nilable(::DingSDK::Shared::LookupResponse)
+        # HTTP response content type for this operation
+        field :content_type, ::String
+        # Raw HTTP response; suitable for custom response parsing
+        field :raw_response, ::Faraday::Response
+        # HTTP response status code for this operation
+        field :status_code, ::Integer
+        # OK
+        field :lookup_response, T.nilable(Models::Shared::LookupResponse)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, error_response: T.nilable(::DingSDK::Shared::ErrorResponse), lookup_response: T.nilable(::DingSDK::Shared::LookupResponse)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, error_response: nil, lookup_response: nil)
-        @content_type = content_type
-        @raw_response = raw_response
-        @status_code = status_code
-        @error_response = error_response
-        @lookup_response = lookup_response
-      end
+        sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, lookup_response: T.nilable(Models::Shared::LookupResponse)).void }
+        def initialize(content_type: nil, raw_response: nil, status_code: nil, lookup_response: nil)
+          @content_type = content_type
+          @raw_response = raw_response
+          @status_code = status_code
+          @lookup_response = lookup_response
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @content_type == other.content_type
-        return false unless @raw_response == other.raw_response
-        return false unless @status_code == other.status_code
-        return false unless @error_response == other.error_response
-        return false unless @lookup_response == other.lookup_response
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @content_type == other.content_type
+          return false unless @raw_response == other.raw_response
+          return false unless @status_code == other.status_code
+          return false unless @lookup_response == other.lookup_response
+          true
+        end
       end
     end
   end

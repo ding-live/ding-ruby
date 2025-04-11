@@ -5,37 +5,40 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class BalanceUpdate < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class BalanceUpdate
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The amount of the balance update.
-      field :amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('amount') } }
+        # The amount of the balance update.
+        field :amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('amount') } }
 
-      field :balance_update_type, T.nilable(::DingSDK::Shared::BalanceUpdateType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('balance_update_type'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::BalanceUpdateType, true) } }
+        field :balance_update_type, T.nilable(Models::Shared::BalanceUpdateType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('balance_update_type'), 'decoder': Utils.enum_from_string(Models::Shared::BalanceUpdateType, true) } }
 
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The type of the event.
-      field :type, T.nilable(::DingSDK::Shared::AuthenticationStatusResponseSchemasEventsType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::AuthenticationStatusResponseSchemasEventsType, true) } }
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The type of the event.
+        field :type, T.nilable(Models::Shared::AuthenticationStatusResponseSchemasEventsType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::AuthenticationStatusResponseSchemasEventsType, true) } }
 
 
-      sig { params(amount: T.nilable(::Float), balance_update_type: T.nilable(::DingSDK::Shared::BalanceUpdateType), created_at: T.nilable(::DateTime), type: T.nilable(::DingSDK::Shared::AuthenticationStatusResponseSchemasEventsType)).void }
-      def initialize(amount: nil, balance_update_type: nil, created_at: nil, type: nil)
-        @amount = amount
-        @balance_update_type = balance_update_type
-        @created_at = created_at
-        @type = type
-      end
+        sig { params(amount: T.nilable(::Float), balance_update_type: T.nilable(Models::Shared::BalanceUpdateType), created_at: T.nilable(::DateTime), type: T.nilable(Models::Shared::AuthenticationStatusResponseSchemasEventsType)).void }
+        def initialize(amount: nil, balance_update_type: nil, created_at: nil, type: nil)
+          @amount = amount
+          @balance_update_type = balance_update_type
+          @created_at = created_at
+          @type = type
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @amount == other.amount
-        return false unless @balance_update_type == other.balance_update_type
-        return false unless @created_at == other.created_at
-        return false unless @type == other.type
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @amount == other.amount
+          return false unless @balance_update_type == other.balance_update_type
+          return false unless @created_at == other.created_at
+          return false unless @type == other.type
+          true
+        end
       end
     end
   end

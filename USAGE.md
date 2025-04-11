@@ -8,12 +8,12 @@ Send an OTP code to a user's phone number.
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
 
-req = ::DingSDK::Shared::CreateAuthenticationRequest.new(
+req = Models::Shared::CreateAuthenticationRequest.new(
   customer_uuid: "cf2edc1c-7fc6-48fb-86da-b7508c6b7b71",
   locale: "fr-FR",
   phone_number: "+1234567890",
@@ -36,12 +36,12 @@ Check that a code entered by a user is valid.
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
 
-req = ::DingSDK::Shared::CreateCheckRequest.new(
+req = Models::Shared::CreateCheckRequest.new(
   authentication_uuid: "eebe792b-2fcc-44a0-87f1-650e79259e02",
   check_code: "123456",
   customer_uuid: "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
@@ -64,12 +64,12 @@ Perform a retry if a user has not received the code.
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
 
-req = ::DingSDK::Shared::RetryAuthenticationRequest.new(
+req = Models::Shared::RetryAuthenticationRequest.new(
   authentication_uuid: "a4e4548a-1f7b-451a-81cb-a68ed5aff3b0",
   customer_uuid: "28532118-1b33-420a-b57b-648c9bf85fee",
 )
@@ -91,15 +91,15 @@ Send feedback about the authentication process.
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
 
-req = ::DingSDK::Shared::FeedbackRequest.new(
+req = Models::Shared::FeedbackRequest.new(
   customer_uuid: "cc0f6c04-40de-448f-8301-3cb0e6565dff",
   phone_number: "+1234567890",
-  status: ::DingSDK::Shared::FeedbackRequestStatus::ONBOARDED,
+  status: Models::Shared::FeedbackRequestStatus::ONBOARDED,
 )
 
 res = s.otp.feedback(req)
@@ -119,7 +119,7 @@ Get the status of an authentication.
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
@@ -141,13 +141,13 @@ Perform a phone number lookup.
 require 'ding_sdk'
 
 s = ::DingSDK::Ding.new(
-      security: ::DingSDK::Shared::Security.new(
+      security: Models::Shared::Security.new(
         api_key: "YOUR_API_KEY",
       ),
     )
 
 res = s.lookup.lookup(customer_uuid="69a197d9-356c-45d1-a807-41874e16b555", phone_number="<value>", type=[
-  ::DingSDK::Operations::Type::CNAM,
+  Models::Operations::Type::CNAM,
 ])
 
 if ! res.lookup_response.nil?

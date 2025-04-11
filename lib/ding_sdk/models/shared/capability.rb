@@ -5,15 +5,17 @@
 
 
 module DingSDK
-  module Shared
-  
-    # Capability - The capability of the attempt.
-    class Capability < T::Enum
-      enums do
-        RCS = new('rcs')
-        TEXT = new('text')
-        WHATSAPP = new('whatsapp')
-        VIBER = new('viber')
+  module Models
+    module Shared
+    
+      # Capability - The capability of the attempt.
+      class Capability < T::Enum
+        enums do
+          RCS = new('rcs')
+          TEXT = new('text')
+          WHATSAPP = new('whatsapp')
+          VIBER = new('viber')
+        end
       end
     end
   end

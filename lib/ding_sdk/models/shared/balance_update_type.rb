@@ -5,18 +5,20 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class BalanceUpdateType < T::Enum
-      enums do
-        UNKNOWN = new('unknown')
-        AUTHENTICATION = new('authentication')
-        ATTEMPT = new('attempt')
-        ATTEMPT_PENDING = new('attempt_pending')
-        ATTEMPT_SUCCESS = new('attempt_success')
-        AUTHENTICATION_PENDING = new('authentication_pending')
-        AUTHENTICATION_SUCCESS = new('authentication_success')
+      class BalanceUpdateType < T::Enum
+        enums do
+          UNKNOWN = new('unknown')
+          AUTHENTICATION = new('authentication')
+          ATTEMPT = new('attempt')
+          ATTEMPT_PENDING = new('attempt_pending')
+          ATTEMPT_SUCCESS = new('attempt_success')
+          AUTHENTICATION_PENDING = new('authentication_pending')
+          AUTHENTICATION_SUCCESS = new('authentication_success')
+        end
       end
     end
   end

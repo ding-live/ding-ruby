@@ -22,10 +22,11 @@ module DingSDK
     end
 
 
-    sig { params(customer_uuid: ::String, phone_number: ::String, type: T.nilable(T::Array[::DingSDK::Operations::Type]), timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::LookupResponse) }
+    sig { params(customer_uuid: ::String, phone_number: ::String, type: T.nilable(T::Array[Models::Operations::Type]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LookupResponse) }
     def lookup(customer_uuid, phone_number, type = nil, timeout_ms = nil)
       # lookup - Look up for phone number
-      request = ::DingSDK::Operations::LookupRequest.new(
+      # Perform a phone number lookup.
+      request = Models::Operations::LookupRequest.new(
         
         customer_uuid: customer_uuid,
         phone_number: phone_number,
@@ -34,13 +35,13 @@ module DingSDK
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        ::DingSDK::Operations::LookupRequest,
+        Models::Operations::LookupRequest,
         base_url,
         '/lookup/{phone_number}',
         request
       )
       headers = Utils.get_headers(request)
-      query_params = Utils.get_query_params(::DingSDK::Operations::LookupRequest, request)
+      query_params = Utils.get_query_params(Models::Operations::LookupRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -111,8 +112,8 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::LookupResponse)
-          response = ::DingSDK::Operations::LookupResponse.new(
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::LookupResponse)
+          response = Models::Operations::LookupResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
@@ -121,7 +122,7 @@ module DingSDK
 
           return response
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       elsif Utils.match_status_code(http_response.status, ['400'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -131,20 +132,18 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::ErrorResponse)
-          response = ::DingSDK::Operations::LookupResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            error_response: obj
-          )
-
-          return response
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ErrorResponse)
+          throw obj
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
       else
-        raise StandardError, 'Unexpected response status code'
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
+
       end
     end
   end

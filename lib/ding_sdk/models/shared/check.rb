@@ -5,41 +5,44 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Check < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Check
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The code that was checked.
-      field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('code') } }
+        # The code that was checked.
+        field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('code') } }
 
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The ID of the check.
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('id') } }
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The ID of the check.
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('id') } }
 
-      field :status, T.nilable(::DingSDK::Shared::CheckStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::CheckStatus, true) } }
-      # The type of the event.
-      field :type, T.nilable(::DingSDK::Shared::AuthenticationStatusResponseType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::AuthenticationStatusResponseType, true) } }
+        field :status, T.nilable(Models::Shared::CheckStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::CheckStatus, true) } }
+        # The type of the event.
+        field :type, T.nilable(Models::Shared::AuthenticationStatusResponseType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::AuthenticationStatusResponseType, true) } }
 
 
-      sig { params(code: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), status: T.nilable(::DingSDK::Shared::CheckStatus), type: T.nilable(::DingSDK::Shared::AuthenticationStatusResponseType)).void }
-      def initialize(code: nil, created_at: nil, id: nil, status: nil, type: nil)
-        @code = code
-        @created_at = created_at
-        @id = id
-        @status = status
-        @type = type
-      end
+        sig { params(code: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), status: T.nilable(Models::Shared::CheckStatus), type: T.nilable(Models::Shared::AuthenticationStatusResponseType)).void }
+        def initialize(code: nil, created_at: nil, id: nil, status: nil, type: nil)
+          @code = code
+          @created_at = created_at
+          @id = id
+          @status = status
+          @type = type
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @code == other.code
-        return false unless @created_at == other.created_at
-        return false unless @id == other.id
-        return false unless @status == other.status
-        return false unless @type == other.type
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @code == other.code
+          return false unless @created_at == other.created_at
+          return false unless @id == other.id
+          return false unless @status == other.status
+          return false unless @type == other.type
+          true
+        end
       end
     end
   end

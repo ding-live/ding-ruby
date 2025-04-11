@@ -5,16 +5,18 @@
 
 
 module DingSDK
-  module Shared
-  
-    # AuthenticationStatusResponseDeviceType - The type of device the user is using.
-    class AuthenticationStatusResponseDeviceType < T::Enum
-      enums do
-        ANDROID = new('ANDROID')
-        IOS = new('IOS')
-        IPADOS = new('IPADOS')
-        TVOS = new('TVOS')
-        WEB = new('WEB')
+  module Models
+    module Shared
+    
+      # AuthenticationStatusResponseDeviceType - The type of device the user is using.
+      class AuthenticationStatusResponseDeviceType < T::Enum
+        enums do
+          ANDROID = new('ANDROID')
+          IOS = new('IOS')
+          IPADOS = new('IPADOS')
+          TVOS = new('TVOS')
+          WEB = new('WEB')
+        end
       end
     end
   end

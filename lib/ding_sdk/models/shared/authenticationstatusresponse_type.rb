@@ -5,15 +5,17 @@
 
 
 module DingSDK
-  module Shared
-  
-    # AuthenticationStatusResponseType - The type of the event.
-    class AuthenticationStatusResponseType < T::Enum
-      enums do
-        ATTEMPT = new('attempt')
-        CHECK = new('check')
-        DELIVERY_STATUS = new('delivery_status')
-        BALANCE_UPDATE = new('balance_update')
+  module Models
+    module Shared
+    
+      # AuthenticationStatusResponseType - The type of the event.
+      class AuthenticationStatusResponseType < T::Enum
+        enums do
+          ATTEMPT = new('attempt')
+          CHECK = new('check')
+          DELIVERY_STATUS = new('delivery_status')
+          BALANCE_UPDATE = new('balance_update')
+        end
       end
     end
   end

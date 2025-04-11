@@ -5,25 +5,28 @@
 
 
 module DingSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class GetAuthenticationStatusRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class GetAuthenticationStatusRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :auth_uuid, ::String, { 'path_param': { 'field_name': 'auth_uuid', 'style': 'simple', 'explode': false } }
+        field :auth_uuid, ::String, { 'path_param': { 'field_name': 'auth_uuid', 'style': 'simple', 'explode': false } }
 
 
-      sig { params(auth_uuid: ::String).void }
-      def initialize(auth_uuid: nil)
-        @auth_uuid = auth_uuid
-      end
+        sig { params(auth_uuid: ::String).void }
+        def initialize(auth_uuid: nil)
+          @auth_uuid = auth_uuid
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @auth_uuid == other.auth_uuid
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @auth_uuid == other.auth_uuid
+          true
+        end
       end
     end
   end

@@ -24,7 +24,7 @@ module DingSDK
       end
     end
 
-    sig { params(headers_params: ::Crystalline::FieldAugmented, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(T::Hash[Symbol, String]) }
+    sig { params(headers_params: Object, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(T::Hash[Symbol, String]) }
     def self.get_headers(headers_params, gbls = nil)
       return {} if headers_params.nil?
 
@@ -231,7 +231,7 @@ module DingSDK
       _populate_form(field_name, metadata.fetch(:explode, true), obj, delimiter, &get_query_param_field_name)
     end
 
-    sig { params(clazz: Class, query_params: ::Crystalline::FieldAugmented, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(T::Hash[Symbol, T::Array[String]]) }
+    sig { params(clazz: Class, query_params: Object, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(T::Hash[Symbol, T::Array[String]]) }
     def self.get_query_params(clazz, query_params, gbls = nil)
       params = {}
       param_fields = clazz.fields
@@ -275,7 +275,7 @@ module DingSDK
       params
     end
 
-    sig { params(clazz: Class, server_url: String, path: String, path_params: ::Crystalline::FieldAugmented, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(String) }
+    sig { params(clazz: Class, server_url: String, path: String, path_params: Object, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(String) }
     def self.generate_url(clazz, server_url, path, path_params, gbls = nil)
       clazz.fields.each do |f|
         param_metadata = f.metadata[:path_param]
@@ -479,7 +479,7 @@ module DingSDK
       end
     end
 
-    sig { params(req: Faraday::Request, scheme: ::Crystalline::FieldAugmented).void }
+    sig { params(req: Faraday::Request, scheme: Object).void }
     def self._parse_basic_auth_scheme(req, scheme)
       username, password = ''
 
@@ -583,7 +583,7 @@ module DingSDK
       raise StandardError, "invalid request body type #{type(request)} for mediaType {metadata['media_type']}"
     end
 
-    sig { params(field: ::Crystalline::MetadataFields::Field, data_class: ::Crystalline::FieldAugmented).returns(Object) }
+    sig { params(field: ::Crystalline::MetadataFields::Field, data_class: Object).returns(Object) }
     def self.parse_field(field, data_class)
       field_metadata = field.metadata[:metadata_string]
       return nil if field_metadata.nil?
@@ -594,7 +594,7 @@ module DingSDK
       field_value
     end
 
-    sig { params(media_type: String, request: ::Crystalline::FieldAugmented).returns([String, Object, T::Array[T::Array[Object]]]) }
+    sig { params(media_type: String, request: Object).returns([String, Object, T::Array[T::Array[Object]]]) }
     def self.serialize_multipart_form(media_type, request)
       form = []
       request_fields = request.fields
@@ -673,7 +673,7 @@ module DingSDK
     end
 
     sig do
-      params(field_name: Symbol, data: T.any(::Crystalline::FieldAugmented, T::Hash[Symbol, String]))
+      params(field_name: Symbol, data: T.any(Object, T::Hash[Symbol, String]))
         .returns(T::Hash[Symbol, Object])
     end
     def self.serialize_form_data(field_name, data)

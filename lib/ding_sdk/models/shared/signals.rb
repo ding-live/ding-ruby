@@ -5,53 +5,56 @@
 
 
 module DingSDK
-  module Shared
-  
-    # [Signals](/guides/prevent-fraud#signals) are data points used to distinguish between fraudulent and legitimate users.
-    class Signals < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # Signals are data points used to distinguish between fraudulent and legitimate users.
+      class Signals
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The Android SMS Retriever API hash code that identifies your app. This allows you to automatically retrieve and fill the OTP code on Android devices.
-      field :app_realm, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('app_realm') } }
-      # The version of your application.
-      field :app_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('app_version') } }
-      # Unique identifier for the user's device. For Android, this corresponds to the `ANDROID_ID` and for iOS, this corresponds to the `identifierForVendor`.
-      field :device_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_id') } }
-      # The model of the user's device.
-      field :device_model, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_model') } }
-      # The type of device the user is using.
-      field :device_type, T.nilable(::DingSDK::Shared::AuthenticationStatusResponseDeviceType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_type'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::AuthenticationStatusResponseDeviceType, true) } }
-      # The IP address of the user's device.
-      field :ip, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('ip') } }
-      # This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/guides/prevent-fraud#signals).
-      field :is_returning_user, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('is_returning_user') } }
-      # The version of the user's device operating system.
-      field :os_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('os_version') } }
+        # The Android SMS Retriever API hash code that identifies your app. This allows you to automatically retrieve and fill the OTP code on Android devices.
+        field :app_realm, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('app_realm') } }
+        # The version of your application.
+        field :app_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('app_version') } }
+        # Unique identifier for the user's device. For Android, this corresponds to the `ANDROID_ID` and for iOS, this corresponds to the `identifierForVendor`.
+        field :device_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_id') } }
+        # The model of the user's device.
+        field :device_model, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_model') } }
+        # The type of device the user is using.
+        field :device_type, T.nilable(Models::Shared::AuthenticationStatusResponseDeviceType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('device_type'), 'decoder': Utils.enum_from_string(Models::Shared::AuthenticationStatusResponseDeviceType, true) } }
+        # The IP address of the user's device.
+        field :ip, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('ip') } }
+        # This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/verify/v2/documentation/prevent-fraud#signals).
+        field :is_returning_user, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('is_returning_user') } }
+        # The version of the user's device operating system.
+        field :os_version, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('os_version') } }
 
 
-      sig { params(app_realm: T.nilable(::String), app_version: T.nilable(::String), device_id: T.nilable(::String), device_model: T.nilable(::String), device_type: T.nilable(::DingSDK::Shared::AuthenticationStatusResponseDeviceType), ip: T.nilable(::String), is_returning_user: T.nilable(T::Boolean), os_version: T.nilable(::String)).void }
-      def initialize(app_realm: nil, app_version: nil, device_id: nil, device_model: nil, device_type: nil, ip: nil, is_returning_user: nil, os_version: nil)
-        @app_realm = app_realm
-        @app_version = app_version
-        @device_id = device_id
-        @device_model = device_model
-        @device_type = device_type
-        @ip = ip
-        @is_returning_user = is_returning_user
-        @os_version = os_version
-      end
+        sig { params(app_realm: T.nilable(::String), app_version: T.nilable(::String), device_id: T.nilable(::String), device_model: T.nilable(::String), device_type: T.nilable(Models::Shared::AuthenticationStatusResponseDeviceType), ip: T.nilable(::String), is_returning_user: T.nilable(T::Boolean), os_version: T.nilable(::String)).void }
+        def initialize(app_realm: nil, app_version: nil, device_id: nil, device_model: nil, device_type: nil, ip: nil, is_returning_user: nil, os_version: nil)
+          @app_realm = app_realm
+          @app_version = app_version
+          @device_id = device_id
+          @device_model = device_model
+          @device_type = device_type
+          @ip = ip
+          @is_returning_user = is_returning_user
+          @os_version = os_version
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @app_realm == other.app_realm
-        return false unless @app_version == other.app_version
-        return false unless @device_id == other.device_id
-        return false unless @device_model == other.device_model
-        return false unless @device_type == other.device_type
-        return false unless @ip == other.ip
-        return false unless @is_returning_user == other.is_returning_user
-        return false unless @os_version == other.os_version
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @app_realm == other.app_realm
+          return false unless @app_version == other.app_version
+          return false unless @device_id == other.device_id
+          return false unless @device_model == other.device_model
+          return false unless @device_type == other.device_type
+          return false unless @ip == other.ip
+          return false unless @is_returning_user == other.is_returning_user
+          return false unless @os_version == other.os_version
+          true
+        end
       end
     end
   end

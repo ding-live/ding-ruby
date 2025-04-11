@@ -5,51 +5,54 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class DeliveryStatus < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class DeliveryStatus
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The ID of the attempt.
-      field :attempt_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('attempt_id') } }
-      # The attempt number.
-      field :attempt_number, T.nilable(::Integer), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('attempt_number') } }
+        # The ID of the attempt.
+        field :attempt_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('attempt_id') } }
+        # The attempt number.
+        field :attempt_number, T.nilable(::Integer), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('attempt_number') } }
 
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The date and time from the provider.
-      field :originated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('originated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The status of the delivery. Possible values are:
-      #   * `unknown` - The status of the delivery is unknown.
-      #   * `submitted` - The message has been submitted to the carrier.
-      #   * `in_transit` - The message is in transit to the recipient.
-      #   * `delivered` - The message has been delivered to the recipient.
-      #   * `undeliverable` - The message could not be delivered to the recipient.
-      # 
-      field :status, T.nilable(::DingSDK::Shared::AuthenticationStatusResponseStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::AuthenticationStatusResponseStatus, true) } }
-      # The type of the event.
-      field :type, T.nilable(::DingSDK::Shared::AuthenticationStatusResponseSchemasType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::AuthenticationStatusResponseSchemasType, true) } }
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The date and time from the provider.
+        field :originated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('originated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The status of the delivery. Possible values are:
+        #   * `unknown` - The status of the delivery is unknown.
+        #   * `submitted` - The message has been submitted to the carrier.
+        #   * `in_transit` - The message is in transit to the recipient.
+        #   * `delivered` - The message has been delivered to the recipient.
+        #   * `undeliverable` - The message could not be delivered to the recipient.
+        # 
+        field :status, T.nilable(Models::Shared::AuthenticationStatusResponseStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::AuthenticationStatusResponseStatus, true) } }
+        # The type of the event.
+        field :type, T.nilable(Models::Shared::AuthenticationStatusResponseSchemasType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::AuthenticationStatusResponseSchemasType, true) } }
 
 
-      sig { params(attempt_id: T.nilable(::String), attempt_number: T.nilable(::Integer), created_at: T.nilable(::DateTime), originated_at: T.nilable(::DateTime), status: T.nilable(::DingSDK::Shared::AuthenticationStatusResponseStatus), type: T.nilable(::DingSDK::Shared::AuthenticationStatusResponseSchemasType)).void }
-      def initialize(attempt_id: nil, attempt_number: nil, created_at: nil, originated_at: nil, status: nil, type: nil)
-        @attempt_id = attempt_id
-        @attempt_number = attempt_number
-        @created_at = created_at
-        @originated_at = originated_at
-        @status = status
-        @type = type
-      end
+        sig { params(attempt_id: T.nilable(::String), attempt_number: T.nilable(::Integer), created_at: T.nilable(::DateTime), originated_at: T.nilable(::DateTime), status: T.nilable(Models::Shared::AuthenticationStatusResponseStatus), type: T.nilable(Models::Shared::AuthenticationStatusResponseSchemasType)).void }
+        def initialize(attempt_id: nil, attempt_number: nil, created_at: nil, originated_at: nil, status: nil, type: nil)
+          @attempt_id = attempt_id
+          @attempt_number = attempt_number
+          @created_at = created_at
+          @originated_at = originated_at
+          @status = status
+          @type = type
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @attempt_id == other.attempt_id
-        return false unless @attempt_number == other.attempt_number
-        return false unless @created_at == other.created_at
-        return false unless @originated_at == other.originated_at
-        return false unless @status == other.status
-        return false unless @type == other.type
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @attempt_id == other.attempt_id
+          return false unless @attempt_number == other.attempt_number
+          return false unless @created_at == other.created_at
+          return false unless @originated_at == other.originated_at
+          return false unless @status == other.status
+          return false unless @type == other.type
+          true
+        end
       end
     end
   end

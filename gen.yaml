@@ -12,11 +12,13 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 ruby:
-  version: 0.14.2
+  version: 0.14.3
   additionalDependencies:
     development: {}
     runtime: {}
   author: Ding
+  clientServerStatusCodesAsErrors: true
+  defaultErrorName: APIError
   description: Ding Ruby SDK
   flattenGlobalSecurity: false
   imports:

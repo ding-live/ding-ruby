@@ -5,13 +5,15 @@
 
 
 module DingSDK
-  module Shared
-  
-    # FeedbackRequestStatus - The type of the feedback.
-    class FeedbackRequestStatus < T::Enum
-      enums do
-        ONBOARDED = new('onboarded')
-        NOT_ONBOARDED = new('not_onboarded')
+  module Models
+    module Shared
+    
+      # FeedbackRequestStatus - The type of the feedback.
+      class FeedbackRequestStatus < T::Enum
+        enums do
+          ONBOARDED = new('onboarded')
+          NOT_ONBOARDED = new('not_onboarded')
+        end
       end
     end
   end

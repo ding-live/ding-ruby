@@ -5,33 +5,36 @@
 
 
 module DingSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class LookupRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :customer_uuid, ::String, { 'header': { 'field_name': 'customer-uuid', 'style': 'simple', 'explode': false } }
-
-      field :phone_number, ::String, { 'path_param': { 'field_name': 'phone_number', 'style': 'simple', 'explode': false } }
-
-      field :type, T.nilable(T::Array[::DingSDK::Operations::Type]), { 'query_param': { 'field_name': 'type', 'style': 'form', 'explode': true } }
+      class LookupRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(customer_uuid: ::String, phone_number: ::String, type: T.nilable(T::Array[::DingSDK::Operations::Type])).void }
-      def initialize(customer_uuid: nil, phone_number: nil, type: nil)
-        @customer_uuid = customer_uuid
-        @phone_number = phone_number
-        @type = type
-      end
+        field :customer_uuid, ::String, { 'header': { 'field_name': 'customer-uuid', 'style': 'simple', 'explode': false } }
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @customer_uuid == other.customer_uuid
-        return false unless @phone_number == other.phone_number
-        return false unless @type == other.type
-        true
+        field :phone_number, ::String, { 'path_param': { 'field_name': 'phone_number', 'style': 'simple', 'explode': false } }
+
+        field :type, T.nilable(T::Array[Models::Operations::Type]), { 'query_param': { 'field_name': 'type', 'style': 'form', 'explode': true } }
+
+
+        sig { params(customer_uuid: ::String, phone_number: ::String, type: T.nilable(T::Array[Models::Operations::Type])).void }
+        def initialize(customer_uuid: nil, phone_number: nil, type: nil)
+          @customer_uuid = customer_uuid
+          @phone_number = phone_number
+          @type = type
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @customer_uuid == other.customer_uuid
+          return false unless @phone_number == other.phone_number
+          return false unless @type == other.type
+          true
+        end
       end
     end
   end

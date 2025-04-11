@@ -22,9 +22,10 @@ module DingSDK
     end
 
 
-    sig { params(request: T.nilable(::DingSDK::Shared::CreateCheckRequest), timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::CheckResponse) }
+    sig { params(request: T.nilable(Models::Shared::CreateCheckRequest), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CheckResponse) }
     def check(request, timeout_ms = nil)
       # check - Check a code
+      # Check that a code entered by a user is valid.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/check"
@@ -109,8 +110,8 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::CreateCheckResponse)
-          response = ::DingSDK::Operations::CheckResponse.new(
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::CreateCheckResponse)
+          response = Models::Operations::CheckResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
@@ -119,7 +120,7 @@ module DingSDK
 
           return response
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       elsif Utils.match_status_code(http_response.status, ['400'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -129,27 +130,26 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::ErrorResponse)
-          response = ::DingSDK::Operations::CheckResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            error_response: obj
-          )
-
-          return response
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ErrorResponse)
+          throw obj
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
       else
-        raise StandardError, 'Unexpected response status code'
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
+
       end
     end
 
 
-    sig { params(request: T.nilable(::DingSDK::Shared::CreateAuthenticationRequest), timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::CreateAuthenticationResponse) }
+    sig { params(request: T.nilable(Models::Shared::CreateAuthenticationRequest), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CreateAuthenticationResponse) }
     def create_authentication(request, timeout_ms = nil)
       # create_authentication - Send a code
+      # Send an OTP code to a user's phone number.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/authentication"
@@ -234,8 +234,8 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::CreateAuthenticationResponse)
-          response = ::DingSDK::Operations::CreateAuthenticationResponse.new(
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::CreateAuthenticationResponse)
+          response = Models::Operations::CreateAuthenticationResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
@@ -244,7 +244,7 @@ module DingSDK
 
           return response
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       elsif Utils.match_status_code(http_response.status, ['400'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -254,27 +254,26 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::ErrorResponse)
-          response = ::DingSDK::Operations::CreateAuthenticationResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            error_response: obj
-          )
-
-          return response
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ErrorResponse)
+          throw obj
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
       else
-        raise StandardError, 'Unexpected response status code'
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
+
       end
     end
 
 
-    sig { params(request: T.nilable(::DingSDK::Shared::FeedbackRequest), timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::FeedbackResponse) }
+    sig { params(request: T.nilable(Models::Shared::FeedbackRequest), timeout_ms: T.nilable(Integer)).returns(Models::Operations::FeedbackResponse) }
     def feedback(request, timeout_ms = nil)
       # feedback - Send feedback
+      # Send feedback about the authentication process.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/authentication/feedback"
@@ -359,8 +358,8 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::FeedbackResponse)
-          response = ::DingSDK::Operations::FeedbackResponse.new(
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::FeedbackResponse)
+          response = Models::Operations::FeedbackResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
@@ -369,7 +368,7 @@ module DingSDK
 
           return response
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       elsif Utils.match_status_code(http_response.status, ['400'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -379,35 +378,34 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::ErrorResponse)
-          response = ::DingSDK::Operations::FeedbackResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            error_response: obj
-          )
-
-          return response
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ErrorResponse)
+          throw obj
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
       else
-        raise StandardError, 'Unexpected response status code'
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
+
       end
     end
 
 
-    sig { params(auth_uuid: ::String, timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::GetAuthenticationStatusResponse) }
+    sig { params(auth_uuid: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAuthenticationStatusResponse) }
     def get_authentication_status(auth_uuid, timeout_ms = nil)
       # get_authentication_status - Get authentication status
-      request = ::DingSDK::Operations::GetAuthenticationStatusRequest.new(
+      # Get the status of an authentication.
+      request = Models::Operations::GetAuthenticationStatusRequest.new(
         
         auth_uuid: auth_uuid
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        ::DingSDK::Operations::GetAuthenticationStatusRequest,
+        Models::Operations::GetAuthenticationStatusRequest,
         base_url,
         '/authentication/{auth_uuid}',
         request
@@ -482,8 +480,8 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::AuthenticationStatusResponse)
-          response = ::DingSDK::Operations::GetAuthenticationStatusResponse.new(
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::AuthenticationStatusResponse)
+          response = Models::Operations::GetAuthenticationStatusResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
@@ -492,7 +490,7 @@ module DingSDK
 
           return response
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       elsif Utils.match_status_code(http_response.status, ['400'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -502,27 +500,26 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::ErrorResponse)
-          response = ::DingSDK::Operations::GetAuthenticationStatusResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            error_response: obj
-          )
-
-          return response
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ErrorResponse)
+          throw obj
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
       else
-        raise StandardError, 'Unexpected response status code'
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
+
       end
     end
 
 
-    sig { params(request: T.nilable(::DingSDK::Shared::RetryAuthenticationRequest), timeout_ms: T.nilable(Integer)).returns(::DingSDK::Operations::RetryResponse) }
+    sig { params(request: T.nilable(Models::Shared::RetryAuthenticationRequest), timeout_ms: T.nilable(Integer)).returns(Models::Operations::RetryResponse) }
     def retry(request, timeout_ms = nil)
       # retry - Perform a retry
+      # Perform a retry if a user has not received the code.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/retry"
@@ -607,8 +604,8 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::RetryAuthenticationResponse)
-          response = ::DingSDK::Operations::RetryResponse.new(
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::RetryAuthenticationResponse)
+          response = Models::Operations::RetryResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
@@ -617,7 +614,7 @@ module DingSDK
 
           return response
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       elsif Utils.match_status_code(http_response.status, ['400'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -627,20 +624,18 @@ module DingSDK
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), ::DingSDK::Shared::ErrorResponse)
-          response = ::DingSDK::Operations::RetryResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            error_response: obj
-          )
-
-          return response
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ErrorResponse)
+          throw obj
         else
-          raise StandardError, 'API returned unexpected content type'
+          raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
       else
-        raise StandardError, 'Unexpected response status code'
+        raise ::DingSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
+
       end
     end
   end

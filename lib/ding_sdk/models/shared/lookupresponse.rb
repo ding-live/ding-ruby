@@ -5,77 +5,80 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class LookupResponse < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class LookupResponse
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The CNAM (Caller ID Name) associated with the phone number. Contact us if you need to use this functionality. Once enabled, put `cnam` option to `type` query parameter.
-      field :caller_name, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('caller_name') } }
-      # The carrier of the phone number.
-      field :carrier, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('carrier') } }
-      # The ISO 3166-1 alpha-2 country code of the phone number.
-      field :country_code, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('country_code') } }
-      # The type of phone line.
-      #   * `CallingCards` - Numbers that are associated with providers of pre-paid domestic and international calling cards.
-      #   * `FixedLine` - Landline phone numbers.
-      #   * `InternetServiceProvider` - Numbers reserved for ISPs.
-      #   * `LocalRate` - Numbers that can be assigned non-geographically.
-      #   * `Mobile` - Mobile phone numbers.
-      #   * `Other` - Other types of services.
-      #   * `Pager` - Number ranges specifically allocated to paging devices.
-      #   * `PayPhone` - Allocated numbers for payphone kiosks in some countries.
-      #   * `PremiumRate` - Landline numbers where the calling party pays more than standard.
-      #   * `Satellite` - Satellite phone numbers.
-      #   * `Service` - Automated applications.
-      #   * `SharedCost` - Specific landline ranges where the cost of making the call is shared between the calling and called party.
-      #   * `ShortCodesCommercial` - Short codes are memorable, easy-to-use numbers, like the UK's NHS 111, often sold to businesses. Not available in all countries.
-      #   * `TollFree` - Number where the called party pays for the cost of the call not the calling party.
-      #   * `UniversalAccess` - Number ranges reserved for Universal Access initiatives.
-      #   * `Unknown` - Unknown phone number type.
-      #   * `VPN` - Numbers are used exclusively within a private telecommunications network, connecting the operator's terminals internally and not accessible via the public telephone network.
-      #   * `VoiceMail` - A specific category of Interactive Voice Response (IVR) services.
-      #   * `Voip` - Specific ranges for providers of VoIP services to allow incoming calls from the regular telephony network.
-      # 
-      field :line_type, T.nilable(::DingSDK::Shared::LineType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('line_type'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::LineType, true) } }
-      # The mobile country code of the phone number.
-      field :mcc, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('mcc') } }
-      # The mobile network code of the phone number.
-      field :mnc, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('mnc') } }
-      # Whether the phone number has been ported.
-      field :number_ported, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('number_ported') } }
-      # An E.164 formatted phone number.
-      field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('phone_number') } }
-      # Whether the phone number is in our database of disposable, temporary phone numbers
-      field :temporary_phone_number, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('temporary_phone_number') } }
+        # The CNAM (Caller ID Name) associated with the phone number. Contact us if you need to use this functionality. Once enabled, put `cnam` option to `type` query parameter.
+        field :caller_name, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('caller_name') } }
+        # The carrier of the phone number.
+        field :carrier, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('carrier') } }
+        # The ISO 3166-1 alpha-2 country code of the phone number.
+        field :country_code, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('country_code') } }
+        # The type of phone line.
+        #   * `CallingCards` - Numbers that are associated with providers of pre-paid domestic and international calling cards.
+        #   * `FixedLine` - Landline phone numbers.
+        #   * `InternetServiceProvider` - Numbers reserved for ISPs.
+        #   * `LocalRate` - Numbers that can be assigned non-geographically.
+        #   * `Mobile` - Mobile phone numbers.
+        #   * `Other` - Other types of services.
+        #   * `Pager` - Number ranges specifically allocated to paging devices.
+        #   * `PayPhone` - Allocated numbers for payphone kiosks in some countries.
+        #   * `PremiumRate` - Landline numbers where the calling party pays more than standard.
+        #   * `Satellite` - Satellite phone numbers.
+        #   * `Service` - Automated applications.
+        #   * `SharedCost` - Specific landline ranges where the cost of making the call is shared between the calling and called party.
+        #   * `ShortCodesCommercial` - Short codes are memorable, easy-to-use numbers, like the UK's NHS 111, often sold to businesses. Not available in all countries.
+        #   * `TollFree` - Number where the called party pays for the cost of the call not the calling party.
+        #   * `UniversalAccess` - Number ranges reserved for Universal Access initiatives.
+        #   * `Unknown` - Unknown phone number type.
+        #   * `VPN` - Numbers are used exclusively within a private telecommunications network, connecting the operator's terminals internally and not accessible via the public telephone network.
+        #   * `VoiceMail` - A specific category of Interactive Voice Response (IVR) services.
+        #   * `Voip` - Specific ranges for providers of VoIP services to allow incoming calls from the regular telephony network.
+        # 
+        field :line_type, T.nilable(Models::Shared::LineType), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('line_type'), 'decoder': Utils.enum_from_string(Models::Shared::LineType, true) } }
+        # The mobile country code of the phone number.
+        field :mcc, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('mcc') } }
+        # The mobile network code of the phone number.
+        field :mnc, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('mnc') } }
+        # Whether the phone number has been ported.
+        field :number_ported, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('number_ported') } }
+        # An E.164 formatted phone number.
+        field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('phone_number') } }
+        # Whether the phone number is in our database of disposable, temporary phone numbers
+        field :temporary_phone_number, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('temporary_phone_number') } }
 
 
-      sig { params(caller_name: T.nilable(::String), carrier: T.nilable(::String), country_code: T.nilable(::String), line_type: T.nilable(::DingSDK::Shared::LineType), mcc: T.nilable(::String), mnc: T.nilable(::String), number_ported: T.nilable(T::Boolean), phone_number: T.nilable(::String), temporary_phone_number: T.nilable(T::Boolean)).void }
-      def initialize(caller_name: nil, carrier: nil, country_code: nil, line_type: nil, mcc: nil, mnc: nil, number_ported: nil, phone_number: nil, temporary_phone_number: nil)
-        @caller_name = caller_name
-        @carrier = carrier
-        @country_code = country_code
-        @line_type = line_type
-        @mcc = mcc
-        @mnc = mnc
-        @number_ported = number_ported
-        @phone_number = phone_number
-        @temporary_phone_number = temporary_phone_number
-      end
+        sig { params(caller_name: T.nilable(::String), carrier: T.nilable(::String), country_code: T.nilable(::String), line_type: T.nilable(Models::Shared::LineType), mcc: T.nilable(::String), mnc: T.nilable(::String), number_ported: T.nilable(T::Boolean), phone_number: T.nilable(::String), temporary_phone_number: T.nilable(T::Boolean)).void }
+        def initialize(caller_name: nil, carrier: nil, country_code: nil, line_type: nil, mcc: nil, mnc: nil, number_ported: nil, phone_number: nil, temporary_phone_number: nil)
+          @caller_name = caller_name
+          @carrier = carrier
+          @country_code = country_code
+          @line_type = line_type
+          @mcc = mcc
+          @mnc = mnc
+          @number_ported = number_ported
+          @phone_number = phone_number
+          @temporary_phone_number = temporary_phone_number
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @caller_name == other.caller_name
-        return false unless @carrier == other.carrier
-        return false unless @country_code == other.country_code
-        return false unless @line_type == other.line_type
-        return false unless @mcc == other.mcc
-        return false unless @mnc == other.mnc
-        return false unless @number_ported == other.number_ported
-        return false unless @phone_number == other.phone_number
-        return false unless @temporary_phone_number == other.temporary_phone_number
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @caller_name == other.caller_name
+          return false unless @carrier == other.carrier
+          return false unless @country_code == other.country_code
+          return false unless @line_type == other.line_type
+          return false unless @mcc == other.mcc
+          return false unless @mnc == other.mnc
+          return false unless @number_ported == other.number_ported
+          return false unless @phone_number == other.phone_number
+          return false unless @temporary_phone_number == other.temporary_phone_number
+          true
+        end
       end
     end
   end

@@ -5,29 +5,32 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreateCheckResponse < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateCheckResponse
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The UUID of the corresponding authentication.
-      field :authentication_uuid, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
+        # The UUID of the corresponding authentication.
+        field :authentication_uuid, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
 
-      field :status, T.nilable(::DingSDK::Shared::CheckStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::CheckStatus, true) } }
+        field :status, T.nilable(Models::Shared::CheckStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::CheckStatus, true) } }
 
 
-      sig { params(authentication_uuid: T.nilable(::String), status: T.nilable(::DingSDK::Shared::CheckStatus)).void }
-      def initialize(authentication_uuid: nil, status: nil)
-        @authentication_uuid = authentication_uuid
-        @status = status
-      end
+        sig { params(authentication_uuid: T.nilable(::String), status: T.nilable(Models::Shared::CheckStatus)).void }
+        def initialize(authentication_uuid: nil, status: nil)
+          @authentication_uuid = authentication_uuid
+          @status = status
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @authentication_uuid == other.authentication_uuid
-        return false unless @status == other.status
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @authentication_uuid == other.authentication_uuid
+          return false unless @status == other.status
+          true
+        end
       end
     end
   end

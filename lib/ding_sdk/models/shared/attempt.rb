@@ -5,59 +5,62 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Attempt < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Attempt
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The attempt number.
-      field :attempt_number, T.nilable(::Integer), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('attempt_number') } }
-      # The capability of the attempt.
-      field :capability, T.nilable(::DingSDK::Shared::Capability), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('capability'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::Capability, true) } }
-      # The content of the attempt.
-      field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('content') } }
+        # The attempt number.
+        field :attempt_number, T.nilable(::Integer), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('attempt_number') } }
+        # The capability of the attempt.
+        field :capability, T.nilable(Models::Shared::Capability), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('capability'), 'decoder': Utils.enum_from_string(Models::Shared::Capability, true) } }
+        # The content of the attempt.
+        field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('content') } }
 
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The ID of the attempt.
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('id') } }
-      # The sender ID of the attempt.
-      field :sender_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('sender_id') } }
-      # The status of the attempt. Possible values are:
-      #   * `pending` - The attempt is pending.
-      #   * `delivered` - The attempt was delivered.
-      #   * `failed` - The attempt failed.
-      #   * `rate_limited` - The authentication was rate limited and cannot be retried.
-      #   * `expired` - The authentication has expired and cannot be retried.
-      # 
-      field :status, T.nilable(::DingSDK::Shared::AuthenticationStatusResponseSchemasStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::AuthenticationStatusResponseSchemasStatus, true) } }
-      # The type of the event.
-      field :type, T.nilable(::DingSDK::Shared::Type), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::Type, true) } }
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The ID of the attempt.
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('id') } }
+        # The sender ID of the attempt.
+        field :sender_id, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('sender_id') } }
+        # The status of the attempt. Possible values are:
+        #   * `pending` - The attempt is pending.
+        #   * `delivered` - The attempt was delivered.
+        #   * `failed` - The attempt failed.
+        #   * `rate_limited` - The authentication was rate limited and cannot be retried.
+        #   * `expired` - The authentication has expired and cannot be retried.
+        # 
+        field :status, T.nilable(Models::Shared::AuthenticationStatusResponseSchemasStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::AuthenticationStatusResponseSchemasStatus, true) } }
+        # The type of the event.
+        field :type, T.nilable(Models::Shared::Type), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::Type, true) } }
 
 
-      sig { params(attempt_number: T.nilable(::Integer), capability: T.nilable(::DingSDK::Shared::Capability), content: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), sender_id: T.nilable(::String), status: T.nilable(::DingSDK::Shared::AuthenticationStatusResponseSchemasStatus), type: T.nilable(::DingSDK::Shared::Type)).void }
-      def initialize(attempt_number: nil, capability: nil, content: nil, created_at: nil, id: nil, sender_id: nil, status: nil, type: nil)
-        @attempt_number = attempt_number
-        @capability = capability
-        @content = content
-        @created_at = created_at
-        @id = id
-        @sender_id = sender_id
-        @status = status
-        @type = type
-      end
+        sig { params(attempt_number: T.nilable(::Integer), capability: T.nilable(Models::Shared::Capability), content: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), sender_id: T.nilable(::String), status: T.nilable(Models::Shared::AuthenticationStatusResponseSchemasStatus), type: T.nilable(Models::Shared::Type)).void }
+        def initialize(attempt_number: nil, capability: nil, content: nil, created_at: nil, id: nil, sender_id: nil, status: nil, type: nil)
+          @attempt_number = attempt_number
+          @capability = capability
+          @content = content
+          @created_at = created_at
+          @id = id
+          @sender_id = sender_id
+          @status = status
+          @type = type
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @attempt_number == other.attempt_number
-        return false unless @capability == other.capability
-        return false unless @content == other.content
-        return false unless @created_at == other.created_at
-        return false unless @id == other.id
-        return false unless @sender_id == other.sender_id
-        return false unless @status == other.status
-        return false unless @type == other.type
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @attempt_number == other.attempt_number
+          return false unless @capability == other.capability
+          return false unless @content == other.content
+          return false unless @created_at == other.created_at
+          return false unless @id == other.id
+          return false unless @sender_id == other.sender_id
+          return false unless @status == other.status
+          return false unless @type == other.type
+          true
+        end
       end
     end
   end

@@ -5,48 +5,51 @@
 
 
 module DingSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class RetryAuthenticationResponse < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class RetryAuthenticationResponse
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The UUID of the corresponding authentication.
-      field :authentication_uuid, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
+        # The UUID of the corresponding authentication.
+        field :authentication_uuid, T.nilable(::String), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('authentication_uuid') } }
 
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The time at which the next retry will be available.
-      field :next_retry_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('next_retry_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The number of remaining retries.
-      field :remaining_retry, T.nilable(::Integer), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('remaining_retry') } }
-      # The status of the retry. Possible values are:
-      #   * `approved` - The retry was approved and a new code was sent.
-      #   * `denied` - The retry was denied.
-      #   * `no_attempt` - No attempt was sent yet, so a retry cannot be completed.
-      #   * `rate_limited` - The authentication was rate limited and cannot be retried.
-      #   * `expired_auth` - The authentication has expired and cannot be retried.
-      #   * `already_validated` - The authentication has already been validated.
-      # 
-      field :status, T.nilable(::DingSDK::Shared::RetryAuthenticationResponseStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::DingSDK::Shared::RetryAuthenticationResponseStatus, true) } }
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The time at which the next retry will be available.
+        field :next_retry_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('next_retry_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The number of remaining retries.
+        field :remaining_retry, T.nilable(::Integer), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('remaining_retry') } }
+        # The status of the retry. Possible values are:
+        #   * `approved` - The retry was approved and a new code was sent.
+        #   * `denied` - The retry was denied.
+        #   * `no_attempt` - No attempt was sent yet, so a retry cannot be completed.
+        #   * `rate_limited` - The authentication was rate limited and cannot be retried.
+        #   * `expired_auth` - The authentication has expired and cannot be retried.
+        #   * `already_validated` - The authentication has already been validated.
+        # 
+        field :status, T.nilable(Models::Shared::RetryAuthenticationResponseStatus), { 'format_json': { 'letter_case': ::DingSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::RetryAuthenticationResponseStatus, true) } }
 
 
-      sig { params(authentication_uuid: T.nilable(::String), created_at: T.nilable(::DateTime), next_retry_at: T.nilable(::DateTime), remaining_retry: T.nilable(::Integer), status: T.nilable(::DingSDK::Shared::RetryAuthenticationResponseStatus)).void }
-      def initialize(authentication_uuid: nil, created_at: nil, next_retry_at: nil, remaining_retry: nil, status: nil)
-        @authentication_uuid = authentication_uuid
-        @created_at = created_at
-        @next_retry_at = next_retry_at
-        @remaining_retry = remaining_retry
-        @status = status
-      end
+        sig { params(authentication_uuid: T.nilable(::String), created_at: T.nilable(::DateTime), next_retry_at: T.nilable(::DateTime), remaining_retry: T.nilable(::Integer), status: T.nilable(Models::Shared::RetryAuthenticationResponseStatus)).void }
+        def initialize(authentication_uuid: nil, created_at: nil, next_retry_at: nil, remaining_retry: nil, status: nil)
+          @authentication_uuid = authentication_uuid
+          @created_at = created_at
+          @next_retry_at = next_retry_at
+          @remaining_retry = remaining_retry
+          @status = status
+        end
 
-      def ==(other)
-        return false unless other.is_a? self.class
-        return false unless @authentication_uuid == other.authentication_uuid
-        return false unless @created_at == other.created_at
-        return false unless @next_retry_at == other.next_retry_at
-        return false unless @remaining_retry == other.remaining_retry
-        return false unless @status == other.status
-        true
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @authentication_uuid == other.authentication_uuid
+          return false unless @created_at == other.created_at
+          return false unless @next_retry_at == other.next_retry_at
+          return false unless @remaining_retry == other.remaining_retry
+          return false unless @status == other.status
+          true
+        end
       end
     end
   end
