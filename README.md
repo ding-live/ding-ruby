@@ -43,7 +43,6 @@ gem install ding_sdk
 
 Send an OTP code to a user's phone number.
 
-
 ```ruby
 require 'ding_sdk'
 
@@ -71,7 +70,6 @@ end
 
 Check that a code entered by a user is valid.
 
-
 ```ruby
 require 'ding_sdk'
 
@@ -98,7 +96,6 @@ end
 ### Perform a retry
 
 Perform a retry if a user has not received the code.
-
 
 ```ruby
 require 'ding_sdk'
@@ -154,7 +151,6 @@ end
 
 Get the status of an authentication.
 
-
 ```ruby
 require 'ding_sdk'
 
@@ -175,7 +171,6 @@ end
 ### Look up for phone number
 
 Perform a phone number lookup.
-
 
 ```ruby
 require 'ding_sdk'
