@@ -23,7 +23,7 @@ module DingSDK
 
 
     sig { params(request: T.nilable(Models::Shared::CreateCheckRequest), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CheckResponse) }
-    def check(request, timeout_ms = nil)
+    def check(request: nil, timeout_ms: nil)
       # check - Check a code
       # Check that a code entered by a user is valid.
       url, params = @sdk_configuration.get_server_details
@@ -147,7 +147,7 @@ module DingSDK
 
 
     sig { params(request: T.nilable(Models::Shared::CreateAuthenticationRequest), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CreateAuthenticationResponse) }
-    def create_authentication(request, timeout_ms = nil)
+    def create_authentication(request: nil, timeout_ms: nil)
       # create_authentication - Send a code
       # Send an OTP code to a user's phone number.
       url, params = @sdk_configuration.get_server_details
@@ -271,7 +271,7 @@ module DingSDK
 
 
     sig { params(request: T.nilable(Models::Shared::FeedbackRequest), timeout_ms: T.nilable(Integer)).returns(Models::Operations::FeedbackResponse) }
-    def feedback(request, timeout_ms = nil)
+    def feedback(request: nil, timeout_ms: nil)
       # feedback - Send feedback
       # Send feedback about the authentication process.
       url, params = @sdk_configuration.get_server_details
@@ -395,7 +395,7 @@ module DingSDK
 
 
     sig { params(auth_uuid: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAuthenticationStatusResponse) }
-    def get_authentication_status(auth_uuid, timeout_ms = nil)
+    def get_authentication_status(auth_uuid:, timeout_ms: nil)
       # get_authentication_status - Get authentication status
       # Get the status of an authentication.
       request = Models::Operations::GetAuthenticationStatusRequest.new(
@@ -517,7 +517,7 @@ module DingSDK
 
 
     sig { params(request: T.nilable(Models::Shared::RetryAuthenticationRequest), timeout_ms: T.nilable(Integer)).returns(Models::Operations::RetryResponse) }
-    def retry(request, timeout_ms = nil)
+    def retry(request: nil, timeout_ms: nil)
       # retry - Perform a retry
       # Perform a retry if a user has not received the code.
       url, params = @sdk_configuration.get_server_details

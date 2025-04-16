@@ -23,7 +23,7 @@ module DingSDK
 
 
     sig { params(customer_uuid: ::String, phone_number: ::String, type: T.nilable(T::Array[Models::Operations::Type]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LookupResponse) }
-    def lookup(customer_uuid, phone_number, type = nil, timeout_ms = nil)
+    def lookup(customer_uuid:, phone_number:, type: nil, timeout_ms: nil)
       # lookup - Look up for phone number
       # Perform a phone number lookup.
       request = Models::Operations::LookupRequest.new(
