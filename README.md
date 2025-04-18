@@ -17,6 +17,7 @@ Ding: The OTP API allows you to send authentication codes to your users using th
   * [SDK Example Usage](#sdk-example-usage-1)
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
+  * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
 * [Development](#development)
   * [Maturity](#maturity)
@@ -249,6 +250,61 @@ end
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an error.
+
+By default an API error will raise a `Errors::APIError`, which has the following properties:
+
+| Property       | Type                                    | Description           |
+|----------------|-----------------------------------------|-----------------------|
+| `message`     | *string*                                 | The error message     |
+| `status_code`  | *int*                                   | The HTTP status code  |
+| `raw_response` | *Faraday::Response*                     | The raw HTTP response |
+| `body`        | *string*                                 | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `check` method throws the following exceptions:
+
+| Error Type                    | Status Code | Content Type     |
+| ----------------------------- | ----------- | ---------------- |
+| Models::Errors::ErrorResponse | 400         | application/json |
+| Errors::APIError              | 4XX, 5XX    | \*/\*            |
+
+### Example
+
+```ruby
+require 'ding_sdk'
+
+s = ::DingSDK::Ding.new(
+      security: Models::Shared::Security.new(
+        api_key: "YOUR_API_KEY",
+      ),
+    )
+
+begin
+    req = Models::Shared::CreateCheckRequest.new(
+      authentication_uuid: "eebe792b-2fcc-44a0-87f1-650e79259e02",
+      check_code: "123456",
+      customer_uuid: "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
+    )
+
+    res = s.otp.check(req)
+
+    if ! res.create_check_response.nil?
+      # handle response
+    end
+rescue Models::Errors::ErrorResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Errors::APIError => e
+  # handle default exception
+  raise e
+end
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
