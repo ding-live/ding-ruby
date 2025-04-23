@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.533.0
   generationVersion: 2.578.0
-  releaseVersion: 0.19.1
-  configChecksum: 932532e6b66e5e304fdeb356bf560b56
+  releaseVersion: 0.20.1
+  configChecksum: d0513fe910f8fecbf05f0460d8f47b9f
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
