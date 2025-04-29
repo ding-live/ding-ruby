@@ -26,6 +26,8 @@ module DingSDK
     def check(request: nil, timeout_ms: nil)
       # check - Check a code
       # Check that a code entered by a user is valid.
+      # 
+      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/check"
@@ -150,6 +152,8 @@ module DingSDK
     def create_authentication(request: nil, timeout_ms: nil)
       # create_authentication - Send a code
       # Send an OTP code to a user's phone number.
+      # 
+      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/authentication"
@@ -274,6 +278,8 @@ module DingSDK
     def feedback(request: nil, timeout_ms: nil)
       # feedback - Send feedback
       # Send feedback about the authentication process.
+      # 
+      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/authentication/feedback"
@@ -398,6 +404,8 @@ module DingSDK
     def get_authentication_status(auth_uuid:, timeout_ms: nil)
       # get_authentication_status - Get authentication status
       # Get the status of an authentication.
+      # 
+      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::GetAuthenticationStatusRequest.new(
         
         auth_uuid: auth_uuid
@@ -520,6 +528,8 @@ module DingSDK
     def retry(request: nil, timeout_ms: nil)
       # retry - Perform a retry
       # Perform a retry if a user has not received the code.
+      # 
+      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/retry"

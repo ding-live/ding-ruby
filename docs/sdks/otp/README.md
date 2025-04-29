@@ -7,15 +7,17 @@ Send OTP codes to your users using their phone numbers.
 
 ### Available Operations
 
-* [check](#check) - Check a code
-* [create_authentication](#create_authentication) - Send a code
-* [feedback](#feedback) - Send feedback
-* [get_authentication_status](#get_authentication_status) - Get authentication status
-* [retry](#retry) - Perform a retry
+* [~~check~~](#check) - Check a code :warning: **Deprecated**
+* [~~create_authentication~~](#create_authentication) - Send a code :warning: **Deprecated**
+* [~~feedback~~](#feedback) - Send feedback :warning: **Deprecated**
+* [~~get_authentication_status~~](#get_authentication_status) - Get authentication status :warning: **Deprecated**
+* [~~retry~~](#retry) - Perform a retry :warning: **Deprecated**
 
-## check
+## ~~check~~
 
 Check that a code entered by a user is valid.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -54,9 +56,11 @@ end
 
 
 
-## create_authentication
+## ~~create_authentication~~
 
 Send an OTP code to a user's phone number.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -95,9 +99,11 @@ end
 
 
 
-## feedback
+## ~~feedback~~
 
 Send feedback about the authentication process.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -136,9 +142,11 @@ end
 
 
 
-## get_authentication_status
+## ~~get_authentication_status~~
 
 Get the status of an authentication.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -171,9 +179,11 @@ end
 
 
 
-## retry
+## ~~retry~~
 
 Perform a retry if a user has not received the code.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

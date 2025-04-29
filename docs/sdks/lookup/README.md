@@ -7,11 +7,13 @@ Retrieve up-to-date metadata about a specific phone number
 
 ### Available Operations
 
-* [lookup](#lookup) - Look up for phone number
+* [~~lookup~~](#lookup) - Look up for phone number :warning: **Deprecated**
 
-## lookup
+## ~~lookup~~
 
 Perform a phone number lookup.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

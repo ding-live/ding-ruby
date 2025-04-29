@@ -26,6 +26,8 @@ module DingSDK
     def lookup(customer_uuid:, phone_number:, type: nil, timeout_ms: nil)
       # lookup - Look up for phone number
       # Perform a phone number lookup.
+      # 
+      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::LookupRequest.new(
         
         customer_uuid: customer_uuid,

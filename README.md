@@ -5,7 +5,7 @@ The Ding Ruby library provides convenient access to the Ding API from applicatio
 <!-- Start Summary [summary] -->
 ## Summary
 
-Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
+Ding: The OTP API allows you to send authentication codes to your users using their phone numbers. The V1 API is **deprecated**. Technical support will end by **October 2025** and will be **removed by April 2026**. No new features and functionality will be added to the V1 API.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -205,28 +205,6 @@ This SDK supports the following security scheme globally:
 | `api_key` | apiKey | API key |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
-```ruby
-require 'ding_sdk'
-
-s = ::DingSDK::Ding.new(
-      security: Models::Shared::Security.new(
-        api_key: "YOUR_API_KEY",
-      ),
-    )
-
-req = Models::Shared::CreateCheckRequest.new(
-  authentication_uuid: "eebe792b-2fcc-44a0-87f1-650e79259e02",
-  check_code: "123456",
-  customer_uuid: "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
-)
-
-res = s.otp.check(req)
-
-if ! res.create_check_response.nil?
-  # handle response
-end
-
-```
 <!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
@@ -236,17 +214,17 @@ end
 <summary>Available methods</summary>
 
 
-### [lookup](docs/sdks/lookup/README.md)
+### [~~lookup~~](docs/sdks/lookup/README.md)
 
-* [lookup](docs/sdks/lookup/README.md#lookup) - Look up for phone number
+* [~~lookup~~](docs/sdks/lookup/README.md#lookup) - Look up for phone number :warning: **Deprecated**
 
-### [otp](docs/sdks/otp/README.md)
+### [~~otp~~](docs/sdks/otp/README.md)
 
-* [check](docs/sdks/otp/README.md#check) - Check a code
-* [create_authentication](docs/sdks/otp/README.md#create_authentication) - Send a code
-* [feedback](docs/sdks/otp/README.md#feedback) - Send feedback
-* [get_authentication_status](docs/sdks/otp/README.md#get_authentication_status) - Get authentication status
-* [retry](docs/sdks/otp/README.md#retry) - Perform a retry
+* [~~check~~](docs/sdks/otp/README.md#check) - Check a code :warning: **Deprecated**
+* [~~create_authentication~~](docs/sdks/otp/README.md#create_authentication) - Send a code :warning: **Deprecated**
+* [~~feedback~~](docs/sdks/otp/README.md#feedback) - Send feedback :warning: **Deprecated**
+* [~~get_authentication_status~~](docs/sdks/otp/README.md#get_authentication_status) - Get authentication status :warning: **Deprecated**
+* [~~retry~~](docs/sdks/otp/README.md#retry) - Perform a retry :warning: **Deprecated**
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -312,29 +290,6 @@ end
 ### Override Server URL Per-Client
 
 The default server can be overridden globally by passing a URL to the `server_url (String)` optional parameter when initializing the SDK client instance. For example:
-```ruby
-require 'ding_sdk'
-
-s = ::DingSDK::Ding.new(
-      server_url: "https://api.ding.live/v1",
-      security: Models::Shared::Security.new(
-        api_key: "YOUR_API_KEY",
-      ),
-    )
-
-req = Models::Shared::CreateCheckRequest.new(
-  authentication_uuid: "eebe792b-2fcc-44a0-87f1-650e79259e02",
-  check_code: "123456",
-  customer_uuid: "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
-)
-
-res = s.otp.check(req)
-
-if ! res.create_check_response.nil?
-  # handle response
-end
-
-```
 <!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
