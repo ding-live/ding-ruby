@@ -15,6 +15,8 @@ module DingSDK
           TEXT = new('text')
           WHATSAPP = new('whatsapp')
           VIBER = new('viber')
+          ZALO = new('zalo')
+          TELEGRAM = new('telegram')
         end
       end
     end

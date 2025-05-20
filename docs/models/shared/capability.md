@@ -11,3 +11,5 @@ The capability of the attempt.
 | `TEXT`     | text       |
 | `WHATSAPP` | whatsapp   |
 | `VIBER`    | viber      |
+| `ZALO`     | zalo       |
+| `TELEGRAM` | telegram   |

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a5967f02-15bd-4a6c-b816-cdec24288371
 management:
-  docChecksum: 9d1e82839262d66af842888884910965
+  docChecksum: d310f3cbc5956c64689690178f2e716d
   docVersion: 1.0.0
   speakeasyVersion: 1.533.0
   generationVersion: 2.578.0
-  releaseVersion: 0.26.20
-  configChecksum: 7d04b63ea942cdb8ae82a650753d02f2
+  releaseVersion: 0.26.21
+  configChecksum: 7e260795033bae4ab37960438f534278
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
