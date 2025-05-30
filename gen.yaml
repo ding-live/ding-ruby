@@ -3,6 +3,7 @@ generation:
   sdkClassName: Ding
   usageSnippets:
     optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
   fixes:
     nameResolutionFeb2025: false
     parameterOrderingFeb2024: false
@@ -13,7 +14,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 ruby:
-  version: 0.26.30
+  version: 0.26.31
   additionalDependencies:
     development: {}
     runtime: {}
