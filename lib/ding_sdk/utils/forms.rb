@@ -86,25 +86,49 @@ module DingSDK
         next if field_metadata.nil?
 
         if field_metadata[:file] == true
-          file_fields = val.fields
-
-          file_name = ''
           field_name = field_metadata[:field_name]
-          content = nil
+          
+          # Handle arrays of files
+          if val.is_a? Array
+            val.each do |file_obj|
+              file_fields = file_obj.fields
+              file_name = ''
+              content = nil
 
-          file_fields.each do |file_field|
-            file_metadata = file_field.metadata[:multipart_form]
-            next if file_metadata.nil?
+              file_fields.each do |file_field|
+                file_metadata = file_field.metadata[:multipart_form]
+                next if file_metadata.nil?
 
-            if file_metadata[:content] == true
-              content = val.send(file_field.name)
-            else
-              file_name = val.send(file_field.name)
+                if file_metadata[:content] == true
+                  content = file_obj.send(file_field.name)
+                else
+                  file_name = file_obj.send(file_field.name)
+                end
+              end
+              raise StandardError, 'invalid multipart/form-data file' if file_name == '' || content == nil?
+
+              form.append([field_name, [file_name, content]])
             end
-          end
-          raise StandardError, 'invalid multipart/form-data file' if file_name == '' || content == nil?
+          else
+            # Handle single file
+            file_fields = val.fields
+            file_name = ''
+            content = nil
 
-          form.append([field_name, [file_name, content]])
+            file_fields.each do |file_field|
+              file_metadata = file_field.metadata[:multipart_form]
+              next if file_metadata.nil?
+
+              if file_metadata[:content] == true
+                content = val.send(file_field.name)
+              else
+                file_name = val.send(file_field.name)
+              end
+            end
+            raise StandardError, 'invalid multipart/form-data file' if file_name == '' || content == nil?
+
+            form.append([field_name, [file_name, content]])
+          end
         elsif field_metadata[:json] == true
           to_append = [
             field_metadata.fetch(:field_name, field.name), [
