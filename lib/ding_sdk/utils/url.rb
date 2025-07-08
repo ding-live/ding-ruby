@@ -10,7 +10,7 @@ module DingSDK
   module Utils
     sig { params(clazz: Class, server_url: String, path: String, path_params: Object, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(String) }
     def self.generate_url(clazz, server_url, path, path_params, gbls = nil)
-      clazz.fields.each do |f|
+      T.unsafe(clazz).fields.each do |f|
         param_metadata = f.metadata[:path_param]
         next if param_metadata.nil?
 
@@ -24,7 +24,7 @@ module DingSDK
         if serialization != ''
           serialized_params = _get_serialized_params(param_metadata, f_name, param)
           serialized_params.each do |k, v|
-            path = path.sub("{#{k}}", v)
+            path = path.sub("{#{k}}", v.join(', '))
           end
         else
           if param.is_a? Array
@@ -45,13 +45,11 @@ module DingSDK
               end
             end
             path = path.sub("{#{param_metadata.fetch(:field_name, f.name)}}", pp_vals.join(','))
-          elsif !(param.is_a?(String) || param.is_a?(Integer) ||
-            param.is_a?(Float) || param.is_a?(Complex) || param.is_a?(TrueClass) ||
-            param.is_a?(FalseClass))
+          elsif param.class.include?(::Crystalline::MetadataFields)
             pp_vals = []
-            attrs = param.fields.filter { |field| field.name && param.respond_to?(field.name.to_sym) }.map(&:name)
+            attrs = T.unsafe(param).fields.filter { |field| field.name && param.respond_to?(field.name.to_sym) }.map(&:name)
             attrs.each do |attr|
-              field = param.field(attr)
+              field = T.unsafe(param).field(attr)
 
               param_value_metadata = field.metadata[:path_param]
 
@@ -66,7 +64,7 @@ module DingSDK
               elsif param_field_val.is_a? DateTime
                 param_field_val = param_field_val.strftime('%Y-%m-%dT%H:%M:%S.%NZ')
               end
-              if !field.nil? && T::Utils::Nilable.is_union_with_nilclass(field.type) && param_field_val.nil?
+              if !field.nil? && T.unsafe(T::Utils::Nilable).is_union_with_nilclass(field.type) && param_field_val.nil?
                 next
               elsif param_metadata.fetch(:explode, false)
                 pp_vals.append("#{parm_name}=#{param_field_val}")
@@ -84,11 +82,11 @@ module DingSDK
       server_url.delete_suffix('/') + path
     end
 
-    sig { params(url_with_params: String, params: T::Hash[Symbol, String]).returns(String) }
+    sig { params(url_with_params: String, params: T::Hash[Symbol, T.any(String, T::Enum)]).returns(String) }
     def self.template_url(url_with_params, params)
       params.each do |key, value|
         if value.respond_to? :serialize
-          val_str = value.serialize
+          val_str = T.cast(value, T::Enum).serialize
         else
           val_str = value
         end

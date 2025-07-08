@@ -17,26 +17,24 @@ module DingSDK
       return {} if headers_params.nil?
 
       headers = {}
-      param_fields = headers_params.fields
-      param_fields.each do |f|
+      T.unsafe(headers_params).fields.each do |f|
         metadata = f.metadata[:header]
         next if metadata.nil?
 
         value = _populate_from_globals(f.name, headers_params&.send(f.name), 'header', gbls)
         value = _serialize_header(metadata.fetch(:explode, false), value)
-        headers[metadata.fetch(:field_name, f.name)] = value if !value.empty?
+        headers[metadata.fetch(:field_name, f.name)] = value if !T.must(value).empty?
       end
       headers
     end
 
-    sig { params(explode: T::Boolean, obj: Object).returns(String) }
+    sig { params(explode: T::Boolean, obj: Object).returns(T.nilable(String)) }
     def self._serialize_header(explode, obj)
       return '' if obj.nil?
 
       if obj.respond_to? :fields
         items = []
-        obj_fields = obj.fields
-        obj_fields.each do |obj_field|
+        T.unsafe(obj).fields.each do |obj_field|
           obj_param_metadata = obj_field.metadata[:header]
           next if obj_param_metadata.nil?
 
