@@ -14,7 +14,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 ruby:
-  version: 0.26.83
+  version: 0.26.84
   additionalDependencies:
     development: {}
     runtime: {}
@@ -37,3 +37,4 @@ ruby:
   module: DingSdk
   outputModelSuffix: output
   packageName: ding_sdk
+  typingStrategy: sorbet

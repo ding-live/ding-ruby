@@ -5,8 +5,8 @@
 
 require 'cgi'
 require 'date'
-require 'sorbet-runtime'
 require 'base64'
+require 'sorbet-runtime'
 
 module DingSDK
   module Utils

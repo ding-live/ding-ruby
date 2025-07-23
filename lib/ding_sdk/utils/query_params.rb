@@ -5,14 +5,14 @@
 
 require 'cgi'
 require 'date'
-require 'sorbet-runtime'
 require 'base64'
+require 'sorbet-runtime'
 
 module DingSDK
   module Utils
     extend T::Sig
 
-    sig { params(clazz: Class, query_params: Object, url_override: T.nilable(::String), gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(T::Hash[T.any(String, Symbol), T::Array[String]]) }
+    sig { params(clazz: Object, query_params: Object, url_override: T.nilable(::String), gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(T::Hash[T.any(String, Symbol), T::Array[String]]) }
     def self.get_query_params(clazz, query_params, url_override = nil, gbls = nil)
       parsed_params = T.let({}, T::Hash[T.any(String, Symbol), T::Array[String]])
       if !url_override.nil?

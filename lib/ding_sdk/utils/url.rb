@@ -8,7 +8,7 @@ require 'sorbet-runtime'
 
 module DingSDK
   module Utils
-    sig { params(clazz: Class, server_url: String, path: String, path_params: Object, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(String) }
+    sig { params(clazz: Object, server_url: String, path: String, path_params: Object, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(String) }
     def self.generate_url(clazz, server_url, path, path_params, gbls = nil)
       T.unsafe(clazz).fields.each do |f|
         param_metadata = f.metadata[:path_param]
@@ -59,12 +59,12 @@ module DingSDK
 
               param_field_val = param.send(attr)
 
-              if param_field_val.is_a? T::Enum
+              if param_field_val.class.respond_to?(:enums)
                 param_field_val = param_field_val.serialize
               elsif param_field_val.is_a? DateTime
                 param_field_val = param_field_val.strftime('%Y-%m-%dT%H:%M:%S.%NZ')
               end
-              if !field.nil? && T.unsafe(T::Utils::Nilable).is_union_with_nilclass(field.type) && param_field_val.nil?
+              if !field.nil? && ::Crystalline::Utils.nilable?(field.type) && param_field_val.nil?
                 next
               elsif param_metadata.fetch(:explode, false)
                 pp_vals.append("#{parm_name}=#{param_field_val}")
@@ -85,7 +85,7 @@ module DingSDK
     sig { params(url_with_params: String, params: T::Hash[Symbol, T.any(String, T::Enum)]).returns(String) }
     def self.template_url(url_with_params, params)
       params.each do |key, value|
-        if value.respond_to? :serialize
+        if value.class.respond_to? :enums
           val_str = T.cast(value, T::Enum).serialize
         else
           val_str = value
