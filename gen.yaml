@@ -14,7 +14,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 ruby:
-  version: 0.26.162
+  version: 0.26.163
   additionalDependencies:
     development: {}
     runtime: {}
