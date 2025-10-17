@@ -13,8 +13,10 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+  schemas:
+    allOfMergeStrategy: shallowMerge
 ruby:
-  version: 0.26.163
+  version: 0.26.164
   additionalDependencies:
     development: {}
     runtime: {}
