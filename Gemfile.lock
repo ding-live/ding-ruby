@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ding_sdk (0.26.171)
+    ding_sdk (0.26.172)
       faraday
       faraday-multipart
       faraday-retry (~> 2.2.1)
