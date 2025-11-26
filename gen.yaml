@@ -17,7 +17,7 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
 ruby:
-  version: 0.26.202
+  version: 0.26.203
   additionalDependencies:
     development: {}
     runtime: {}
@@ -35,6 +35,7 @@ ruby:
       operations: models/operations
       shared: models/shared
       webhooks: models/webhooks
+  inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 4
   module: DingSdk
