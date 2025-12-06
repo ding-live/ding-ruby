@@ -13,11 +13,12 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+  persistentEdits: {}
   requestBodyFieldName: ""
   schemas:
     allOfMergeStrategy: shallowMerge
 ruby:
-  version: 0.26.212
+  version: 0.26.213
   additionalDependencies:
     development: {}
     runtime: {}

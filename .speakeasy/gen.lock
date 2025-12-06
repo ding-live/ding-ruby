@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.533.0
   generationVersion: 2.578.0
-  releaseVersion: 0.26.212
-  configChecksum: 4a6b37f1abf7f5dd24f0d3f76746cbb8
+  releaseVersion: 0.26.213
+  configChecksum: a459ef2fac1625e607f64e3fdf5cb8c6
   repoURL: https://github.com/ding-live/ding-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-ruby
@@ -236,3 +236,4 @@ examples:
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/verify/v1/documentation/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
 examplesVersion: 1.0.1
 generatedTests: {}
+trackedFiles: {}
